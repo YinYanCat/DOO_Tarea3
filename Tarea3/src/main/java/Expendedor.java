@@ -54,21 +54,16 @@ public class Expendedor {
      * @throws PagoIncorrectoException Se lanza esta excepción si no existe una moneda para pagar (null)
      * @throws NoHayProductoException Se lanza esta excepción si no queda o no existe el producto seleccionado
      * @throws PagoInsuficienteException Se lanza esta excepción si el pago es menor al precio del producto */
-    public Producto comprarProducto(Moneda moneda, int select) throws Exception {
+    public Producto comprarProducto(Moneda moneda, Seleccion select) throws Exception {
         //Moneda con puntero null (No existe moneda)
         if(moneda == null)
             throw new PagoIncorrectoException("Método de pago invalido");
-        //Selección del producto fuera del rango para elegir
-        if(select<=0 || select>6) {
-            depoVuelto.addContenido(moneda);
-            throw new NoHayProductoException("Producto seleccionado inexistente");
-        }
         Producto producto = null;
         //Precio y vuelto del producto elegido
-        int precio = Seleccion.values()[select-1].getPrecio();
+        int precio = select.getPrecio();
         int vuelto = moneda.getValor() - precio;
         if(vuelto >= 0) {
-            producto = listDepositos.get(select-1).getContenido();
+            producto = listDepositos.get(select.getNumDepo()).getContenido();
             //Depósito vacio (No queda producto elegido)
             if(producto == null) {
                 depoVuelto.addContenido(moneda);

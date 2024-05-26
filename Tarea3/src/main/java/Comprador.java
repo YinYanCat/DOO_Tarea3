@@ -14,7 +14,7 @@ public class Comprador {
      * @param moneda Una moneda que se utiliza para comprar el producto
      * @param selectProducto Número entero que contiene la selección del producto
      * @param exp Un expendedor en donde se va a comprar el producto */
-    public Comprador(Moneda moneda, int selectProducto, Expendedor exp) throws Exception {
+    public Comprador(Moneda moneda, Seleccion selectProducto, Expendedor exp) throws Exception {
         vuelto = 0;
         Producto p = exp.comprarProducto(moneda,selectProducto);
         if(p!= null) {
