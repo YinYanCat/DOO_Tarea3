@@ -1,16 +1,28 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class PanelExpendedor extends JPanel {
 
 
 
-    public PanelExpendedor(){
+    private BufferedImage image;
 
-        this.add(new JLabel("North Panel"));
+    public PanelExpendedor() {
+        try {
+            image = ImageIO.read(new File("./Tarea3/src/Images/ornitorrinco.jpg"));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
-    public void paintComponent(Graphics g){
+    @Override
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.drawImage(image, 0, 0, this);
     }
+
 }
