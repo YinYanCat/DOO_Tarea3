@@ -1,11 +1,22 @@
-public class LlenarDeposito {
+/** Un trabajador que trabaja llenando los depositos de un expendedor
+ * @author Chloe Yañez Lavin
+ * @author Emily Osvaldo Gaete Bobadilla */
 
+public class Trabajador {
+
+    /** Cantidad de productos que se venden en un expendedor */
     private int cantidadProductos;
 
-    public LlenarDeposito() {
+    /** Constructor para crear un trabajdor, junto con la cantidad de productos */
+    public Trabajador() {
         cantidadProductos = 6;
     }
-    public Deposito<Producto> llenarDepoConProducto(int numProductos, int productCase) {
+
+    /** Método para comprar un producto del expendedor, sacándolo de uno de sus depósitos
+     * @param numProductos La cantidad de productos que tiene cada deposito del expendedor
+     * @param productCase El número del producto que se desea llenar en el depositp
+     * @return Un deposito lleno del producto requerido */
+    public Deposito<Producto> llenarDeposito(int numProductos, int productCase) {
         Deposito<Producto> newDepo = new Deposito<>();
         for(int j=0; j<numProductos; j++) {
             // Switch-case para llenar cada depósito con un producto distinto, siendo el total 'numProductos'

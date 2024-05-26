@@ -17,9 +17,10 @@ public class Expendedor {
     public Expendedor(int numProductos) {
         listDepositos = new ArrayList<>();
         depoVuelto = new Deposito<>();
-        LlenarDeposito llenarDepo = new LlenarDeposito();
-        for(int i=0; i<llenarDepo.getcantidadProductos(); i++) {
-            listDepositos.add(llenarDepo.llenarDepoConProducto(numProductos, i));
+        Trabajador trabajador = new Trabajador();
+        // Llenar los depositos con productos
+        for(int i=0; i<trabajador.getcantidadProductos(); i++) {
+            listDepositos.add(trabajador.llenarDeposito(numProductos, i));
         }
     }
 
