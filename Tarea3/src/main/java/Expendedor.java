@@ -49,7 +49,7 @@ public class Expendedor {
 
     /** Método para comprar un producto del expendedor, sacándolo de uno de sus depósitos
      * @param moneda Una moneda que se utiliza para comprar el producto'
-     * @param select Número entero con la selección del producto a comprar'
+     * @param select Selección con el producto a comprar'
      * @return Instancia de 'Producto' con el producto comprado,
      * @throws PagoIncorrectoException Se lanza esta excepción si no existe una moneda para pagar (null)
      * @throws NoHayProductoException Se lanza esta excepción si no queda o no existe el producto seleccionado
