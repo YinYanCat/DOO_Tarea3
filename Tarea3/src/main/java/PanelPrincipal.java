@@ -6,12 +6,15 @@ public class PanelPrincipal extends JPanel {
     private PanelExpendedor exp;
 
 
-    public PanelPrincipal(){
+    public PanelPrincipal(BorderLayout borderLayout){
+        super(borderLayout);
         exp = new PanelExpendedor();
+        exp.setBackground(Color.GREEN);
         com = new PanelComprador();
+        com.setBackground(Color.BLUE);
         this.setBackground(Color.red);
-        this.add(exp,BorderLayout.EAST);
-        this.add(com,BorderLayout.WEST);
+        this.add(exp,BorderLayout.NORTH);
+        this.add(com,BorderLayout.SOUTH);
     }
 
     public void paintComponent(Graphics g){
