@@ -9,10 +9,10 @@ public class PanelPrincipal extends JPanel {
     public PanelPrincipal(BorderLayout borderLayout){
         super(borderLayout);
         exp = new PanelExpendedor();
-        exp.setBackground(Color.GREEN);
+        exp.setBackground(Color.lightGray);
         com = new PanelComprador();
-        com.setBackground(Color.BLUE);
-        this.setBackground(Color.red);
+        com.setBackground(Color.lightGray);
+        this.setBackground(Color.lightGray);
         this.add(exp,BorderLayout.NORTH);
         this.add(com,BorderLayout.SOUTH);
     }
