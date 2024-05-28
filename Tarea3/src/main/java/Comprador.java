@@ -15,13 +15,8 @@ public class Comprador {
         vuelto = 0;
     }
 
-    public void comprarEnExpendedor(Expendedor exp, Moneda moneda, Seleccion selectProducto) {
-        try {
-            Producto producto = exp.comprarProducto(moneda,selectProducto);
-            System.out.println(producto.sabor());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    public void comprarEnExpendedor(Expendedor exp, Deposito<Moneda> depoM, int Pago, Seleccion select) throws Exception {
+        Producto producto = exp.comprarProducto(Pago,depoM,select);
     }
 
     public void obtenerVuelto(Expendedor exp) {

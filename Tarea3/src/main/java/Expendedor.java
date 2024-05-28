@@ -12,11 +12,15 @@ public class Expendedor {
     /** Depósito de monedas donde se guarda el vuelto de la compra en monedas de 100 */
     private Deposito<Moneda> depoVuelto;
 
+    /** Depósito de monedas donde se guarda el vuelto de la compra en monedas de 100 */
+    private Deposito<Moneda> depoAlmacenMonedas;
+
     /** Constructor para crear y llenar los depósitos del expendedor con productos
      * @param numProductos Número entero con la cantidad de productos que tiene cada depósito de 'listDepositos' */
     public Expendedor(int numProductos) {
         listDepositos = new ArrayList<>();
         depoVuelto = new Deposito<>();
+        depoAlmacenMonedas = new Deposito<>();
         Trabajador trabajador = new Trabajador();
         // Llenar los depositos con productos
         for(int i=0; i<trabajador.getcantidadProductos(); i++) {
@@ -25,25 +29,25 @@ public class Expendedor {
     }
 
     /** Método para comprar un producto del expendedor, sacándolo de uno de sus depósitos
-     * @param moneda Una moneda que se utiliza para comprar el producto'
+     * @param cantidadPago El monto total de las monedas ingresadas
      * @param select Selección con el producto a comprar'
      * @return Instancia de 'Producto' con el producto comprado,
      * @throws PagoIncorrectoException Se lanza esta excepción si no existe una moneda para pagar (null)
      * @throws NoHayProductoException Se lanza esta excepción si no queda o no existe el producto seleccionado
      * @throws PagoInsuficienteException Se lanza esta excepción si el pago es menor al precio del producto */
-    public Producto comprarProducto(Moneda moneda, Seleccion select) throws Exception {
+    public Producto comprarProducto(int cantidadPago, Deposito<Moneda> depoMonedas, Seleccion select) throws Exception {
         //Moneda con puntero null (No existe moneda)
-        if(moneda == null)
-            throw new PagoIncorrectoException("Método de pago invalido");
+        if(cantidadPago <= 0)
+            throw new PagoIncorrectoException("Moneda no ingresada");
         Producto producto = null;
         //Precio y vuelto del producto elegido
         int precio = select.getPrecio();
-        int vuelto = moneda.getValor() - precio;
+        int vuelto = cantidadPago - precio;
         if(vuelto >= 0) {
             producto = listDepositos.get(select.getNumDepo()).getContenido();
             //Depósito vacio (No queda producto elegido)
             if(producto == null) {
-                depoVuelto.addContenido(moneda);
+                depoVuelto = depoMonedas;
                 throw new NoHayProductoException("Producto seleccionado agotado");
             }
             //Creación de las instancias 'Moneda100' en depoVuelto para el vuelto del producto
@@ -55,7 +59,7 @@ public class Expendedor {
         }
         //Pago menor al precio del producto
         else {
-            depoVuelto.addContenido(moneda);
+            depoVuelto = depoMonedas;
             throw new PagoInsuficienteException("Pago insuficiente");
         }
         return producto;

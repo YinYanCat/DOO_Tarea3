@@ -14,14 +14,19 @@ public class PanelComprador2 extends JPanel {
     private JButton bMoneda1000;
     private JButton bVuelto;
     private JLabel lProducto;
+    private JLabel lMonto;
     private int select;
 
     private Comprador comprador;
     private Expendedor expendedor;
+    private Deposito<Moneda> depoPago;
+    private int cantidadPago;
 
     public PanelComprador2(Comprador comprador, Expendedor expendedor) {
         this.comprador = comprador;
         this.expendedor = expendedor;
+        depoPago = new Deposito<>();
+        cantidadPago = 0;
         select = 0;
         Color darkRED = new Color(160,0, 0);
 
@@ -33,8 +38,10 @@ public class PanelComprador2 extends JPanel {
         bMoneda500 = new JButton("500");
         bMoneda1000 = new JButton("1000");
         bVuelto = new JButton("VUELTO");
-        lProducto = new JLabel("Ingrese Codigo");
+        lProducto = new JLabel("Codigo: __");
         lProducto.setForeground(Color.WHITE);
+        lMonto = new JLabel("Pago Total: 0");
+        lMonto.setForeground(Color.WHITE);
 
         ComprarProducto listenerCompra = new ComprarProducto();
         ManipularMoneda listenerMoneda = new ManipularMoneda();
@@ -72,10 +79,11 @@ public class PanelComprador2 extends JPanel {
         panel1.add(panelVuelto, BorderLayout.EAST);
 
         JPanel panelTexto = new JPanel();
-        panelTexto.setLayout(new BorderLayout());
+        panelTexto.setLayout(new GridLayout(2, 1, 5, 5));
         panelTexto.setBackground(Color.BLACK);
         panelTexto.setBorder(BorderFactory.createMatteBorder(40, 10, 20, 10, Color.RED));
-        panelTexto.add(lProducto, BorderLayout.CENTER);
+        panelTexto.add(lProducto);
+        panelTexto.add(lMonto);
         panel1.add(panelTexto, BorderLayout.NORTH);
 
         this.add(panel1);
@@ -146,11 +154,17 @@ public class PanelComprador2 extends JPanel {
                 else if(select == 44)
                     compra = Seleccion.LimonSoda;
             }
-
-            lProducto.setText("Codigo: "+select);
-
-            if(compra != null) {
-                comprador.comprarEnExpendedor(expendedor, new Moneda1000(), compra);
+            if(compra == null)
+                lProducto.setText("Codigo: "+select+"_");
+            else {
+                lProducto.setText("Codigo: "+select);
+                try {
+                    comprador.comprarEnExpendedor(expendedor, depoPago, cantidadPago, compra);
+                    cantidadPago -= compra.getPrecio();
+                    lMonto.setText("Pago Total: "+cantidadPago);
+                } catch (Exception exception) {
+                    lProducto.setText("Codigo: "+select+" [ ERROR: "+exception.getMessage()+ " ]");
+                }
                 select = 0;
             }
         }
@@ -160,20 +174,25 @@ public class PanelComprador2 extends JPanel {
         public void actionPerformed(ActionEvent e) {
 
             if(e.getSource()==bMoneda100) {
-                System.out.println("100");
+                depoPago.addContenido(new Moneda100());
+                cantidadPago += 100;
             }
 
             else if(e.getSource()==bMoneda500) {
-                System.out.println("500");
+                depoPago.addContenido(new Moneda500());
+                cantidadPago += 500;
             }
 
             else if(e.getSource()==bMoneda1000) {
-                System.out.println("1000");
+                depoPago.addContenido(new Moneda1000());
+                cantidadPago += 1000;
             }
 
             else {
                 System.out.println("Vuelto");
             }
+
+            lMonto.setText("Pago Total: "+cantidadPago);
         }
     }
 }

@@ -29,4 +29,7 @@ public class Deposito<T> {
             return contenido.remove(0);
         }
     }
+    public int getCantidadContenido() {
+        return contenido.size();
+    }
 }
