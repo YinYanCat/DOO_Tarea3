@@ -12,8 +12,11 @@ public class Expendedor {
     /** Depósito de monedas donde se guarda el vuelto de la compra en monedas de 100 */
     private Deposito<Moneda> depoVuelto;
 
-    /** Depósito de monedas donde se guarda el vuelto de la compra en monedas de 100 */
+    /** Depósito de monedas donde se guarda las monedas entregadas al expendedor durante una compra */
     private Deposito<Moneda> depoAlmacenMonedas;
+
+    /** Producto que es comprado */
+    private Producto ProductoComprado;
 
     /** Constructor para crear y llenar los depósitos del expendedor con productos
      * @param numProductos Número entero con la cantidad de productos que tiene cada depósito de 'listDepositos' */
@@ -21,6 +24,7 @@ public class Expendedor {
         listDepositos = new ArrayList<>();
         depoVuelto = new Deposito<>();
         depoAlmacenMonedas = new Deposito<>();
+        ProductoComprado = null;
         Trabajador trabajador = new Trabajador();
         // Llenar los depositos con productos
         for(int i=0; i<trabajador.getcantidadProductos(); i++) {
@@ -30,12 +34,13 @@ public class Expendedor {
 
     /** Método para comprar un producto del expendedor, sacándolo de uno de sus depósitos
      * @param cantidadPago El monto total de las monedas ingresadas
-     * @param select Selección con el producto a comprar'
-     * @return Instancia de 'Producto' con el producto comprado,
+     * @param depoMonedas El deposito con las monedas utilizadas en la compra
+     * @param select El producto a comprar
      * @throws PagoIncorrectoException Se lanza esta excepción si no existe una moneda para pagar (null)
      * @throws NoHayProductoException Se lanza esta excepción si no queda o no existe el producto seleccionado
-     * @throws PagoInsuficienteException Se lanza esta excepción si el pago es menor al precio del producto */
-    public Producto comprarProducto(int cantidadPago, Deposito<Moneda> depoMonedas, Seleccion select) throws Exception {
+     * @throws PagoInsuficienteException Se lanza esta excepción si el pago es menor al precio del producto
+     * @throws ProductoNoRetiradoException Se lanza esta excepción si hay un producto sin retirar en el expendedor */
+    public void comprarProducto(int cantidadPago, Deposito<Moneda> depoMonedas, Seleccion select) throws Exception {
         //Moneda con puntero null (No existe moneda)
         if(cantidadPago <= 0)
             throw new PagoIncorrectoException("Moneda no ingresada");
@@ -50,6 +55,12 @@ public class Expendedor {
                 depoVuelto = depoMonedas;
                 throw new NoHayProductoException("Producto seleccionado agotado");
             }
+            //Guardar monedas en el deposito de monedas del expendedor
+            Moneda monedaAGuardar = null;
+            for (int i = 0; i < vuelto; i+=100) {
+                monedaAGuardar = depoMonedas.getContenido();
+                depoAlmacenMonedas.addContenido(monedaAGuardar);
+            }
             //Creación de las instancias 'Moneda100' en depoVuelto para el vuelto del producto
             Moneda m_vuelto = null;
             for (int i = 0; i < vuelto; i+=100) {
@@ -62,12 +73,22 @@ public class Expendedor {
             depoVuelto = depoMonedas;
             throw new PagoInsuficienteException("Pago insuficiente");
         }
-        return producto;
+        if(ProductoComprado != null)
+            throw new ProductoNoRetiradoException("Producto anterior no retirado");
+        ProductoComprado = producto;
     }
 
     /** Método para devolver una primera moneda del depósito de vuelto del expendedor
      * @return Una moneda de 100 del vuelto, cuando se vacía el deposito retorna null*/
     public Moneda getVuelto() {
         return depoVuelto.getContenido();
+    }
+
+    /** Método para obtener el producto comprado
+     * @return Un producto comprado, cuando se vacía el deposito retorna null*/
+    public Producto getProducto() {
+        Producto aux = ProductoComprado;
+        ProductoComprado = null;
+        return aux;
     }
 }

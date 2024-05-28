@@ -1,9 +1,8 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class PanelPrincipal extends JPanel {
-    private PanelComprador2 panelCom;
+    private PanelComprador panelCom;
     private PanelExpendedor panelExp;
 
     private Expendedor expendedor;
@@ -21,7 +20,7 @@ public class PanelPrincipal extends JPanel {
         panelExp = new PanelExpendedor();
         panelExp.setBackground(Color.lightGray);
         this.add(panelExp, BorderLayout.CENTER);
-        panelCom = new PanelComprador2(comprador, expendedor);
+        panelCom = new PanelComprador(comprador, expendedor);
         panelCom.setBackground(Color.lightGray);
         this.add(panelCom, BorderLayout.EAST);
 

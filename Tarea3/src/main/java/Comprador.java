@@ -16,7 +16,7 @@ public class Comprador {
     }
 
     public void comprarEnExpendedor(Expendedor exp, Deposito<Moneda> depoM, int Pago, Seleccion select) throws Exception {
-        Producto producto = exp.comprarProducto(Pago,depoM,select);
+        exp.comprarProducto(Pago,depoM,select);
     }
 
     public void obtenerVuelto(Expendedor exp) {
