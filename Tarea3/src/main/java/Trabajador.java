@@ -9,7 +9,7 @@ public class Trabajador {
 
     /** Constructor para crear un trabajdor, junto con la cantidad de productos */
     public Trabajador() {
-        cantidadProductos = 6;
+        cantidadProductos = 16;
     }
 
     /** Método para comprar un producto del expendedor, sacándolo de uno de sus depósitos
@@ -22,22 +22,52 @@ public class Trabajador {
             // Switch-case para llenar cada depósito con un producto distinto, siendo el total 'numProductos'
             switch(productCase) {
                 case 0:
-                    newDepo.addContenido(new CocaCola(j + 100));
+                    newDepo.addContenido(new Snickers(j + 100));
                     break;
                 case 1:
-                    newDepo.addContenido(new Sprite(j + 200));
+                    newDepo.addContenido(new Super8(j + 200));
                     break;
                 case 2:
-                    newDepo.addContenido(new Fanta(j + 300));
+                    newDepo.addContenido(new Rolls(j + 300));
                     break;
                 case 3:
-                    newDepo.addContenido(new Snickers(j + 400));
+                    newDepo.addContenido(new SahneNuss(j + 400));
                     break;
                 case 4:
-                    newDepo.addContenido(new Super8(j + 500));
+                    newDepo.addContenido(new Trencito(j + 500));
                     break;
                 case 5:
-                    newDepo.addContenido(new Flipy(j + 600));
+                    newDepo.addContenido(new Doblon(j + 600));
+                    break;
+                case 6:
+                    newDepo.addContenido(new Flipy(j + 700));
+                    break;
+                case 7:
+                    newDepo.addContenido(new Ambrosito(j + 800));
+                    break;
+                case 8:
+                    newDepo.addContenido(new CocaCola(j + 900));
+                    break;
+                case 9:
+                    newDepo.addContenido(new Sprite(j + 400));
+                    break;
+                case 10:
+                    newDepo.addContenido(new Fanta(j + 500));
+                    break;
+                case 11:
+                    newDepo.addContenido(new Pepsi(j + 600));
+                    break;
+                case 12:
+                    newDepo.addContenido(new Bilz(j + 100));
+                    break;
+                case 13:
+                    newDepo.addContenido(new Pap(j + 200));
+                    break;
+                case 14:
+                    newDepo.addContenido(new Kem(j + 300));
+                    break;
+                case 15:
+                    newDepo.addContenido(new LimonSoda(j + 400));
                     break;
             }
         }
