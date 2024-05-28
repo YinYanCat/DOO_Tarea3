@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="" />
+    <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/java/PanelComprador2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/PanelComprador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/PanelComprador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/PanelExpendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/PanelExpendedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/PanelPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/PanelPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Ventana.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Ventana.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +47,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Visual",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Hp/Desktop/UdeC/02_Programación/Java_Program/2024_DOO_Tarea2"
   }

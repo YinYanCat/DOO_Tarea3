@@ -13,7 +13,7 @@ public class PanelExpendedor extends JPanel {
 
     public PanelExpendedor() {
         try {
-            image = ImageIO.read(new File("./Images/Expendedor.png"));
+            image = ImageIO.read(new File("./Tarea3/Images/Expendedor.png"));
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

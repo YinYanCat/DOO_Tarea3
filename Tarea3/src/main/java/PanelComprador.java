@@ -30,7 +30,18 @@ public class PanelComprador extends JPanel {
     JButton bComprar;
 
     public PanelComprador() {
-        this.setLayout(new GridLayout(4, 4));
+
+
+
+
+
+        JPanel panelSelector = new JPanel();
+        panelSelector.setLayout(new GridLayout(4, 4));
+        this.add(panelSelector,BorderLayout.WEST);
+
+        JPanel panelMonedas = new JPanel();
+        panelMonedas.setLayout(new GridLayout(1, 0));
+        this.add(panelMonedas,BorderLayout.SOUTH);
 
         rbCoca = new JRadioButton("CocaCola");
         rbFanta = new JRadioButton("Fanta");
@@ -69,26 +80,26 @@ public class PanelComprador extends JPanel {
         bgProd.add(rbSahnenuss);
         bgProd.add(rbAmbrosito);
 
-        this.add(rbCoca);
-        this.add(rbFanta);
-        this.add(rbSprite);
-        this.add(rbBilz);
-        this.add(rbPap);
-        this.add(rbKem);
-        this.add(rbSnicker);
-        this.add(rbSuper8);
-        this.add(rbFlipy);
-        this.add(rbRolls);
-        this.add(rbSahnenuss);
-        this.add(rbAmbrosito);
+        panelSelector.add(rbCoca);
+        panelSelector.add(rbFanta);
+        panelSelector.add(rbSprite);
+        panelSelector.add(rbBilz);
+        panelSelector.add(rbPap);
+        panelSelector.add(rbKem);
+        panelSelector.add(rbSnicker);
+        panelSelector.add(rbSuper8);
+        panelSelector.add(rbFlipy);
+        panelSelector.add(rbRolls);
+        panelSelector.add(rbSahnenuss);
+        panelSelector.add(rbAmbrosito);
 
-        this.add(rbMoneda500);
-        this.add(rbMoneda1000);
-        this.add(rbMoneda1500);
+        panelMonedas.add(rbMoneda500);
+        panelMonedas.add(rbMoneda1000);
+        panelMonedas.add(rbMoneda1500);
 
         bComprar = new JButton("Comprar");
         bComprar.addActionListener(new ComprarProducto());
-        this.add(bComprar);
+        panelMonedas.add(bComprar);
     }
 
     public void paintComponent(Graphics g){

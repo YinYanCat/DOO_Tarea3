@@ -9,7 +9,7 @@ public class Ventana extends JFrame {
         this.setTitle("Expendedor");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        this.setSize(560,900);
+        this.setSize(1280,720);
         this.setResizable(false);
         PanelPrincipal panel = new PanelPrincipal(new BorderLayout());
         this.add(panel,BorderLayout.CENTER);
