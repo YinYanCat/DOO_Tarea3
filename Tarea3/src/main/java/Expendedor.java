@@ -41,13 +41,15 @@ public class Expendedor {
      * @throws PagoInsuficienteException Se lanza esta excepción si el pago es menor al precio del producto
      * @throws ProductoNoRetiradoException Se lanza esta excepción si hay un producto sin retirar en el expendedor */
     public void comprarProducto(int cantidadPago, Deposito<Moneda> depoMonedas, Seleccion select) throws Exception {
-        //Moneda con puntero null (No existe moneda)
+        if(ProductoComprado != null)
+            throw new ProductoNoRetiradoException("Producto anterior no retirado");
         if(cantidadPago <= 0)
             throw new PagoIncorrectoException("Moneda no ingresada");
+
         Producto producto = null;
-        //Precio y vuelto del producto elegido
         int precio = select.getPrecio();
         int vuelto = cantidadPago - precio;
+
         if(vuelto >= 0) {
             producto = listDepositos.get(select.getNumDepo()).getContenido();
             //Depósito vacio (No queda producto elegido)
@@ -68,13 +70,10 @@ public class Expendedor {
                 depoVuelto.addContenido(m_vuelto);
             }
         }
-        //Pago menor al precio del producto
         else {
             depoVuelto = depoMonedas;
             throw new PagoInsuficienteException("Pago insuficiente");
         }
-        if(ProductoComprado != null)
-            throw new ProductoNoRetiradoException("Producto anterior no retirado");
         ProductoComprado = producto;
     }
 

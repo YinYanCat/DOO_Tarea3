@@ -11,23 +11,30 @@ public class Comprador {
     private int vuelto;
 
     /** Constructor en donde se compra el producto y se obtiene su sabor y el vuelto */
+
+    private Deposito<Moneda> depoPago;
+    private Deposito<Moneda> billetera;
+    private int numPago;
+
     public Comprador() {
         vuelto = 0;
+        numPago = 0;
+        depoPago = new Deposito<>();
+        billetera = new Deposito<>();
     }
 
-    public void comprarEnExpendedor(Expendedor exp, Deposito<Moneda> depoM, int Pago, Seleccion select) throws Exception {
-        exp.comprarProducto(Pago,depoM,select);
+    public void comprarEnExpendedor(Expendedor exp, Seleccion select) throws Exception {
+        exp.comprarProducto(numPago,depoPago,select);
     }
 
     public void obtenerVuelto(Expendedor exp) {
         Moneda monVuelto=null;
         while (true) {
             monVuelto = exp.getVuelto();
-            // Cuando el deposito depoVuelto de 'Expendedor' queda vacio, retorna null
-            // Luego de esto el comprador retiró el vuelto de la compra
             if (monVuelto == null) {
                 break;
             } else {
+                billetera.addContenido(monVuelto);
                 vuelto += monVuelto.getValor();
             }
         }
@@ -43,5 +50,15 @@ public class Comprador {
      * @return String que contiene el sabor del producto comprado */
     public String queSabor() {
         return sabor;
+    }
+
+    public void setnumPago(int cantidad) {
+        numPago = cantidad;
+    }
+    public int getnumPago() {
+        return numPago;
+    }
+    public void addMoneda(Moneda moneda) {
+        depoPago.addContenido(moneda);
     }
 }

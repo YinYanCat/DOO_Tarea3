@@ -17,17 +17,12 @@ public class PanelComprador extends JPanel {
     private JLabel lProducto;
     private JLabel lMonto;
     private int select;
-
     private Comprador comprador;
     private Expendedor expendedor;
-    private Deposito<Moneda> depoPago;
-    private int cantidadPago;
 
     public PanelComprador(Comprador comprador, Expendedor expendedor) {
         this.comprador = comprador;
         this.expendedor = expendedor;
-        depoPago = new Deposito<>();
-        cantidadPago = 0;
         select = 0;
         Color darkRED = new Color(160,0, 0);
 
@@ -45,8 +40,8 @@ public class PanelComprador extends JPanel {
         lMonto = new JLabel("Pago Total: 0");
         lMonto.setForeground(Color.WHITE);
 
-        ComprarProducto listenerCompra = new ComprarProducto();
-        ManipularMoneda listenerMoneda = new ManipularMoneda();
+        InteraccionSelector listenerCompra = new InteraccionSelector();
+        InteraccionExpendedor listenerMoneda = new InteraccionExpendedor();
 
         bCodigo1.addActionListener(listenerCompra);
         bCodigo2.addActionListener(listenerCompra);
@@ -106,7 +101,7 @@ public class PanelComprador extends JPanel {
         super.paintComponent(g);
     }
 
-    private class ComprarProducto implements ActionListener {
+    private class InteraccionSelector implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Seleccion compra = null;
@@ -122,7 +117,6 @@ public class PanelComprador extends JPanel {
                 else if(select == 41)
                     compra = Seleccion.Bilz;
             }
-
             else if(e.getSource()==bCodigo2) {
                 select = 2+select*10;
                 if(select == 12)
@@ -134,7 +128,6 @@ public class PanelComprador extends JPanel {
                 else if(select == 42)
                     compra = Seleccion.Pap;
             }
-
             else if(e.getSource()==bCodigo3) {
                 select = 3+select*10;
                 if(select == 13)
@@ -146,7 +139,6 @@ public class PanelComprador extends JPanel {
                 else if(select == 43)
                     compra = Seleccion.Kem;
             }
-
             else {
                 select = 4+select*10;
                 if(select == 14)
@@ -158,14 +150,15 @@ public class PanelComprador extends JPanel {
                 else if(select == 44)
                     compra = Seleccion.LimonSoda;
             }
+
             if(compra == null)
                 lProducto.setText("Codigo: "+select+"_");
             else {
                 lProducto.setText("Codigo: "+select);
                 try {
-                    comprador.comprarEnExpendedor(expendedor, depoPago, cantidadPago, compra);
-                    int vuelto = cantidadPago-compra.getPrecio();
-                    cantidadPago = 0;
+                    comprador.comprarEnExpendedor(expendedor, compra);
+                    int vuelto = comprador.getnumPago()-compra.getPrecio();
+                    comprador.setnumPago(0);
                     lMonto.setText("Pago Total: 0 | Vuelto: "+vuelto);
                 } catch (Exception exception) {
                     lProducto.setText("Codigo: "+select+" [ ERROR: "+exception.getMessage()+ " ]");
@@ -174,21 +167,21 @@ public class PanelComprador extends JPanel {
             }
         }
     }
-    private class ManipularMoneda implements ActionListener {
+    private class InteraccionExpendedor implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
 
             if(e.getSource()==bMoneda100) {
-                depoPago.addContenido(new Moneda100());
-                cantidadPago += 100;
+                comprador.addMoneda(new Moneda100());
+                comprador.setnumPago(comprador.getnumPago()+100);
             }
             else if(e.getSource()==bMoneda500) {
-                depoPago.addContenido(new Moneda500());
-                cantidadPago += 500;
+                comprador.addMoneda(new Moneda500());
+                comprador.setnumPago(comprador.getnumPago()+500);
             }
             else if(e.getSource()==bMoneda1000) {
-                depoPago.addContenido(new Moneda1000());
-                cantidadPago += 1000;
+                comprador.addMoneda(new Moneda1000());
+                comprador.setnumPago(comprador.getnumPago()+1000);
             }
             else if(e.getSource()==bVuelto) {
                 comprador.obtenerVuelto(expendedor);
@@ -201,7 +194,7 @@ public class PanelComprador extends JPanel {
                 else
                     System.out.println(producto.sabor());
             }
-            lMonto.setText("Pago Total: "+cantidadPago);
+            lMonto.setText("Pago Total: "+comprador.getnumPago());
         }
     }
 }
