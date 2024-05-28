@@ -29,6 +29,22 @@ public class Deposito<T> {
             return contenido.remove(0);
         }
     }
+    public T checkContenido(int index) {
+        if(contenido.size() == 0){
+            return null;
+        } else {
+            return contenido.get(index);
+        }
+    }
+    public void extend(Deposito<T> depoExtend) {
+        T obj;
+        while(true) {
+            obj = depoExtend.getContenido();
+            if(obj == null)
+                break;
+            this.addContenido(obj);
+        }
+    }
     public int getCantidadContenido() {
         return contenido.size();
     }

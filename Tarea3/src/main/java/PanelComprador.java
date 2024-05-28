@@ -173,19 +173,18 @@ public class PanelComprador extends JPanel {
 
             if(e.getSource()==bMoneda100) {
                 comprador.addMoneda(new Moneda100());
-                comprador.setnumPago(comprador.getnumPago()+100);
             }
             else if(e.getSource()==bMoneda500) {
                 comprador.addMoneda(new Moneda500());
-                comprador.setnumPago(comprador.getnumPago()+500);
             }
             else if(e.getSource()==bMoneda1000) {
                 comprador.addMoneda(new Moneda1000());
-                comprador.setnumPago(comprador.getnumPago()+1000);
             }
             else if(e.getSource()==bVuelto) {
                 comprador.obtenerVuelto(expendedor);
-                System.out.println("Vuelto: "+comprador.cuantoVuelto());
+                System.out.println("Vuelto: "+comprador.getVuelto());
+                System.out.println("Billetera: "+comprador.getNumBilletera());
+                expendedor.checkAlmacen();
             }
             else {
                 Producto producto = expendedor.getProducto();

@@ -52,26 +52,17 @@ public class Expendedor {
 
         if(vuelto >= 0) {
             producto = listDepositos.get(select.getNumDepo()).getContenido();
-            //Depósito vacio (No queda producto elegido)
             if(producto == null) {
-                depoVuelto = depoMonedas;
+                //depoVuelto.extend(depoMonedas);
                 throw new NoHayProductoException("Producto seleccionado agotado");
             }
-            //Guardar monedas en el deposito de monedas del expendedor
-            Moneda monedaAGuardar = null;
+            depoAlmacenMonedas.extend(depoMonedas);
             for (int i = 0; i < vuelto; i+=100) {
-                monedaAGuardar = depoMonedas.getContenido();
-                depoAlmacenMonedas.addContenido(monedaAGuardar);
-            }
-            //Creación de las instancias 'Moneda100' en depoVuelto para el vuelto del producto
-            Moneda m_vuelto = null;
-            for (int i = 0; i < vuelto; i+=100) {
-                m_vuelto = new Moneda100();
-                depoVuelto.addContenido(m_vuelto);
+                depoVuelto.addContenido(new Moneda100());
             }
         }
         else {
-            depoVuelto = depoMonedas;
+            //depoVuelto.extend(depoMonedas);
             throw new PagoInsuficienteException("Pago insuficiente");
         }
         ProductoComprado = producto;
@@ -89,5 +80,12 @@ public class Expendedor {
         Producto aux = ProductoComprado;
         ProductoComprado = null;
         return aux;
+    }
+    public void checkAlmacen() {
+        System.out.print("Monedas: ");
+        for(int i=0; i<depoAlmacenMonedas.getCantidadContenido(); i++) {
+            System.out.print(depoAlmacenMonedas.checkContenido(i).getValor()+ ", ");
+        }
+        System.out.println();
     }
 }
