@@ -33,7 +33,7 @@ public class PanelComprador2 extends JPanel {
         bMoneda500 = new JButton("500");
         bMoneda1000 = new JButton("1000");
         bVuelto = new JButton("VUELTO");
-        lProducto = new JLabel("String");
+        lProducto = new JLabel("Ingrese Codigo");
         lProducto.setForeground(Color.WHITE);
 
         ComprarProducto listenerCompra = new ComprarProducto();
@@ -100,60 +100,57 @@ public class PanelComprador2 extends JPanel {
             Seleccion compra = null;
 
             if(e.getSource()==bCodigo1) {
-                if(select == 0)
-                    select = 1;
-                else if(select == 1)
+                select = 1+select*10;
+                if(select == 11)
                     compra = Seleccion.Snickers;
-                else if(select == 2)
+                else if(select == 21)
                     compra = Seleccion.Trencito;
-                else if(select == 3)
+                else if(select == 31)
                     compra = Seleccion.CocaCola;
-                else
+                else if(select == 41)
                     compra = Seleccion.Bilz;
             }
 
             else if(e.getSource()==bCodigo2) {
-                if(select == 0)
-                    select = 2;
-                else if(select == 1)
+                select = 2+select*10;
+                if(select == 12)
                     compra = Seleccion.Super8;
-                else if(select == 2)
+                else if(select == 22)
                     compra = Seleccion.Doblon;
-                else if(select == 3)
+                else if(select == 32)
                     compra = Seleccion.Sprite;
-                else
+                else if(select == 42)
                     compra = Seleccion.Pap;
             }
 
             else if(e.getSource()==bCodigo3) {
-                if(select == 0)
-                    select = 3;
-                else if(select == 1)
+                select = 3+select*10;
+                if(select == 13)
                     compra = Seleccion.Rolls;
-                else if(select == 2)
+                else if(select == 23)
                     compra = Seleccion.Flipy;
-                else if(select == 3)
+                else if(select == 33)
                     compra = Seleccion.Fanta;
-                else
+                else if(select == 43)
                     compra = Seleccion.Kem;
             }
 
             else {
-                if(select == 0)
-                    select = 4;
-                else if(select == 1)
+                select = 4+select*10;
+                if(select == 14)
                     compra = Seleccion.SahneNuss;
-                else if(select == 2)
+                else if(select == 24)
                     compra = Seleccion.Ambrosito;
-                else if(select == 3)
+                else if(select == 34)
                     compra = Seleccion.Pepsi;
-                else
+                else if(select == 44)
                     compra = Seleccion.LimonSoda;
             }
 
+            lProducto.setText("Codigo: "+select);
+
             if(compra != null) {
                 comprador.comprarEnExpendedor(expendedor, new Moneda1000(), compra);
-                compra = null;
                 select = 0;
             }
         }
