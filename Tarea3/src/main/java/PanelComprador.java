@@ -164,8 +164,9 @@ public class PanelComprador extends JPanel {
                 lProducto.setText("Codigo: "+select);
                 try {
                     comprador.comprarEnExpendedor(expendedor, depoPago, cantidadPago, compra);
-                    cantidadPago -= compra.getPrecio();
-                    lMonto.setText("Pago Total: "+cantidadPago);
+                    int vuelto = cantidadPago-compra.getPrecio();
+                    cantidadPago = 0;
+                    lMonto.setText("Pago Total: 0 | Vuelto: "+vuelto);
                 } catch (Exception exception) {
                     lProducto.setText("Codigo: "+select+" [ ERROR: "+exception.getMessage()+ " ]");
                 }
@@ -190,7 +191,8 @@ public class PanelComprador extends JPanel {
                 cantidadPago += 1000;
             }
             else if(e.getSource()==bVuelto) {
-                System.out.println("Vuelto");
+                comprador.obtenerVuelto(expendedor);
+                System.out.println("Vuelto: "+comprador.cuantoVuelto());
             }
             else {
                 Producto producto = expendedor.getProducto();
