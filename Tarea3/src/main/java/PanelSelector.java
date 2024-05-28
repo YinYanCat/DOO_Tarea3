@@ -16,19 +16,19 @@ public class PanelSelector  extends JPanel {
         panelNumberPad = new JPanel();
         panelNumberPad.setLayout(new GridLayout(2, 2, 10, 10));
         panelNumberPad.setBackground(darkRED);
-        panelNumberPad.setBorder(BorderFactory.createMatteBorder(80, 40, 80, 20, darkRED));
+        panelNumberPad.setBorder(BorderFactory.createMatteBorder(60, 50, 60, 25, darkRED));
         this.add(panelNumberPad, BorderLayout.CENTER);
 
         panelOptions = new JPanel();
         panelOptions.setLayout(new GridLayout(2, 1, 10, 10));
         panelOptions.setBackground(darkRED);
-        panelOptions.setBorder(BorderFactory.createMatteBorder(80, 20, 80, 40, darkRED));
+        panelOptions.setBorder(BorderFactory.createMatteBorder(60, 25, 60, 50, darkRED));
         this.add(panelOptions, BorderLayout.EAST);
 
         panelDisplay = new JPanel();
-        panelDisplay.setLayout(new GridLayout(2, 1, 5, 5));
+        panelDisplay.setLayout(new GridLayout(3, 1));
         panelDisplay.setBackground(Color.BLACK);
-        panelDisplay.setBorder(BorderFactory.createMatteBorder(40, 20, 20, 20, Color.RED));
+        panelDisplay.setBorder(BorderFactory.createMatteBorder(30, 20, 30, 20, Color.RED));
         this.add(panelDisplay, BorderLayout.NORTH);
     }
 
@@ -42,7 +42,7 @@ public class PanelSelector  extends JPanel {
                 break;
         }
     }
-    public void addText(JLabel text) {
+    public void addText(TextoPantalla text) {
         panelDisplay.add(text);
     }
 }

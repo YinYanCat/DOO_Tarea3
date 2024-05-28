@@ -13,8 +13,10 @@ public class PanelComprador extends JPanel {
     private JButton bMoneda1000;
     private JButton bVuelto;
     private JButton bGetProducto;
-    private JLabel lProducto;
-    private JLabel lMonto;
+    private TextoPantalla lProducto;
+    private TextoPantalla lMonto;
+    private TextoPantalla lMensaje;
+    private JLabel lBilletera;
     private int select;
     private Comprador comprador;
     private Expendedor expendedor;
@@ -23,7 +25,12 @@ public class PanelComprador extends JPanel {
         this.comprador = comprador;
         this.expendedor = expendedor;
         select = 0;
+
         this.setLayout(new GridLayout(2, 1));
+        InteraccionSelector listenerCompra = new InteraccionSelector();
+        InteraccionExpendedor listenerMoneda = new InteraccionExpendedor();
+        PanelSelector panelSelector = new PanelSelector();
+        PanelPago panelPago = new PanelPago();
 
         bCodigo1 = new JButton("1");
         bCodigo2 = new JButton("2");
@@ -34,13 +41,10 @@ public class PanelComprador extends JPanel {
         bMoneda1000 = new JButton("1000");
         bVuelto = new JButton("VUELTO");
         bGetProducto = new JButton("PRODUCTO");
-        lProducto = new JLabel("Codigo: __");
-        lProducto.setForeground(Color.WHITE);
-        lMonto = new JLabel("Pago Total: 0");
-        lMonto.setForeground(Color.WHITE);
-
-        InteraccionSelector listenerCompra = new InteraccionSelector();
-        InteraccionExpendedor listenerMoneda = new InteraccionExpendedor();
+        lProducto = new TextoPantalla("Codigo: __");
+        lMonto = new TextoPantalla("Pago Ingresado: 0");
+        lMensaje = new TextoPantalla(" ");
+        lBilletera = new JLabel("Vuelto: 0 | Billetera: 0");
 
         bCodigo1.addActionListener(listenerCompra);
         bCodigo2.addActionListener(listenerCompra);
@@ -52,9 +56,6 @@ public class PanelComprador extends JPanel {
         bGetProducto.addActionListener(listenerMoneda);
         bVuelto.addActionListener(listenerMoneda);
 
-        PanelSelector panelSelector = new PanelSelector();
-        PanelPago panelPago = new PanelPago();
-
         panelSelector.addButton(bCodigo1, 1);
         panelSelector.addButton(bCodigo2, 1);
         panelSelector.addButton(bCodigo3, 1);
@@ -63,9 +64,11 @@ public class PanelComprador extends JPanel {
         panelSelector.addButton(bGetProducto, 2);
         panelSelector.addText(lProducto);
         panelSelector.addText(lMonto);
+        panelSelector.addText(lMensaje);
         panelPago.addButton(bMoneda100);
         panelPago.addButton(bMoneda500);
         panelPago.addButton(bMoneda1000);
+        panelPago.addText(lBilletera);
 
         this.add(panelSelector);
         this.add(panelPago);
@@ -133,9 +136,10 @@ public class PanelComprador extends JPanel {
                     comprador.comprarEnExpendedor(expendedor, compra);
                     int vuelto = comprador.getnumPago()-compra.getPrecio();
                     comprador.setnumPago(0);
-                    lMonto.setText("Pago Total: 0 | Vuelto: "+vuelto);
+                    lMonto.setText("Pago Ingresado: "+comprador.getnumPago());
+                    lMensaje.setText("Vuelto: "+vuelto);
                 } catch (Exception exception) {
-                    lProducto.setText("Codigo: "+select+" [ ERROR: "+exception.getMessage()+ " ]");
+                    lMensaje.setText(exception.getMessage());
                 }
                 select = 0;
             }
@@ -156,18 +160,20 @@ public class PanelComprador extends JPanel {
             }
             else if(e.getSource()==bVuelto) {
                 comprador.obtenerVuelto(expendedor);
-                System.out.println("Vuelto: "+comprador.getVuelto());
-                System.out.println("Billetera: "+comprador.getNumBilletera());
+                if(comprador.getVuelto() != 0)
+                    lMensaje.setText("Vuelto Retirado");
+                lBilletera.setText("Vuelto: "+comprador.getVuelto()+" | Billetera: "+comprador.getNumBilletera());
                 expendedor.checkAlmacen();
             }
             else {
                 Producto producto = expendedor.getProducto();
-                if(producto == null)
-                    System.out.println("No hay producto");
-                else
+                if(producto != null) {
                     System.out.println(producto.sabor());
+                    lProducto.setText("Codigo: __");
+                    lMensaje.setText(" ");
+                }
             }
-            lMonto.setText("Pago Total: "+comprador.getnumPago());
+            lMonto.setText("Pago Ingresado: "+comprador.getnumPago());
         }
     }
 }

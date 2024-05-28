@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/java/TextoPantalla.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/PanelExpendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/PanelExpendedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/PanelComprador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/PanelComprador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/PanelPago.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/PanelPago.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/PanelSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/PanelSelector.java" afterDir="false" />
     </list>
@@ -39,16 +40,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Visual&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/Desktop/UdeC/02_Programación/Java_Program/2024_DOO_Tarea2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GFG.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Visual",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Hp/Desktop/UdeC/02_Programación/Java_Program/2024_DOO_Tarea2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Hp\Desktop\DOO_Tarea3\Tarea3\Images" />
