@@ -22,6 +22,7 @@ public class PanelPrincipal extends JPanel {
         this.add(panelExp, BorderLayout.CENTER);
         panelCom = new PanelComprador(comprador, expendedor);
         panelCom.setBackground(Color.lightGray);
+        panelCom.setPreferredSize(new Dimension(350,720));
         this.add(panelCom, BorderLayout.EAST);
 
     }

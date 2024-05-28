@@ -16,13 +16,13 @@ public class PanelSelector  extends JPanel {
         panelNumberPad = new JPanel();
         panelNumberPad.setLayout(new GridLayout(2, 2, 10, 10));
         panelNumberPad.setBackground(darkRED);
-        panelNumberPad.setBorder(BorderFactory.createMatteBorder(60, 50, 60, 25, darkRED));
+        panelNumberPad.setBorder(BorderFactory.createMatteBorder(50, 40, 50, 20, darkRED));
         this.add(panelNumberPad, BorderLayout.CENTER);
 
         panelOptions = new JPanel();
         panelOptions.setLayout(new GridLayout(2, 1, 10, 10));
         panelOptions.setBackground(darkRED);
-        panelOptions.setBorder(BorderFactory.createMatteBorder(60, 25, 60, 50, darkRED));
+        panelOptions.setBorder(BorderFactory.createMatteBorder(50, 20, 50, 40, darkRED));
         this.add(panelOptions, BorderLayout.EAST);
 
         panelDisplay = new JPanel();
