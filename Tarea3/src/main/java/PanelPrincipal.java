@@ -12,7 +12,7 @@ public class PanelPrincipal extends JPanel {
     public PanelPrincipal(BorderLayout borderLayout) {
         super(borderLayout);
 
-        expendedor = new Expendedor(1);
+        expendedor = new Expendedor(5);
         comprador = new Comprador();
 
         this.setBackground(Color.lightGray);

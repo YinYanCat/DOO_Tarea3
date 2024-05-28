@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelComprador extends JPanel {
-
     private JButton bCodigo1;
     private JButton bCodigo2;
     private JButton bCodigo3;
@@ -24,7 +23,7 @@ public class PanelComprador extends JPanel {
         this.comprador = comprador;
         this.expendedor = expendedor;
         select = 0;
-        Color darkRED = new Color(160,0, 0);
+        this.setLayout(new GridLayout(2, 1));
 
         bCodigo1 = new JButton("1");
         bCodigo2 = new JButton("2");
@@ -53,48 +52,23 @@ public class PanelComprador extends JPanel {
         bGetProducto.addActionListener(listenerMoneda);
         bVuelto.addActionListener(listenerMoneda);
 
-        this.setLayout(new GridLayout(2, 1));
+        PanelSelector panelSelector = new PanelSelector();
+        PanelPago panelPago = new PanelPago();
 
-        JPanel panel1 = new JPanel();
-        panel1.setLayout(new BorderLayout());
-        panel1.setBackground(Color.RED);
+        panelSelector.addButton(bCodigo1, 1);
+        panelSelector.addButton(bCodigo2, 1);
+        panelSelector.addButton(bCodigo3, 1);
+        panelSelector.addButton(bCodigo4, 1);
+        panelSelector.addButton(bVuelto, 2);
+        panelSelector.addButton(bGetProducto, 2);
+        panelSelector.addText(lProducto);
+        panelSelector.addText(lMonto);
+        panelPago.addButton(bMoneda100);
+        panelPago.addButton(bMoneda500);
+        panelPago.addButton(bMoneda1000);
 
-        JPanel panelSelect = new JPanel();
-        panelSelect.setLayout(new GridLayout(2, 2, 10, 10));
-        panelSelect.setBackground(darkRED);
-        panelSelect.setBorder(BorderFactory.createMatteBorder(80, 40, 80, 40, darkRED));
-        panelSelect.add(bCodigo1);
-        panelSelect.add(bCodigo2);
-        panelSelect.add(bCodigo3);
-        panelSelect.add(bCodigo4);
-        panel1.add(panelSelect, BorderLayout.CENTER);
-
-        JPanel panelVuelto = new JPanel();
-        panelVuelto.setLayout(new GridLayout(2, 1, 10, 10));
-        panelVuelto.setBackground(darkRED);
-        panelVuelto.setBorder(BorderFactory.createMatteBorder(80, 40, 80, 40, darkRED));
-        panelVuelto.add(bVuelto);
-        panelVuelto.add(bGetProducto);
-        panel1.add(panelVuelto, BorderLayout.EAST);
-
-        JPanel panelTexto = new JPanel();
-        panelTexto.setLayout(new GridLayout(2, 1, 5, 5));
-        panelTexto.setBackground(Color.BLACK);
-        panelTexto.setBorder(BorderFactory.createMatteBorder(40, 10, 20, 10, Color.RED));
-        panelTexto.add(lProducto);
-        panelTexto.add(lMonto);
-        panel1.add(panelTexto, BorderLayout.NORTH);
-
-        this.add(panel1);
-
-        JPanel panel2 = new JPanel();
-        panel2.setLayout(new GridLayout(1, 3));
-        panel2.setBorder(BorderFactory.createLineBorder(Color.RED, 40));
-        panel2.setBackground(Color.RED);
-        panel2.add(bMoneda100);
-        panel2.add(bMoneda500);
-        panel2.add(bMoneda1000);
-        this.add(panel2);
+        this.add(panelSelector);
+        this.add(panelPago);
     }
 
     public void paintComponent(Graphics g) {
