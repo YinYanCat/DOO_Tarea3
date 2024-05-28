@@ -10,19 +10,21 @@ public class Comprador {
     /** Número entero que contiene el vuelto total de la compra del producto */
     private int vuelto;
 
-    /** Constructor en donde se compra el producto y se obtiene su sabor y el vuelto
-     * @param moneda Una moneda que se utiliza para comprar el producto
-     * @param selectProducto Selección con el producto a comprar'
-     * @param exp Un expendedor en donde se va a comprar el producto */
-    public Comprador(Moneda moneda, Seleccion selectProducto, Expendedor exp) throws Exception {
+    /** Constructor en donde se compra el producto y se obtiene su sabor y el vuelto */
+    public Comprador() {
         vuelto = 0;
-        Producto p = exp.comprarProducto(moneda,selectProducto);
-        if(p!= null) {
-            sabor = p.sabor();
-        } else {
-            // Si producto es un puntero null, sabor es null
-            sabor=null;
+    }
+
+    public void comprarEnExpendedor(Expendedor exp, Moneda moneda, Seleccion selectProducto) {
+        try {
+            Producto producto = exp.comprarProducto(moneda,selectProducto);
+            System.out.println(producto.sabor());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+    }
+
+    public void obtenerVuelto(Expendedor exp) {
         Moneda monVuelto=null;
         while (true) {
             monVuelto = exp.getVuelto();

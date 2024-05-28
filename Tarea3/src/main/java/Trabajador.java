@@ -49,25 +49,25 @@ public class Trabajador {
                     newDepo.addContenido(new CocaCola(j + 900));
                     break;
                 case 9:
-                    newDepo.addContenido(new Sprite(j + 400));
+                    newDepo.addContenido(new Sprite(j + 1000));
                     break;
                 case 10:
-                    newDepo.addContenido(new Fanta(j + 500));
+                    newDepo.addContenido(new Fanta(j + 1100));
                     break;
                 case 11:
-                    newDepo.addContenido(new Pepsi(j + 600));
+                    newDepo.addContenido(new Pepsi(j + 1200));
                     break;
                 case 12:
-                    newDepo.addContenido(new Bilz(j + 100));
+                    newDepo.addContenido(new Bilz(j + 1300));
                     break;
                 case 13:
-                    newDepo.addContenido(new Pap(j + 200));
+                    newDepo.addContenido(new Pap(j + 1400));
                     break;
                 case 14:
-                    newDepo.addContenido(new Kem(j + 300));
+                    newDepo.addContenido(new Kem(j + 1500));
                     break;
                 case 15:
-                    newDepo.addContenido(new LimonSoda(j + 400));
+                    newDepo.addContenido(new LimonSoda(j + 1600));
                     break;
             }
         }

@@ -14,12 +14,16 @@ public class PanelComprador2 extends JPanel {
     private JButton bMoneda1000;
     private JButton bVuelto;
     private JLabel lProducto;
-
     private int select;
 
-    public PanelComprador2() {
+    private Comprador comprador;
+    private Expendedor expendedor;
 
+    public PanelComprador2(Comprador comprador, Expendedor expendedor) {
+        this.comprador = comprador;
+        this.expendedor = expendedor;
         select = 0;
+
         bCodigo1 = new JButton("1");
         bCodigo2 = new JButton("2");
         bCodigo3 = new JButton("3");
@@ -98,55 +102,59 @@ public class PanelComprador2 extends JPanel {
                 if(select == 0)
                     select = 1;
                 else if(select == 1)
-                    System.out.println("CocaCola");
+                    compra = Seleccion.Snickers;
                 else if(select == 2)
-                    System.out.println("Bilz");
+                    compra = Seleccion.Trencito;
                 else if(select == 3)
-                    System.out.println("Snickers");
+                    compra = Seleccion.CocaCola;
                 else
-                    System.out.println("SahneNuss");
+                    compra = Seleccion.Bilz;
             }
 
             else if(e.getSource()==bCodigo2) {
                 if(select == 0)
                     select = 2;
                 else if(select == 1)
-                    System.out.println("Fanta");
+                    compra = Seleccion.Super8;
                 else if(select == 2)
-                    System.out.println("Pap");
+                    compra = Seleccion.Doblon;
                 else if(select == 3)
-                    System.out.println("Super8");
+                    compra = Seleccion.Sprite;
                 else
-                    System.out.println("Ambrosito");
+                    compra = Seleccion.Pap;
             }
 
             else if(e.getSource()==bCodigo3) {
                 if(select == 0)
                     select = 3;
                 else if(select == 1)
-                    System.out.println("Sprite");
+                    compra = Seleccion.Rolls;
                 else if(select == 2)
-                    System.out.println("Kem");
+                    compra = Seleccion.Flipy;
                 else if(select == 3)
-                    System.out.println("Flipy");
+                    compra = Seleccion.Fanta;
                 else
-                    System.out.println("Trencito");
+                    compra = Seleccion.Kem;
             }
 
             else {
                 if(select == 0)
                     select = 4;
                 else if(select == 1)
-                    System.out.println("Pepsi");
+                    compra = Seleccion.SahneNuss;
                 else if(select == 2)
-                    System.out.println("LimonSoda");
+                    compra = Seleccion.Ambrosito;
                 else if(select == 3)
-                    System.out.println("Rolls");
+                    compra = Seleccion.Pepsi;
                 else
-                    System.out.println("Doblon");
+                    compra = Seleccion.LimonSoda;
             }
 
-
+            if(compra != null) {
+                comprador.comprarEnExpendedor(expendedor, new Moneda1000(), compra);
+                compra = null;
+                select = 0;
+            }
         }
     }
     private class ManipularMoneda implements ActionListener {
