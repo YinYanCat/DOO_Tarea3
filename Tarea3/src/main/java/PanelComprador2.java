@@ -23,6 +23,7 @@ public class PanelComprador2 extends JPanel {
         this.comprador = comprador;
         this.expendedor = expendedor;
         select = 0;
+        Color darkRED = new Color(160,0, 0);
 
         bCodigo1 = new JButton("1");
         bCodigo2 = new JButton("2");
@@ -51,12 +52,12 @@ public class PanelComprador2 extends JPanel {
 
         JPanel panel1 = new JPanel();
         panel1.setLayout(new BorderLayout());
-        panel1.setBackground(Color.YELLOW);
+        panel1.setBackground(Color.RED);
 
         JPanel panelSelect = new JPanel();
         panelSelect.setLayout(new GridLayout(2, 2, 10, 10));
-        panelSelect.setBackground(Color.BLACK);
-        panelSelect.setBorder(BorderFactory.createMatteBorder(80, 40, 80, 40, Color.BLACK));
+        panelSelect.setBackground(darkRED);
+        panelSelect.setBorder(BorderFactory.createMatteBorder(80, 40, 80, 40, darkRED));
         panelSelect.add(bCodigo1);
         panelSelect.add(bCodigo2);
         panelSelect.add(bCodigo3);
@@ -65,15 +66,15 @@ public class PanelComprador2 extends JPanel {
 
         JPanel panelVuelto = new JPanel();
         panelVuelto.setLayout(new BorderLayout());
-        panelVuelto.setBackground(Color.BLUE);
-        panelVuelto.setBorder(BorderFactory.createMatteBorder(80, 40, 80, 40, Color.BLUE));
+        panelVuelto.setBackground(darkRED);
+        panelVuelto.setBorder(BorderFactory.createMatteBorder(80, 40, 80, 40, darkRED));
         panelVuelto.add(bVuelto, BorderLayout.CENTER);
         panel1.add(panelVuelto, BorderLayout.EAST);
 
         JPanel panelTexto = new JPanel();
         panelTexto.setLayout(new BorderLayout());
         panelTexto.setBackground(Color.BLACK);
-        panelTexto.setBorder(BorderFactory.createMatteBorder(40, 10, 20, 10, Color.YELLOW));
+        panelTexto.setBorder(BorderFactory.createMatteBorder(40, 10, 20, 10, Color.RED));
         panelTexto.add(lProducto, BorderLayout.CENTER);
         panel1.add(panelTexto, BorderLayout.NORTH);
 
@@ -81,8 +82,8 @@ public class PanelComprador2 extends JPanel {
 
         JPanel panel2 = new JPanel();
         panel2.setLayout(new GridLayout(1, 3));
-        panel2.setBorder(BorderFactory.createLineBorder(Color.GREEN, 40));
-        panel2.setBackground(Color.GREEN);
+        panel2.setBorder(BorderFactory.createLineBorder(Color.RED, 40));
+        panel2.setBackground(Color.RED);
         panel2.add(bMoneda100);
         panel2.add(bMoneda500);
         panel2.add(bMoneda1000);
