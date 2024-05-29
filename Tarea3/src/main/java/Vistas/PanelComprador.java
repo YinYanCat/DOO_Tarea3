@@ -161,9 +161,10 @@ public class PanelComprador extends JPanel {
                 comprador.obtenerVuelto(inter.getPanelExp().entregarVuelto());
                 if(comprador.getVuelto() != 0)
                     lMensaje.setText("Vuelto Retirado");
-                else {
+                else if(comprador.getnumPago() != 0) {
                     inter.getPanelExp().devolverPagoExp(comprador.getdepoPago());
                     lMensaje.setText("Pago Devuelto");
+                    comprador.setnumPago(0);
                 }
                 lBilletera.setText("Billetera: "+comprador.getNumBilletera());
             }
