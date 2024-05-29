@@ -7,6 +7,8 @@ public class TextoPantalla extends JLabel {
 
     public TextoPantalla(String texto) {
         super();
+        this.setOpaque(true);
+        this.setBackground(Color.BLACK);
         this.setText(texto);
         this.setForeground(Color.WHITE);
         this.setFont(new Font("OCR A Extended", Font.BOLD, 15));

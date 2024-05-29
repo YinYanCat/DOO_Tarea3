@@ -1,4 +1,6 @@
-package Modelos;
+package Vistas;
+
+import Vistas.Ventana;
 
 /** El main en donde se realiza el programa
  * @author Chloe Yañez Lavin

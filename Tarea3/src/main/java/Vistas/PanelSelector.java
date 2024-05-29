@@ -11,26 +11,30 @@ public class PanelSelector  extends JPanel {
 
     public PanelSelector() {
         super();
-        Color darkRED = new Color(160,0, 0);
+        Color transparent = new Color(0,0, 0, 0);
         this.setLayout(new BorderLayout());
-        this.setBackground(Color.RED);
+        this.setBackground(new Color(0,0, 0, 0));
+        this.setPreferredSize(new Dimension(354,360));
 
         panelNumberPad = new JPanel();
+        panelNumberPad.setBackground(transparent);
         panelNumberPad.setLayout(new GridLayout(2, 2, 10, 10));
-        panelNumberPad.setBackground(darkRED);
-        panelNumberPad.setBorder(BorderFactory.createMatteBorder(40, 40, 40, 20, darkRED));
+        panelNumberPad.setPreferredSize(new Dimension(181,215));
+        panelNumberPad.setBorder(BorderFactory.createMatteBorder(42, 36, 43, 15, transparent));
         this.add(panelNumberPad, BorderLayout.CENTER);
 
         panelOptions = new JPanel();
+        panelOptions.setBackground(transparent);
         panelOptions.setLayout(new GridLayout(2, 1, 10, 10));
-        panelOptions.setBackground(darkRED);
-        panelOptions.setBorder(BorderFactory.createMatteBorder(40, 20, 40, 40, darkRED));
+        panelOptions.setPreferredSize(new Dimension(172,215));
+        panelOptions.setBorder(BorderFactory.createMatteBorder(42, 15, 43, 37, transparent));
         this.add(panelOptions, BorderLayout.EAST);
 
         panelDisplay = new JPanel();
+        panelDisplay.setBackground(transparent);
         panelDisplay.setLayout(new GridLayout(3, 1));
-        panelDisplay.setBackground(Color.BLACK);
-        panelDisplay.setBorder(BorderFactory.createMatteBorder(30, 20, 30, 20, Color.RED));
+        panelDisplay.setPreferredSize(new Dimension(354,145));
+        panelDisplay.setBorder(BorderFactory.createMatteBorder(30, 30, 30, 20, transparent));
         this.add(panelDisplay, BorderLayout.NORTH);
     }
 

@@ -9,20 +9,23 @@ public class PanelPago extends JPanel {
 
     public PanelPago() {
         super();
-        Color darkRED = new Color(160,0, 0);
+        Color transparent = new Color(0,0, 0, 0);
         this.setLayout(new GridLayout(2, 1, 10, 10));
-        this.setBackground(Color.RED);
+        this.setBackground(transparent);
+        this.setPreferredSize(new Dimension(354,360));
 
         panelMonedas = new JPanel();
-        panelMonedas.setLayout(new GridLayout(1, 3, 10, 10));
-        panelMonedas.setBackground(Color.RED);
-        panelMonedas.setBorder(BorderFactory.createMatteBorder(40, 40, 30, 40, Color.RED));
+        panelMonedas.setLayout(new GridLayout(1, 3, 8, 8));
+        panelMonedas.setBackground(transparent);
+        panelMonedas.setPreferredSize(new Dimension(354,177));
+        panelMonedas.setBorder(BorderFactory.createMatteBorder(61, 19, 16, 19, transparent));
         this.add(panelMonedas);
 
         panelDisplay = new JPanel();
         panelDisplay.setLayout(new BorderLayout());
-        panelDisplay.setBackground(Color.WHITE);
-        panelDisplay.setBorder(BorderFactory.createMatteBorder(40, 50, 40, 50, darkRED));
+        panelDisplay.setBackground(transparent);
+        panelMonedas.setPreferredSize(new Dimension(354,184));
+        panelDisplay.setBorder(BorderFactory.createMatteBorder(40, 50, 40, 50, transparent));
         this.add(panelDisplay);
 
     }

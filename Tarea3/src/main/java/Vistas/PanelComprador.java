@@ -1,6 +1,8 @@
 package Vistas;
 
 import Modelos.*;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,47 +11,58 @@ import java.awt.event.ActionListener;
 public class PanelComprador extends JPanel {
     private Boton[] NumPad;
     private Boton[] bMonedas;
-    private JButton bVuelto;
-    private JButton bGetProducto;
+    private Boton bVuelto;
+    private Boton bGetProducto;
     private TextoPantalla lProducto;
     private TextoPantalla lMonto;
     private TextoPantalla lMensaje;
-    private JLabel lBilletera;
+    private TextoPantalla lBilletera;
     private int select;
     private Comprador comprador;
     private Expendedor expendedor;
-
     public PanelComprador(Comprador comprador, Expendedor expendedor) {
         this.comprador = comprador;
         this.expendedor = expendedor;
         NumPad = new Boton[4];
         bMonedas = new Boton[3];
         select = 0;
+        Color transparent = new Color(0,0, 0, 0);
+        Color lightBlue = new Color(133,170, 215);
 
-        this.setLayout(new GridLayout(2, 1));
+        this.setLayout((new BorderLayout()));
+        this.setBackground(transparent);
         InteraccionSelector listenerCompra = new InteraccionSelector();
         InteraccionExpendedor listenerMoneda = new InteraccionExpendedor();
         PanelSelector panelSelector = new PanelSelector();
         PanelPago panelPago = new PanelPago();
 
+        JPanel subPanel = new JPanel();
+        subPanel.setBackground(transparent);
+        subPanel.setLayout(new GridLayout(2, 1));
+        subPanel.setPreferredSize(new Dimension(352,720));
+
+        JPanel panelBlanck = new JPanel();
+        panelBlanck.setBackground(transparent);
+        panelBlanck.setPreferredSize(new Dimension(265,720));
+
         for(int i=0; i<4; i++) {
-            NumPad[i] = new Boton(70, 70, "boton1.png");
+            NumPad[i] = new Boton(Color.BLACK,true,"imgBoton"+(i+1)+".png");
             NumPad[i].addActionListener(listenerCompra);
             panelSelector.addButton(NumPad[i], 1);
         }
 
         for(int i=0; i<3; i++) {
-            bMonedas[i] = new Boton(70, 70, "boton1.png");
+            bMonedas[i] = new Boton(lightBlue,false,"imgMoneda"+(i+1)+".png");
             bMonedas[i].addActionListener(listenerMoneda);
             panelPago.addButton(bMonedas[i]);
         }
 
-        bVuelto = new JButton("VUELTO");
-        bGetProducto = new JButton("PRODUCTO");
+        bVuelto = new Boton(Color.BLACK,true,"imgBotonVuelto.png");
+        bGetProducto = new Boton(Color.BLACK,true,"imgBotonProducto.png");
         lProducto = new TextoPantalla("Codigo: __");
         lMonto = new TextoPantalla("Pago Ingresado: 0");
         lMensaje = new TextoPantalla(" ");
-        lBilletera = new JLabel("Vuelto: 0 | Billetera: 0");
+        lBilletera = new TextoPantalla("Vuelto: 0 | Billetera: 0");
 
         panelSelector.addButton(bVuelto, 2);
         panelSelector.addButton(bGetProducto, 2);
@@ -60,12 +73,12 @@ public class PanelComprador extends JPanel {
 
         bGetProducto.addActionListener(listenerMoneda);
         bVuelto.addActionListener(listenerMoneda);
-        this.add(panelSelector);
-        this.add(panelPago);
-    }
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+        subPanel.add(panelSelector);
+        subPanel.add(panelPago);
+        this.add(subPanel, BorderLayout.WEST);
+        this.add(panelBlanck, BorderLayout.EAST);
+
     }
 
     private class InteraccionSelector implements ActionListener {
@@ -169,5 +182,10 @@ public class PanelComprador extends JPanel {
             }
             lMonto.setText("Pago Ingresado: "+comprador.getnumPago());
         }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
     }
 }
