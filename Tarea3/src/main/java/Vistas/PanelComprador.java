@@ -147,7 +147,7 @@ public class PanelComprador extends JPanel {
     private class InteraccionExpendedor implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            lMensaje.setText(" ");
             if(e.getSource()==bMonedas[0]) {
                 comprador.addMoneda(new Moneda100());
             }

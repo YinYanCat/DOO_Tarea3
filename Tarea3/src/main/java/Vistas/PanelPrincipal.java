@@ -39,7 +39,7 @@ public class PanelPrincipal extends JPanel {
         panelCom.setIntermediario(intermediario);
 
         try {
-            image = ImageIO.read(getClass().getClassLoader().getResource("imgExpendedor.png"));
+            image = ImageIO.read(getClass().getClassLoader().getResource("imgBackground.png"));
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

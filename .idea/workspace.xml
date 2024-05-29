@@ -5,11 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelInventario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/Images/Expendedor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/Expendedor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/Images/Expendedor2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/Expendedor2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/Images/ornitorrinco.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelComprador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelComprador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelExpendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelExpendedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/boton1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgExpendedor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBackground.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,17 +60,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.GFG.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Visual",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Hp/Downloads/PanelComprador.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.GFG.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Visual&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/Downloads/PanelComprador.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Hp\Desktop\DOO_Tarea3\Tarea3\src\main\resources" />
