@@ -26,24 +26,19 @@ public class PanelComprador extends JPanel {
         NumPad = new Boton[4];
         bMonedas = new Boton[3];
         select = 0;
-        Color transparent = new Color(0,0, 0, 0);
-        Color lightBlue = new Color(133,170, 215);
 
         this.setLayout((new BorderLayout()));
-        this.setBackground(transparent);
+        this.setBackground(new Color(0,0, 0, 0));
         InteraccionSelector listenerCompra = new InteraccionSelector();
         InteraccionExpendedor listenerMoneda = new InteraccionExpendedor();
         PanelSelector panelSelector = new PanelSelector();
         PanelPago panelPago = new PanelPago();
+        PanelInventario panelInv = new PanelInventario();
 
         JPanel subPanel = new JPanel();
-        subPanel.setBackground(transparent);
+        subPanel.setBackground(new Color(0,0, 0, 0));
         subPanel.setLayout(new GridLayout(2, 1));
         subPanel.setPreferredSize(new Dimension(352,720));
-
-        JPanel panelBlanck = new JPanel();
-        panelBlanck.setBackground(transparent);
-        panelBlanck.setPreferredSize(new Dimension(265,720));
 
         for(int i=0; i<4; i++) {
             NumPad[i] = new Boton(Color.BLACK,true,"imgBoton"+(i+1)+".png");
@@ -52,7 +47,7 @@ public class PanelComprador extends JPanel {
         }
 
         for(int i=0; i<3; i++) {
-            bMonedas[i] = new Boton(lightBlue,false,"imgMoneda"+(i+1)+".png");
+            bMonedas[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+(i+1)+".png");
             bMonedas[i].addActionListener(listenerMoneda);
             panelPago.addButton(bMonedas[i]);
         }
@@ -77,7 +72,7 @@ public class PanelComprador extends JPanel {
         subPanel.add(panelSelector);
         subPanel.add(panelPago);
         this.add(subPanel, BorderLayout.WEST);
-        this.add(panelBlanck, BorderLayout.EAST);
+        this.add(panelInv, BorderLayout.EAST);
 
     }
 
@@ -136,7 +131,7 @@ public class PanelComprador extends JPanel {
             else {
                 lProducto.setText("Codigo: "+select);
                 try {
-                    inter.getPanelExp().comprarExpendedor(comprador.getnumPago(), comprador.getdepoPago(), compra);
+                    inter.getPanelExp().comprarEnExpendedor(comprador.getnumPago(), comprador.getdepoPago(), compra);
                     int vuelto = comprador.getnumPago()-compra.getPrecio();
                     comprador.setnumPago(0);
                     lMonto.setText("Pago Ingresado: "+comprador.getnumPago());
@@ -173,7 +168,6 @@ public class PanelComprador extends JPanel {
                 lBilletera.setText("Billetera: "+comprador.getNumBilletera());
             }
             else {
-                //Se necesita comunicar con PanelExpendedor que se compró
                 Producto producto = inter.getPanelExp().obtenerProducto();
                 if(producto != null) {
                     System.out.println(producto.sabor());

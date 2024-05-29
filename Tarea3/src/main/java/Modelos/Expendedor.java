@@ -83,7 +83,7 @@ public class Expendedor {
         ProductoComprado = null;
         return aux;
     }
-    public void devolverPago(Deposito<Moneda> depoMonedas) {
+    public void addVuelto(Deposito<Moneda> depoMonedas) {
         depoVuelto.extend(depoMonedas);
     }
     /** Método para obtener la lista De depositos de productos
