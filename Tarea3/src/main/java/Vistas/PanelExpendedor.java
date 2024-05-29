@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
+
 public class PanelExpendedor extends JPanel {
 
     private Intermediario intermediario;
@@ -25,7 +27,7 @@ public class PanelExpendedor extends JPanel {
         this.expendedor = expendedor;
         lDeposito = expendedor.getListDepositos();
         //cantidadImg = lDeposito.size();
-        cantidadImg = 2;
+        cantidadImg = 16;
         prodImages = new BufferedImage[cantidadImg];
         posProdImg = new Rectangle[cantidadImg];
 
@@ -34,7 +36,7 @@ public class PanelExpendedor extends JPanel {
             try{
                 prodImages[i] = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+i+".png"));
                 //cambiar posiciones iniciales
-                posProdImg[i] = new Rectangle(i*200,0,50,100);
+                posProdImg[i] = new Rectangle(i*100,0,50,100);
                 //posProdImg[i] = new Rectangle(i%4*20,(i-i%4)*20/4,50,100);
             } catch (IOException ex){
                 System.out.println(ex.getMessage());
@@ -60,8 +62,12 @@ public class PanelExpendedor extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for(int i=0; i<cantidadImg; i++) {
-            g.drawImage(prodImages[i], i*100, i*100, this);
+        int index = 0;
+        for(int i=0; i<4; i++) {
+            for(int j=0; j<4; j++) {
+                g.drawImage(prodImages[index], 60+140*j+10*j, 45+165*i, this);
+                index++;
+            }
         }
     }
 
