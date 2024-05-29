@@ -72,8 +72,8 @@ public class Expendedor {
 
     /** Método para devolver una primera moneda del depósito de vuelto del expendedor
      * @return Una moneda de 100 del vuelto, cuando se vacía el deposito retorna null*/
-    public Moneda getVuelto() {
-        return depoVuelto.getContenido();
+    public Deposito<Moneda> getVuelto() {
+        return depoVuelto;
     }
 
     /** Método para obtener el producto comprado
@@ -83,9 +83,12 @@ public class Expendedor {
         ProductoComprado = null;
         return aux;
     }
-
     public void devolverPago(Deposito<Moneda> depoMonedas) {
         depoVuelto.extend(depoMonedas);
     }
-
+    /** Método para obtener la lista De depositos de productos
+     * @return Un ArrayList de Deposito de Productos */
+    public ArrayList<Deposito<Producto>> getListDepositos() {
+        return listDepositos;
+    }
 }

@@ -18,16 +18,11 @@ public class Comprador {
         depoPago = new Deposito<>();
         numPago = 0;
     }
-
-    public void comprarEnExpendedor(Expendedor exp, Seleccion select) throws Exception {
-        exp.comprarProducto(numPago,depoPago,select);
-    }
-
-    public void obtenerVuelto(Expendedor exp) {
+    public void obtenerVuelto(Deposito<Moneda> depoVuelto) {
         vuelto = 0;
         Moneda monVuelto=null;
         while (true) {
-            monVuelto = exp.getVuelto();
+            monVuelto = depoVuelto.getContenido();
             if (monVuelto == null) {
                 break;
             } else {
@@ -37,9 +32,6 @@ public class Comprador {
             }
         }
     }
-    public void obtenerPagoDevuelta(Expendedor expendedor) {
-        expendedor.devolverPago(depoPago);
-    }
     public void setnumPago(int num) {
         numPago=num;
     }
@@ -48,6 +40,9 @@ public class Comprador {
     }
     public int getnumPago() {
         return numPago;
+    }
+    public Deposito<Moneda> getdepoPago() {
+        return depoPago;
     }
     public int getNumBilletera() {
         return numbilletera;

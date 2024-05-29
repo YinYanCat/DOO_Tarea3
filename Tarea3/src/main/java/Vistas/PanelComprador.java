@@ -19,10 +19,10 @@ public class PanelComprador extends JPanel {
     private TextoBilletera lBilletera;
     private int select;
     private Comprador comprador;
-    private Expendedor expendedor;
-    public PanelComprador(Comprador comprador, Expendedor expendedor) {
+
+    private Intermediario inter;
+    public PanelComprador(Comprador comprador) {
         this.comprador = comprador;
-        this.expendedor = expendedor;
         NumPad = new Boton[4];
         bMonedas = new Boton[3];
         select = 0;
@@ -85,7 +85,7 @@ public class PanelComprador extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             Seleccion compra = null;
-
+            //Crear metodo Encontrar serie en Enum Seleccion para facilitar y permitir reutilizacion de codigo
             if(e.getSource()==NumPad[0]) {
                 select = 1+select*10;
                 if(select == 11)
@@ -136,7 +136,7 @@ public class PanelComprador extends JPanel {
             else {
                 lProducto.setText("Codigo: "+select);
                 try {
-                    comprador.comprarEnExpendedor(expendedor, compra);
+                    inter.getPanelExp().comprarExpendedor(comprador.getnumPago(), comprador.getdepoPago(), compra);
                     int vuelto = comprador.getnumPago()-compra.getPrecio();
                     comprador.setnumPago(0);
                     lMonto.setText("Pago Ingresado: "+comprador.getnumPago());
@@ -163,17 +163,18 @@ public class PanelComprador extends JPanel {
                 comprador.addMoneda(new Moneda1000());
             }
             else if(e.getSource()==bVuelto) {
-                comprador.obtenerVuelto(expendedor);
+                comprador.obtenerVuelto(inter.getPanelExp().entregarVuelto());
                 if(comprador.getVuelto() != 0)
                     lMensaje.setText("Vuelto Retirado");
                 else {
-                    comprador.obtenerPagoDevuelta(expendedor);
+                    inter.getPanelExp().devolverPagoExp(comprador.getdepoPago());
                     lMensaje.setText("Pago Devuelto");
                 }
                 lBilletera.setText("Billetera: "+comprador.getNumBilletera());
             }
             else {
-                Producto producto = expendedor.getProducto();
+                //Se necesita comunicar con PanelExpendedor que se compró
+                Producto producto = inter.getPanelExp().obtenerProducto();
                 if(producto != null) {
                     System.out.println(producto.sabor());
                     lProducto.setText("Codigo: __");
@@ -183,6 +184,8 @@ public class PanelComprador extends JPanel {
             lMonto.setText("Pago Ingresado: "+comprador.getnumPago());
         }
     }
+
+    public void setIntermediario(Intermediario inter) { this.inter = inter;}
 
     @Override
     protected void paintComponent(Graphics g) {
