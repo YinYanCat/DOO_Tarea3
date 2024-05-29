@@ -54,13 +54,20 @@ public class Expendedor {
 
         if(vuelto >= 0) {
             producto = listDepositos.get(select.getNumDepo()).getContenido();
-            if(producto == null) {
+            if (producto == null) {
                 //depoVuelto.extend(depoMonedas);
                 throw new NoHayProductoException("Producto seleccionado agotado");
             }
             depoAlmacenMonedas.extend(depoMonedas);
-            for (int i = 0; i < vuelto; i+=100) {
-                depoVuelto.addContenido(new Moneda100());
+            Moneda newMoneda;
+            while(vuelto > 0) {
+                if(1000%vuelto == 1000)
+                    depoVuelto.addContenido(newMoneda = new Moneda1000(1));
+                else if(500%vuelto == 500)
+                    depoVuelto.addContenido(newMoneda = new Moneda500(1));
+                else
+                    depoVuelto.addContenido(newMoneda = new Moneda100(1));;
+                vuelto -= newMoneda.getValor();
             }
         }
         else {

@@ -7,8 +7,8 @@ package Modelos;
 public class Moneda100 extends Moneda {
 
     /** Constructor por defecto de Moneda100 */
-    public Moneda100() {
-        super();
+    public Moneda100(int serie) {
+        super(serie);
     }
 
     /** Método para obtener el valor económico de la moneda

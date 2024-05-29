@@ -149,13 +149,13 @@ public class PanelComprador extends JPanel {
         public void actionPerformed(ActionEvent e) {
             lMensaje.setText(" ");
             if(e.getSource()==bMonedas[0]) {
-                comprador.addMoneda(new Moneda100());
+                comprador.addMoneda(new Moneda100(1));
             }
             else if(e.getSource()==bMonedas[1]) {
-                comprador.addMoneda(new Moneda500());
+                comprador.addMoneda(new Moneda500(1));
             }
             else if(e.getSource()==bMonedas[2]) {
-                comprador.addMoneda(new Moneda1000());
+                comprador.addMoneda(new Moneda1000(1));
             }
             else if(e.getSource()==bVuelto) {
                 comprador.obtenerVuelto(inter.getPanelExp().entregarVuelto());
