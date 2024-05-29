@@ -6,18 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Bebida.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Bebida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/CocaCola.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/CocaCola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda100.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda100.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda1000.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda1000.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda500.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda500.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Comprador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Comprador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelComprador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelComprador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/Expendedor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/Expendedor2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBackground.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
