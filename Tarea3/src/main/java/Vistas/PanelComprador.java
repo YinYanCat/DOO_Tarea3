@@ -16,7 +16,7 @@ public class PanelComprador extends JPanel {
     private TextoPantalla lProducto;
     private TextoPantalla lMonto;
     private TextoPantalla lMensaje;
-    private TextoPantalla lBilletera;
+    private TextoBilletera lBilletera;
     private int select;
     private Comprador comprador;
     private Expendedor expendedor;
@@ -62,7 +62,7 @@ public class PanelComprador extends JPanel {
         lProducto = new TextoPantalla("Codigo: __");
         lMonto = new TextoPantalla("Pago Ingresado: 0");
         lMensaje = new TextoPantalla(" ");
-        lBilletera = new TextoPantalla("Vuelto: 0 | Billetera: 0");
+        lBilletera = new TextoBilletera("Billetera: 0");
 
         panelSelector.addButton(bVuelto, 2);
         panelSelector.addButton(bGetProducto, 2);
@@ -170,7 +170,7 @@ public class PanelComprador extends JPanel {
                     comprador.obtenerPagoDevuelta(expendedor);
                     lMensaje.setText("Pago Devuelto");
                 }
-                lBilletera.setText("Vuelto: "+comprador.getVuelto()+" | Billetera: "+comprador.getNumBilletera());
+                lBilletera.setText("Billetera: "+comprador.getNumBilletera());
             }
             else {
                 Producto producto = expendedor.getProducto();
