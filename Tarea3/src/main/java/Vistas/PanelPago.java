@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelPago extends JPanel {
-    JPanel panelDisplay;
+    JPanel panelRetiro;
     JPanel panelMonedas;
 
     public PanelPago() {
@@ -21,19 +21,18 @@ public class PanelPago extends JPanel {
         panelMonedas.setBorder(BorderFactory.createMatteBorder(61, 19, 16, 19, transparent));
         this.add(panelMonedas);
 
-        panelDisplay = new JPanel();
-        panelDisplay.setLayout(new BorderLayout());
-        panelDisplay.setBackground(transparent);
-        panelMonedas.setPreferredSize(new Dimension(354,184));
-        panelDisplay.setBorder(BorderFactory.createMatteBorder(80, 50, 60, 50, transparent));
-        this.add(panelDisplay);
-
+        panelRetiro = new JPanel();
+        panelRetiro.setLayout(new BorderLayout());
+        panelRetiro.setBackground(transparent);
+        panelRetiro.setPreferredSize(new Dimension(354,184));
+        panelRetiro.setBorder(BorderFactory.createMatteBorder(75, 194, 40, 38, transparent));
+        this.add(panelRetiro);
     }
 
     public void addButton(JButton button) {
         panelMonedas.add(button);
     }
-    public void addText(JLabel text) {
-        panelDisplay.add(text);
+    public void addRetirar(JButton button) {
+        panelRetiro.add(button);
     }
 }

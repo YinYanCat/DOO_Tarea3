@@ -38,16 +38,13 @@ public class PanelSelector  extends JPanel {
         this.add(panelDisplay, BorderLayout.NORTH);
     }
 
-    public void addButton(JButton button, int panel) {
-        switch(panel) {
-            case 1:
-                panelNumberPad.add(button);
-                break;
-            case 2:
-                panelOptions.add(button);
-                break;
-        }
+    public void addNumPadButton(JButton button) {
+        panelNumberPad.add(button);
     }
+    public void addVueltoButton(JButton button) {
+        panelOptions.add(button);
+    }
+
     public void addText(TextoPantalla text) {
         panelDisplay.add(text);
     }

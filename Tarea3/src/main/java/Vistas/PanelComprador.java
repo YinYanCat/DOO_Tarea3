@@ -43,7 +43,7 @@ public class PanelComprador extends JPanel {
         for(int i=0; i<4; i++) {
             NumPad[i] = new Boton(Color.BLACK,true,"imgBoton"+(i+1)+".png");
             NumPad[i].addActionListener(listenerCompra);
-            panelSelector.addButton(NumPad[i], 1);
+            panelSelector.addNumPadButton(NumPad[i]);
         }
 
         for(int i=0; i<3; i++) {
@@ -59,12 +59,12 @@ public class PanelComprador extends JPanel {
         lMensaje = new TextoPantalla(" ");
         lBilletera = new TextoBilletera("Billetera: 0");
 
-        panelSelector.addButton(bVuelto, 2);
-        panelSelector.addButton(bGetProducto, 2);
+        panelSelector.addVueltoButton(bVuelto);
+        panelPago.addRetirar(bGetProducto);
         panelSelector.addText(lProducto);
         panelSelector.addText(lMonto);
         panelSelector.addText(lMensaje);
-        panelPago.addText(lBilletera);
+        panelInv.add(lBilletera, BorderLayout.SOUTH);
 
         bGetProducto.addActionListener(listenerMoneda);
         bVuelto.addActionListener(listenerMoneda);
