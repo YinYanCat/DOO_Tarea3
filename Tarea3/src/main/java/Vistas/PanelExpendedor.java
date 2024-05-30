@@ -6,19 +6,15 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 
 public class PanelExpendedor extends JPanel {
 
     private Intermediario intermediario;
 
     private BufferedImage[] prodImages;
-    private Rectangle[] posProdImg;
-    int cantidadImg;
+    int cantidadDepositos;
     private Expendedor expendedor;
 
     private ArrayList<Deposito<Producto>> lDeposito;
@@ -26,13 +22,14 @@ public class PanelExpendedor extends JPanel {
     public PanelExpendedor(Expendedor expendedor) {
         this.expendedor = expendedor;
         lDeposito = expendedor.getListDepositos();
-        //cantidadImg = lDeposito.size();
-        cantidadImg = 16;
-        prodImages = new BufferedImage[cantidadImg];
-        posProdImg = new Rectangle[cantidadImg];
+        cantidadDepositos = lDeposito.size();
+        //cantidadImg = 16;
+        prodImages = new BufferedImage[cantidadDepositos];
+        ActualizarProductos();
 
 
-        for(int i=0;i<cantidadImg;i++){
+
+        for(int i = 0; i< cantidadDepositos; i++){
             try{
                 prodImages[i] = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+i+".png"));
 
@@ -60,16 +57,18 @@ public class PanelExpendedor extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int index = 0;
-        for(int i=0; i<4; i++) {
-            for(int j=0; j<4; j++) {
-                g.drawImage(prodImages[index], 60+140*j+10*j, 45+165*i, this);
-                index++;
+
+        ActualizarProductos();
+        for(int i=0;i<cantidadDepositos;i++){
+            for(int j=0;j<expendedor.getListDepositos().get(i).getCantidadContenido();j++){
+                expendedor.getListDepositos().get(i).getList().get(j).paintComponent(g,this);
             }
         }
     }
 
-    public void setIntermediario(Intermediario inter) { intermediario = inter;}
+    public void setIntermediario(Intermediario inter) {
+        intermediario = inter;
+    }
 
     public void MoverProducto(int select) {
         int alturaExp = 700;
@@ -78,5 +77,10 @@ public class PanelExpendedor extends JPanel {
 
     public void ActualizarProductos(){
         lDeposito = expendedor.getListDepositos();
+        for(int i=0;i<cantidadDepositos;i++){
+            for(int j=0;j<expendedor.getListDepositos().get(i).getCantidadContenido();j++){
+                lDeposito.get(i).getList().get(j).Linker(prodImages[i],60+10*(j-i%4)+165*(i%4), 45+165*(i-i%4)/4);
+            }
+        }
     }
 }

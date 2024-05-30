@@ -74,7 +74,7 @@ public class Expendedor {
             //depoVuelto.extend(depoMonedas);
             throw new PagoInsuficienteException("Pago insuficiente");
         }
-        ProductoComprado = producto;
+        ProductoComprado = listDepositos.get(select.getNumDepo()).getContenido();
     }
 
     /** Método para devolver una primera moneda del depósito de vuelto del expendedor

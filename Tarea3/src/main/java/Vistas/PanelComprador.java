@@ -7,12 +7,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class PanelComprador extends JPanel {
     private Boton[] NumPad;
     private Boton[] bMonedas;
     private Boton bVuelto;
     private Boton bGetProducto;
+    private BufferedImage imgVuelto;
     private TextoPantalla lProducto;
     private TextoPantalla lMonto;
     private TextoPantalla lMensaje;
@@ -73,6 +76,12 @@ public class PanelComprador extends JPanel {
         subPanel.add(panelPago);
         this.add(subPanel, BorderLayout.WEST);
         this.add(panelInv, BorderLayout.EAST);
+
+        try{
+            imgVuelto = ImageIO.read(getClass().getClassLoader().getResource("imgVuelto.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -137,6 +146,9 @@ public class PanelComprador extends JPanel {
                     lMonto.setText("Pago Ingresado: "+comprador.getnumPago());
                     lMensaje.setText("Vuelto: "+vuelto);
                     lProducto.setText("Codigo: "+select+" | Producto Comprado");
+
+
+
                 } catch (Exception exception) {
                     lMensaje.setText(exception.getMessage());
                 }
@@ -185,5 +197,6 @@ public class PanelComprador extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        //g.drawImage(imgVuelto,200,260,this);
     }
 }

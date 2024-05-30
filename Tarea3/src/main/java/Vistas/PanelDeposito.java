@@ -13,7 +13,6 @@ public class PanelDeposito<T> extends JPanel {
 
     private Deposito<T> dep;
     private BufferedImage imgDep;
-    private PanelContenido contenido[];
 
     int largo;
     public PanelDeposito(Deposito<T> deposito, Rectangle bounds, String pathImgDeposito, String pathImgCont) {

@@ -53,6 +53,10 @@ public class Deposito<T> extends JPanel {
         return contenido.size();
     }
 
+    public ArrayList<T> getList(){
+        return contenido;
+    }
+
     @Override
     public void paintComponent(Graphics g){
 
