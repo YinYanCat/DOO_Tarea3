@@ -1,12 +1,14 @@
 package Modelos;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 /** Un deposito que almacena objetos de tipo genérico <T> en una lista
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
 
-public class Deposito<T> {
+public class Deposito<T> extends JPanel {
 
     /** Lista donde se guardan los objetos de tipo genérico */
     private ArrayList<T> contenido;
@@ -49,5 +51,10 @@ public class Deposito<T> {
     }
     public int getCantidadContenido() {
         return contenido.size();
+    }
+
+    @Override
+    public void paintComponent(Graphics g){
+
     }
 }

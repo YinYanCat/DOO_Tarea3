@@ -1,5 +1,7 @@
 package Modelos;
 
+import java.awt.*;
+
 /** Un objeto que se puede comprar utilizando dinero, se puede almacenar en un depósito
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */

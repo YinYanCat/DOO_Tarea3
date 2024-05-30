@@ -35,9 +35,7 @@ public class PanelExpendedor extends JPanel {
         for(int i=0;i<cantidadImg;i++){
             try{
                 prodImages[i] = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+i+".png"));
-                //cambiar posiciones iniciales
-                posProdImg[i] = new Rectangle(i*100,0,50,100);
-                //posProdImg[i] = new Rectangle(i%4*20,(i-i%4)*20/4,50,100);
+
             } catch (IOException ex){
                 System.out.println(ex.getMessage());
             }
