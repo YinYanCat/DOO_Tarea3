@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
 
-public class Deposito<T> extends JPanel {
+public class Deposito<T extends Visible> extends JPanel {
 
     /** Lista donde se guardan los objetos de tipo genérico */
     private ArrayList<T> contenido;
@@ -57,8 +57,9 @@ public class Deposito<T> extends JPanel {
         return contenido;
     }
 
-    @Override
-    public void paintComponent(Graphics g){
-
+    public void paintComponent(Graphics g,Component observer){
+        for(int j=0;j<getCantidadContenido();j++){
+            contenido.get(j).paintComponent(g,observer);
+        }
     }
 }

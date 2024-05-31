@@ -14,28 +14,33 @@ public class PanelExpendedor extends JPanel {
     private Intermediario intermediario;
 
     private BufferedImage[] prodImages;
-    int cantidadDepositos;
-    private Expendedor expendedor;
+    private final int cantidadDepositos;
+    private final Expendedor expendedor;
 
     private ArrayList<Deposito<Producto>> lDeposito;
+    private PanelDeposito[] pDepos;
 
     public PanelExpendedor(Expendedor expendedor) {
+        super(null);
         this.expendedor = expendedor;
         lDeposito = expendedor.getListDepositos();
         cantidadDepositos = lDeposito.size();
-        //cantidadImg = 16;
+        pDepos = new PanelDeposito[cantidadDepositos];
         prodImages = new BufferedImage[cantidadDepositos];
-        ActualizarProductos();
 
 
 
         for(int i = 0; i< cantidadDepositos; i++){
+
             try{
                 prodImages[i] = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+i+".png"));
 
             } catch (IOException ex){
                 System.out.println(ex.getMessage());
             }
+            pDepos[i] = new PanelDeposito<>(lDeposito.get(i),prodImages[i]);
+            pDepos[i].setBounds(60+160*(i%4), 45+165*(i-i%4)/4,129,100);
+            this.add(pDepos[i]);
         }
     }
 
@@ -58,11 +63,8 @@ public class PanelExpendedor extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        ActualizarProductos();
         for(int i=0;i<cantidadDepositos;i++){
-            for(int j=0;j<expendedor.getListDepositos().get(i).getCantidadContenido();j++){
-                expendedor.getListDepositos().get(i).getList().get(j).paintComponent(g,this);
-            }
+            lDeposito.get(i).paintComponent(g,this);
         }
     }
 
@@ -71,16 +73,7 @@ public class PanelExpendedor extends JPanel {
     }
 
     public void MoverProducto(int select) {
-        int alturaExp = 700;
+    //    int alturaExp = 700;
     //    while( y>alturaExp){}
-    }
-
-    public void ActualizarProductos(){
-        lDeposito = expendedor.getListDepositos();
-        for(int i=0;i<cantidadDepositos;i++){
-            for(int j=0;j<expendedor.getListDepositos().get(i).getCantidadContenido();j++){
-                lDeposito.get(i).getList().get(j).Linker(prodImages[i],60+10*(j-i%4)+160*(i%4), 45+165*(i-i%4)/4);
-            }
-        }
     }
 }

@@ -7,36 +7,39 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 
-public class PanelDeposito<T> extends JPanel {
+public class PanelDeposito<T extends Visible> extends JPanel {
 
     private Deposito<T> dep;
-    private BufferedImage imgDep;
+    private BufferedImage img;
 
-    int largo;
-    public PanelDeposito(Deposito<T> deposito, Rectangle bounds, String pathImgDeposito, String pathImgCont) {
-        super(null);
+    public PanelDeposito(Deposito<T> deposito,BufferedImage imagen) {
+        super();
         dep = deposito;
-        largo = dep.getCantidadContenido();
-        try{
-        imgDep = ImageIO.read(getClass().getClassLoader().getResource(pathImgDeposito));
-        }catch(IOException e){
-            System.out.println(e.getMessage());
+        img = imagen;
+        this.setOpaque(false);
+    }
+
+    public void ActualizarContenido(){
+        for(int i=0;i<dep.getCantidadContenido();i++){
+            T contenido = dep.getList().get(i);
+            contenido.setPosition(10*i,0);
+            contenido.setImage(img);
+
+        }
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        ActualizarContenido();
+        for(int j=0;j<dep.getCantidadContenido();j++) {
+            dep.getList().get(j).paintComponent(g, this);
         }
 
-
-        try{
-            imgDep = ImageIO.read(getClass().getClassLoader().getResource(pathImgDeposito));
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
-
-        setBounds(bounds);
     }
 
 
-    public void paintComponent(Graphics g){
-
-    }
 }
