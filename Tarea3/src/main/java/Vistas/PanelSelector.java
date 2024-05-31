@@ -5,9 +5,9 @@ import java.awt.*;
 
 public class PanelSelector  extends JPanel {
 
-    JPanel panelDisplay;
-    JPanel panelNumberPad;
-    JPanel panelOptions;
+    private JPanel panelDisplay;
+    private JPanel panelNumberPad;
+    private JPanel panelOptions;
 
     public PanelSelector() {
         super();
@@ -27,7 +27,7 @@ public class PanelSelector  extends JPanel {
         panelOptions.setBackground(transparent);
         panelOptions.setLayout(new GridLayout(2, 1, 10, 10));
         panelOptions.setPreferredSize(new Dimension(172,215));
-        panelOptions.setBorder(BorderFactory.createMatteBorder(42, 15, 43, 37, transparent));
+        panelOptions.setBorder(BorderFactory.createMatteBorder(42, 16, 43, 36, transparent));
         this.add(panelOptions, BorderLayout.EAST);
 
         panelDisplay = new JPanel();

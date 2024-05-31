@@ -79,7 +79,7 @@ public class PanelExpendedor extends JPanel {
         lDeposito = expendedor.getListDepositos();
         for(int i=0;i<cantidadDepositos;i++){
             for(int j=0;j<expendedor.getListDepositos().get(i).getCantidadContenido();j++){
-                lDeposito.get(i).getList().get(j).Linker(prodImages[i],60+10*(j-i%4)+165*(i%4), 45+165*(i-i%4)/4);
+                lDeposito.get(i).getList().get(j).Linker(prodImages[i],60+10*(j-i%4)+160*(i%4), 45+165*(i-i%4)/4);
             }
         }
     }

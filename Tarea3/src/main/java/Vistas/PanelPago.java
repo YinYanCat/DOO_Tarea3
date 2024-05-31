@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelPago extends JPanel {
-    JPanel panelRetiro;
-    JPanel panelMonedas;
+    private JPanel panelRetiro;
+    private JPanel panelMonedas;
 
     public PanelPago() {
         super();
@@ -18,7 +18,7 @@ public class PanelPago extends JPanel {
         panelMonedas.setLayout(new GridLayout(1, 3, 8, 8));
         panelMonedas.setBackground(transparent);
         panelMonedas.setPreferredSize(new Dimension(354,177));
-        panelMonedas.setBorder(BorderFactory.createMatteBorder(61, 19, 16, 19, transparent));
+        panelMonedas.setBorder(BorderFactory.createMatteBorder(61, 22, 16, 16, transparent));
         this.add(panelMonedas);
 
         panelRetiro = new JPanel();

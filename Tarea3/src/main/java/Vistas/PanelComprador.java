@@ -16,18 +16,17 @@ public class PanelComprador extends JPanel {
     private Boton bVuelto;
     private Boton bGetProducto;
     private BufferedImage imgVuelto;
-    private TextoPantalla lProducto;
-    private TextoPantalla lMonto;
-    private TextoPantalla lMensaje;
-    private TextoBilletera lBilletera;
+    private TextoPantalla[] lPantalla;
     private int select;
     private Comprador comprador;
-
+    private PanelInventario panelInv;
     private Intermediario inter;
+
     public PanelComprador(Comprador comprador) {
         this.comprador = comprador;
         NumPad = new Boton[4];
         bMonedas = new Boton[3];
+        lPantalla = new TextoPantalla[3];
         select = 0;
 
         this.setLayout((new BorderLayout()));
@@ -36,7 +35,7 @@ public class PanelComprador extends JPanel {
         InteraccionExpendedor listenerMoneda = new InteraccionExpendedor();
         PanelSelector panelSelector = new PanelSelector();
         PanelPago panelPago = new PanelPago();
-        PanelInventario panelInv = new PanelInventario();
+        panelInv = new PanelInventario();
 
         JPanel subPanel = new JPanel();
         subPanel.setBackground(new Color(0,0, 0, 0));
@@ -49,25 +48,21 @@ public class PanelComprador extends JPanel {
             panelSelector.addNumPadButton(NumPad[i]);
         }
 
+        lPantalla[0] = new TextoPantalla("Codigo: __");
+        lPantalla[1] = new TextoPantalla("Pago Ingresado: 0");
+        lPantalla[2] = new TextoPantalla(" ");
+
         for(int i=0; i<3; i++) {
             bMonedas[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+(i+1)+".png");
             bMonedas[i].addActionListener(listenerMoneda);
             panelPago.addButton(bMonedas[i]);
+            panelSelector.addText(lPantalla[i]);
         }
 
         bVuelto = new Boton(Color.BLACK,true,"imgBotonVuelto.png");
         bGetProducto = new Boton(Color.BLACK,true,"imgBotonProducto.png");
-        lProducto = new TextoPantalla("Codigo: __");
-        lMonto = new TextoPantalla("Pago Ingresado: 0");
-        lMensaje = new TextoPantalla(" ");
-        lBilletera = new TextoBilletera("Billetera: 0");
-
         panelSelector.addVueltoButton(bVuelto);
         panelPago.addRetirar(bGetProducto);
-        panelSelector.addText(lProducto);
-        panelSelector.addText(lMonto);
-        panelSelector.addText(lMensaje);
-        panelInv.add(lBilletera, BorderLayout.SOUTH);
 
         bGetProducto.addActionListener(listenerMoneda);
         bVuelto.addActionListener(listenerMoneda);
@@ -136,21 +131,20 @@ public class PanelComprador extends JPanel {
             }
 
             if(compra == null)
-                lProducto.setText("Codigo: "+select+"_");
+                lPantalla[0].setText("Codigo: "+select+"_");
             else {
-                lProducto.setText("Codigo: "+select);
+                lPantalla[0].setText("Codigo: "+select);
                 try {
                     inter.getPanelExp().comprarEnExpendedor(comprador.getnumPago(), comprador.getdepoPago(), compra);
                     int vuelto = comprador.getnumPago()-compra.getPrecio();
                     comprador.setnumPago(0);
-                    lMonto.setText("Pago Ingresado: "+comprador.getnumPago());
-                    lMensaje.setText("Vuelto: "+vuelto);
-                    lProducto.setText("Codigo: "+select+" | Producto Comprado");
-
+                    lPantalla[1].setText("Pago Ingresado: "+comprador.getnumPago());
+                    lPantalla[2].setText("Vuelto: "+vuelto);
+                    lPantalla[0].setText("Codigo: "+select+" | Producto Comprado");
 
 
                 } catch (Exception exception) {
-                    lMensaje.setText(exception.getMessage());
+                    lPantalla[2].setText(exception.getMessage());
                 }
                 select = 0;
             }
@@ -159,7 +153,7 @@ public class PanelComprador extends JPanel {
     private class InteraccionExpendedor implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            lMensaje.setText(" ");
+            lPantalla[2].setText(" ");
             if(e.getSource()==bMonedas[0]) {
                 comprador.addMoneda(new Moneda100(1));
             }
@@ -172,23 +166,23 @@ public class PanelComprador extends JPanel {
             else if(e.getSource()==bVuelto) {
                 comprador.obtenerVuelto(inter.getPanelExp().entregarVuelto());
                 if(comprador.getVuelto() != 0)
-                    lMensaje.setText("Vuelto Retirado");
+                    lPantalla[2].setText("Vuelto Retirado");
                 else if(comprador.getnumPago() != 0) {
                     inter.getPanelExp().devolverPagoExp(comprador.getdepoPago());
-                    lMensaje.setText("Pago Devuelto");
+                    lPantalla[2].setText("Pago Devuelto");
                     comprador.setnumPago(0);
                 }
-                lBilletera.setText("Billetera: "+comprador.getNumBilletera());
+                panelInv.setBilletera("Billetera: "+comprador.getNumBilletera());
             }
             else {
                 Producto producto = inter.getPanelExp().obtenerProducto();
                 if(producto != null) {
                     System.out.println(producto.sabor());
-                    lProducto.setText("Codigo: __");
-                    lMensaje.setText(" ");
+                    lPantalla[0].setText("Codigo: __");
+                    lPantalla[2].setText(" ");
                 }
             }
-            lMonto.setText("Pago Ingresado: "+comprador.getnumPago());
+            lPantalla[1].setText("Pago Ingresado: "+comprador.getnumPago());
         }
     }
 

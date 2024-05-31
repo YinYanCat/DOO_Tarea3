@@ -7,14 +7,14 @@
     <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelComprador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelComprador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelExpendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelExpendedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelInventario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelPago.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelPago.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelSelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/Expendedor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/Expendedor2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBackground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBotonProducto.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBotonProducto.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/ornitorrinco.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/TextoBilletera.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/TextoInventario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgMoneda1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgMoneda1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgMoneda2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgMoneda2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgMoneda3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/resources/imgMoneda3.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
