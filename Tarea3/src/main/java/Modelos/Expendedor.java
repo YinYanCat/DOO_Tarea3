@@ -18,7 +18,7 @@ public class Expendedor {
     private Deposito<Moneda> depoAlmacenMonedas;
 
     /** Producto que es comprado */
-    private Producto ProductoComprado;
+    private Deposito<Producto> DepoUnicoProducto;
 
     /** Constructor para crear y llenar los depósitos del expendedor con productos
      * @param numProductos Número entero con la cantidad de productos que tiene cada depósito de 'listDepositos' */
@@ -26,7 +26,7 @@ public class Expendedor {
         listDepositos = new ArrayList<>();
         depoVuelto = new Deposito<>();
         depoAlmacenMonedas = new Deposito<>();
-        ProductoComprado = null;
+        DepoUnicoProducto = new Deposito<>();;
         Trabajador trabajador = new Trabajador();
         // Llenar los depositos con productos
         for(int i=0; i<trabajador.getcantidadProductos(); i++) {
@@ -43,12 +43,12 @@ public class Expendedor {
      * @throws PagoInsuficienteException Se lanza esta excepción si el pago es menor al precio del producto
      * @throws ProductoNoRetiradoException Se lanza esta excepción si hay un producto sin retirar en el expendedor */
     public void comprarProducto(int cantidadPago, Deposito<Moneda> depoMonedas, Seleccion select) throws Exception {
-        if(ProductoComprado != null)
+        if(DepoUnicoProducto.getCantidadContenido()!=0)
             throw new ProductoNoRetiradoException("Producto anterior no retirado");
         if(cantidadPago <= 0)
             throw new PagoIncorrectoException("Moneda no ingresada");
 
-        Producto producto = null;
+        Producto producto;
         int precio = select.getPrecio();
         int vuelto = cantidadPago - precio;
 
@@ -72,7 +72,7 @@ public class Expendedor {
         else {
             throw new PagoInsuficienteException("Pago insuficiente");
         }
-        ProductoComprado = producto;
+        DepoUnicoProducto.addContenido(producto);
     }
 
     /** Método para devolver una primera moneda del depósito de vuelto del expendedor
@@ -84,10 +84,11 @@ public class Expendedor {
     /** Método para obtener el producto comprado
      * @return Un producto comprado, cuando se vacía el deposito retorna null*/
     public Producto getProducto() {
-        Producto aux = ProductoComprado;
-        ProductoComprado = null;
-        return aux;
+        if(DepoUnicoProducto.getCantidadContenido()!=0)
+            return  DepoUnicoProducto.getContenido();
+        return null;
     }
+
     public void addVuelto(Deposito<Moneda> depoMonedas) {
         depoVuelto.extend(depoMonedas);
     }

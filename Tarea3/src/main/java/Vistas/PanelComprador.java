@@ -141,8 +141,6 @@ public class PanelComprador extends JPanel {
                     lPantalla[1].setText("Pago Ingresado: "+comprador.getnumPago());
                     lPantalla[2].setText("Vuelto: "+vuelto);
                     lPantalla[0].setText("Codigo: "+select+" | Producto Comprado");
-
-
                 } catch (Exception exception) {
                     lPantalla[2].setText(exception.getMessage());
                 }
