@@ -1,5 +1,7 @@
 package Vistas;
 
+import javax.swing.plaf.synth.SynthUI;
+
 /** El main en donde se realiza el programa
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */

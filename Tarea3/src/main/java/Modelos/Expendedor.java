@@ -89,6 +89,10 @@ public class Expendedor {
         return null;
     }
 
+    public Deposito<Producto> getDepoProductoUnico() {
+        return DepoUnicoProducto;
+    }
+
     public void addVuelto(Deposito<Moneda> depoMonedas) {
         depoVuelto.extend(depoMonedas);
     }

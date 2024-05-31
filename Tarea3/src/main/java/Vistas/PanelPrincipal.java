@@ -13,52 +13,37 @@ public class PanelPrincipal extends JPanel {
     private PanelExpendedor panelExp;
     private Expendedor expendedor;
     private Comprador comprador;
-
     private Intermediario intermediario;
-
-    private BufferedImage image;
+    private BufferedImage imgBackground;
 
     public PanelPrincipal(BorderLayout borderLayout) {
         super(borderLayout);
-        Color transparent = new Color(0,0, 0, 0);
-        expendedor = new Expendedor(5);
+        int CantidadDeProductos = 5;
+        expendedor = new Expendedor(CantidadDeProductos);
         comprador = new Comprador();
-        this.setBackground(new Color(0,0, 0, 0));
+        this.setBackground(new Color(99,155, 255));
         this.setLayout(new BorderLayout());
         panelExp = new PanelExpendedor(expendedor);
-        panelExp.setBackground(transparent);
-        panelExp.setPreferredSize(new Dimension(675,720));
+        panelExp.setPreferredSize(new Dimension(663,720));
         this.add(panelExp, BorderLayout.WEST);
         panelCom = new PanelComprador(comprador);
-        panelCom.setBackground(transparent);
-        panelCom.setPreferredSize(new Dimension(605,720));
+        panelCom.setPreferredSize(new Dimension(603,720));
         this.add(panelCom, BorderLayout.EAST);
 
-        intermediario = new Intermediario(panelCom, panelExp);
+        intermediario = new Intermediario(this, panelCom, panelExp);
         panelExp.setIntermediario(intermediario);
         panelCom.setIntermediario(intermediario);
 
         try {
-            image = ImageIO.read(getClass().getClassLoader().getResource("imgBackground.png"));
+            imgBackground = ImageIO.read(getClass().getClassLoader().getResource("imgBackground.png"));
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-
-    }
-
-    public PanelExpendedor getPanelExpendedor() {
-        return panelExp;
-    }
-
-    public Producto VisualizarCompra(int select){
-        panelExp.MoverProducto(select);
-        Producto p = expendedor.getProducto();
-        return p;
     }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawImage(image, 0, 0, this);
+        g.drawImage(imgBackground, 0, 0, this);
         panelExp.paintComponent(g);
         panelCom.paintComponent(g);
     }

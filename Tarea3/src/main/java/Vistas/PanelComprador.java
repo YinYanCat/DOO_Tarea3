@@ -15,7 +15,7 @@ public class PanelComprador extends JPanel {
     private Boton[] bMonedas;
     private Boton bVuelto;
     private Boton bGetProducto;
-    private BufferedImage imgVuelto;
+    private BufferedImage ImgBackground;
     private TextoPantalla[] lPantalla;
     private int select;
     private Comprador comprador;
@@ -29,8 +29,13 @@ public class PanelComprador extends JPanel {
         lPantalla = new TextoPantalla[3];
         select = 0;
 
+        try {
+            ImgBackground = ImageIO.read(getClass().getClassLoader().getResource("imgPanelComprador.png"));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
         this.setLayout((new BorderLayout()));
-        this.setBackground(new Color(0,0, 0, 0));
         InteraccionSelector listenerCompra = new InteraccionSelector();
         InteraccionExpendedor listenerMoneda = new InteraccionExpendedor();
         PanelSelector panelSelector = new PanelSelector();
@@ -40,7 +45,7 @@ public class PanelComprador extends JPanel {
         JPanel subPanel = new JPanel();
         subPanel.setBackground(new Color(0,0, 0, 0));
         subPanel.setLayout(new GridLayout(2, 1));
-        subPanel.setPreferredSize(new Dimension(352,720));
+        subPanel.setPreferredSize(new Dimension(354,720));
 
         for(int i=0; i<4; i++) {
             NumPad[i] = new Boton(Color.BLACK,true,"imgBoton"+(i+1)+".png");
@@ -71,13 +76,6 @@ public class PanelComprador extends JPanel {
         subPanel.add(panelPago);
         this.add(subPanel, BorderLayout.WEST);
         this.add(panelInv, BorderLayout.EAST);
-
-        try{
-            imgVuelto = ImageIO.read(getClass().getClassLoader().getResource("imgVuelto.png"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
     private class InteraccionSelector implements ActionListener {
@@ -176,7 +174,8 @@ public class PanelComprador extends JPanel {
                 Producto producto = inter.getPanelExp().obtenerProducto();
                 if(producto != null) {
                     comprador.addProducto(producto);
-                    panelInv.displayProducto(producto.sabor(), comprador.getSizeBolsa());
+                    panelInv.changeTextProducto(producto.sabor(), comprador.getSizeBolsa());
+                    panelInv.displayProducto(producto);
                     lPantalla[0].setText("Codigo: __");
                     lPantalla[2].setText(" ");
                 }
@@ -190,6 +189,6 @@ public class PanelComprador extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //g.drawImage(imgVuelto,200,260,this);
+        g.drawImage(ImgBackground,0,0,this);
     }
 }

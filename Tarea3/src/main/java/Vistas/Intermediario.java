@@ -1,12 +1,19 @@
 package Vistas;
 
-public class Intermediario  {
-    private PanelComprador panelCom;
-    private PanelExpendedor panelExp;
-    public Intermediario(PanelComprador panelCom, PanelExpendedor panelExp) {
-        this.panelCom = panelCom;
-        this.panelExp = panelExp;
+public class Intermediario {
+
+    private PanelPrincipal panelPrincipal;
+    private PanelExpendedor panelExpendedor;
+    private PanelComprador panelComprador;
+
+    public Intermediario(PanelPrincipal panelPrincipal, PanelComprador panelComprador, PanelExpendedor panelExpendedor) {
+        this.panelPrincipal = panelPrincipal;
+        this.panelExpendedor = panelExpendedor;
+        this.panelComprador = panelComprador;
     }
-    public PanelComprador getPanelComp(){ return panelCom; }
-    public PanelExpendedor getPanelExp(){ return panelExp; }
+    public PanelPrincipal getPanelPrin(){ return panelPrincipal; }
+
+    public PanelExpendedor getPanelExp(){ return panelExpendedor; }
+
+    public PanelComprador getPanelComp(){ return panelComprador; }
 }
