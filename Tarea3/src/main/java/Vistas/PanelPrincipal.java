@@ -14,7 +14,6 @@ public class PanelPrincipal extends JPanel {
     private Expendedor expendedor;
     private Comprador comprador;
     private Intermediario intermediario;
-    private BufferedImage imgBackground;
 
     public PanelPrincipal(BorderLayout borderLayout) {
         super(borderLayout);
@@ -33,17 +32,10 @@ public class PanelPrincipal extends JPanel {
         intermediario = new Intermediario(this, panelCom, panelExp);
         panelExp.setIntermediario(intermediario);
         panelCom.setIntermediario(intermediario);
-
-        try {
-            imgBackground = ImageIO.read(getClass().getClassLoader().getResource("imgBackground.png"));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
     }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawImage(imgBackground, 0, 0, this);
         panelExp.paintComponent(g);
         panelCom.paintComponent(g);
     }

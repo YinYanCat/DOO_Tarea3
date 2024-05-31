@@ -15,12 +15,13 @@ public class PanelComprador extends JPanel {
     private Boton[] bMonedas;
     private Boton bVuelto;
     private Boton bGetProducto;
-    private BufferedImage ImgBackground;
+    private BufferedImage[] ImgUse;
+    private boolean[] ImgDisplay;
     private TextoPantalla[] lPantalla;
-    private int select;
     private Comprador comprador;
     private PanelInventario panelInv;
     private Intermediario inter;
+    private int select;
 
     public PanelComprador(Comprador comprador) {
         this.comprador = comprador;
@@ -28,9 +29,14 @@ public class PanelComprador extends JPanel {
         bMonedas = new Boton[3];
         lPantalla = new TextoPantalla[3];
         select = 0;
+        ImgUse = new BufferedImage[5];
+        ImgDisplay = new boolean[2];
 
         try {
-            ImgBackground = ImageIO.read(getClass().getClassLoader().getResource("imgPanelComprador.png"));
+            ImgUse[0] = ImageIO.read(getClass().getClassLoader().getResource("imgVuelto.png"));
+            ImgUse[1] = ImageIO.read(getClass().getClassLoader().getResource("imgPush.png"));
+            ImgUse[3] = ImageIO.read(getClass().getClassLoader().getResource("imgPushMarco.png"));
+            ImgUse[4] = ImageIO.read(getClass().getClassLoader().getResource("imgPanelComprador.png"));
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -139,9 +145,18 @@ public class PanelComprador extends JPanel {
                     lPantalla[1].setText("Pago Ingresado: "+comprador.getnumPago());
                     lPantalla[2].setText("Vuelto: "+vuelto);
                     lPantalla[0].setText("Codigo: "+select+" | Producto Comprado");
+                    if(vuelto != 0)
+                        ImgDisplay[0] = true;
+                    ImgDisplay[1] = true;
                 } catch (Exception exception) {
                     lPantalla[2].setText(exception.getMessage());
                 }
+                try {
+                    ImgUse[2] = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+compra.getNumDepo()+".png"));
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                repaint();
                 select = 0;
             }
         }
@@ -161,23 +176,30 @@ public class PanelComprador extends JPanel {
             }
             else if(e.getSource()==bVuelto) {
                 comprador.obtenerVuelto(inter.getPanelExp().entregarVuelto());
-                if(comprador.getVuelto() != 0)
+                if(comprador.getVuelto() != 0) {
                     lPantalla[2].setText("Vuelto Retirado");
+                    ImgDisplay[0] = false;
+                }
                 else if(comprador.getnumPago() != 0) {
                     inter.getPanelExp().devolverPagoExp(comprador.getdepoPago());
                     lPantalla[2].setText("Pago Devuelto");
+                    lPantalla[0].setText("Codigo: __");
+                    select = 0;
                     comprador.setnumPago(0);
+                    ImgDisplay[0] = true;
                 }
+                repaint();
                 panelInv.setBilletera(comprador.getNumBilletera());
             }
             else {
                 Producto producto = inter.getPanelExp().obtenerProducto();
                 if(producto != null) {
                     comprador.addProducto(producto);
-                    panelInv.changeTextProducto(producto.sabor(), comprador.getSizeBolsa());
-                    panelInv.displayProducto(producto);
+                    panelInv.displayProducto(producto, comprador.getSizeBolsa());
                     lPantalla[0].setText("Codigo: __");
                     lPantalla[2].setText(" ");
+                    ImgDisplay[1] = false;
+                    repaint();
                 }
             }
             lPantalla[1].setText("Pago Ingresado: "+comprador.getnumPago());
@@ -189,6 +211,13 @@ public class PanelComprador extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(ImgBackground,0,0,this);
+        g.drawImage(ImgUse[4],0,0,this);
+        if(ImgDisplay[0])
+            g.drawImage(ImgUse[0],197,257,this);
+        if(ImgDisplay[1]) {
+            g.drawImage(ImgUse[1], 30, 596, this);
+            g.drawImage(ImgUse[2], 70, 636, this);
+            g.drawImage(ImgUse[3], 30, 596, this);
+        }
     }
 }

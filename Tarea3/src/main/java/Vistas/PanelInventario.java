@@ -47,12 +47,10 @@ public class PanelInventario  extends JPanel {
     public void setBilletera(int cantidad) {
         lInventario[3].setText("Billetera: "+cantidad);
     }
-    public void changeTextProducto(String sabor, int cantidad) {
-        lInventario[0].setText(sabor);
-        lInventario[1].setText("Bolsa: "+cantidad);
-    }
 
-    public void displayProducto(Producto producto) {
+    public void displayProducto(Producto producto, int cantidad) {
+        lInventario[0].setText(producto.sabor());
+        lInventario[1].setText("Bolsa: "+cantidad);
         invProducto = producto;
         invProducto.setPosition(30,100);
         repaint();

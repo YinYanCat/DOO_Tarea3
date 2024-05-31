@@ -20,6 +20,8 @@ public class Expendedor {
     /** Producto que es comprado */
     private Deposito<Producto> DepoUnicoProducto;
 
+    private int serieMonedas;
+
     /** Constructor para crear y llenar los depósitos del expendedor con productos
      * @param numProductos Número entero con la cantidad de productos que tiene cada depósito de 'listDepositos' */
     public Expendedor(int numProductos) {
@@ -27,6 +29,7 @@ public class Expendedor {
         depoVuelto = new Deposito<>();
         depoAlmacenMonedas = new Deposito<>();
         DepoUnicoProducto = new Deposito<>();;
+        serieMonedas = 0;
         Trabajador trabajador = new Trabajador();
         // Llenar los depositos con productos
         for(int i=0; i<trabajador.getcantidadProductos(); i++) {
@@ -61,11 +64,11 @@ public class Expendedor {
             Moneda newMoneda;
             while(vuelto > 0) {
                 if(1000%vuelto == 1000)
-                    depoVuelto.addContenido(newMoneda = new Moneda1000(1));
+                    depoVuelto.addContenido(newMoneda = new Moneda1000(110000+(serieMonedas++)));
                 else if(500%vuelto == 500)
-                    depoVuelto.addContenido(newMoneda = new Moneda500(1));
+                    depoVuelto.addContenido(newMoneda = new Moneda500(105000+(serieMonedas++)));
                 else
-                    depoVuelto.addContenido(newMoneda = new Moneda100(1));;
+                    depoVuelto.addContenido(newMoneda = new Moneda100(101000+(serieMonedas++)));
                 vuelto -= newMoneda.getValor();
             }
         }
