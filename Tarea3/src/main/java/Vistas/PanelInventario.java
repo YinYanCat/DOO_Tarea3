@@ -1,5 +1,7 @@
 package Vistas;
 
+import Modelos.Deposito;
+import Modelos.Moneda;
 import Modelos.Producto;
 
 import javax.imageio.ImageIO;
@@ -13,9 +15,12 @@ public class PanelInventario  extends JPanel {
     private JPanel[] pInventario;
     private BufferedImage ImgBackground;
     private Producto invProducto;
+    private Deposito<Moneda> depoMonedas;
+    private boolean paintMonedas;
 
     public PanelInventario() {
         super();
+        paintMonedas = false;
         try {
             ImgBackground = ImageIO.read(getClass().getClassLoader().getResource("imgPanelInventario.png"));
         } catch (IOException ex) {
@@ -56,11 +61,29 @@ public class PanelInventario  extends JPanel {
         repaint();
     }
 
+    public void displayMonedas(Deposito<Moneda> depoVuelto) {
+        paintMonedas = true;
+        depoMonedas = depoVuelto;
+        System.out.println("Cantidad: "+depoMonedas.getCantidadContenido());
+        for(int i=0; i<depoMonedas.getCantidadContenido(); i++) {
+            depoMonedas.checkContenido(i).setPosition(30+100*i,300);
+        }
+        repaint();
+    }
+
+    public void monedaPaintSwitch(boolean change) { paintMonedas = change; }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(ImgBackground, 0, 0, this);
         if(invProducto!=null)
             invProducto.paintComponent(g, this);
+        if(paintMonedas) {
+            for (int i = 0; i < depoMonedas.getCantidadContenido(); i++) {
+                depoMonedas.checkContenido(i).paintComponent(g, this);
+            }
+            paintMonedas = false;
+        }
     }
 }

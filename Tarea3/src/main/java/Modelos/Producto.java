@@ -9,21 +9,18 @@ import java.io.IOException;
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
 
-public abstract class Producto implements Visible{
+public abstract class Producto implements Visible {
 
     /** Número entero que guarda el número de serie del producto */
     private int serie;
 
     /** Coordenada del un producto en el eje X */
-
     private int posX;
 
     /** Coordenada del un producto en el eje Y */
-
     private int posY;
 
     /** Imagen del producto */
-
     protected BufferedImage img;
 
     /** Constructor donde se guarda el número de serie del producto
@@ -41,10 +38,8 @@ public abstract class Producto implements Visible{
         posY = y;
     }
 
-
     public void setImage(BufferedImage image){
         img = image;
-
     }
 
     /** Método para obtener el número de serie del producto

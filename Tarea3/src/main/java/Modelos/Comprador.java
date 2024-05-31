@@ -38,17 +38,12 @@ public class Comprador {
      * @param depoVuelto El deposito con las monedas entregadas como vuelto */
     public void obtenerVuelto(Deposito<Moneda> depoVuelto) {
         vuelto = 0;
-        Moneda monVuelto=null;
-        while (true) {
-            monVuelto = depoVuelto.getContenido();
-            if (monVuelto == null) {
-                break;
-            } else {
-                billetera.addContenido(monVuelto);
-                vuelto += monVuelto.getValor();
-                numbilletera += monVuelto.getValor();
-            }
+        billetera.vaciarDeposito();
+        for(int i=0; i<depoVuelto.getCantidadContenido(); i++) {
+            vuelto += depoVuelto.checkContenido(i).getValor();
+            numbilletera += depoVuelto.checkContenido(i).getValor();
         }
+        billetera.extend(depoVuelto);
     }
 
     /** Método para establecer el valor total de las monedas que se utilizarán pagar comprar un producto
@@ -67,6 +62,10 @@ public class Comprador {
      * @return Un número con el valor total de vuelto */
     public int getnumPago() {
         return numPago;
+    }
+
+    public Deposito<Moneda> getBilletera() {
+        return billetera;
     }
 
     /** Método para obtener el deposito donde se guardan las monedas que se utilizarán pagar comprar un producto

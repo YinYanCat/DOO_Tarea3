@@ -64,7 +64,10 @@ public class PanelComprador extends JPanel {
         lPantalla[2] = new TextoPantalla(" ");
 
         for(int i=0; i<3; i++) {
-            bMonedas[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+(i+1)+".png");
+            int numMoneda = 500*i;
+            if(i==0)
+                numMoneda = 100;
+            bMonedas[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+numMoneda+".png");
             bMonedas[i].addActionListener(listenerMoneda);
             panelPago.addButton(bMonedas[i]);
             panelSelector.addText(lPantalla[i]);
@@ -179,6 +182,7 @@ public class PanelComprador extends JPanel {
                 if(comprador.getVuelto() != 0) {
                     lPantalla[2].setText("Vuelto Retirado");
                     ImgDisplay[0] = false;
+                    panelInv.displayMonedas(comprador.getBilletera());
                 }
                 else if(comprador.getnumPago() != 0) {
                     inter.getPanelExp().devolverPagoExp(comprador.getdepoPago());

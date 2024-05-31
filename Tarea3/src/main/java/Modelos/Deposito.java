@@ -53,6 +53,10 @@ public class Deposito<T extends Visible> extends JPanel {
         return contenido.size();
     }
 
+    public void vaciarDeposito() {
+        contenido.clear();
+    }
+
     public ArrayList<T> getList(){
         return contenido;
     }
