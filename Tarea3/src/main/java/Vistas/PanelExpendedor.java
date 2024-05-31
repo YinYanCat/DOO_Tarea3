@@ -39,8 +39,14 @@ public class PanelExpendedor extends JPanel {
                 System.out.println(ex.getMessage());
             }
             pDepos[i] = new PanelDeposito<>(lDeposito.get(i),prodImages[i]);
-            pDepos[i].setBounds(60+160*(i%4), 45+165*(i-i%4)/4,129,100);
+            pDepos[i].setBounds(60+151*(i%4), 45+165*(i-i%4)/4,129,100);
             this.add(pDepos[i]);
+
+            // 60 / 211 / 362 / 513
+            // 151 / 151
+
+
+
         }
     }
 

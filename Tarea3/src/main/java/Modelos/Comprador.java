@@ -21,6 +21,9 @@ public class Comprador {
     /** Valor total de las monedas que se utilizarán pagar comprar un producto */
     private int numPago;
 
+    /** Deposito donde se guardan llos productos comprados */
+    private Deposito<Producto> bolsa;
+
     /** Constructor de Comprador donde se inicializan sus propiedades */
     public Comprador() {
         billetera = new Deposito<>();
@@ -82,5 +85,13 @@ public class Comprador {
     public void addMoneda(Moneda moneda) {
         depoPago.addContenido(moneda);
         numPago += moneda.getValor();
+    }
+
+    public void addProducto(Producto producto) {
+        bolsa.addContenido(producto);
+    }
+
+    public int getSizeBolsa() {
+        return bolsa.getCantidadContenido();
     }
 }

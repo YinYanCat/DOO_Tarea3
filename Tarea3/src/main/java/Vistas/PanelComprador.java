@@ -172,12 +172,13 @@ public class PanelComprador extends JPanel {
                     lPantalla[2].setText("Pago Devuelto");
                     comprador.setnumPago(0);
                 }
-                panelInv.setBilletera("Billetera: "+comprador.getNumBilletera());
+                panelInv.setBilletera(comprador.getNumBilletera());
             }
             else {
                 Producto producto = inter.getPanelExp().obtenerProducto();
                 if(producto != null) {
-                    System.out.println(producto.sabor());
+                    comprador.addProducto(producto);
+                    panelInv.displayProducto(producto.sabor(), comprador.getSizeBolsa());
                     lPantalla[0].setText("Codigo: __");
                     lPantalla[2].setText(" ");
                 }
