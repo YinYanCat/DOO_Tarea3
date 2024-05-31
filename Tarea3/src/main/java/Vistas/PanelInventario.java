@@ -11,8 +11,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class PanelInventario  extends JPanel {
-    private TextoInventario[] lInventario;
-    private JPanel[] pInventario;
+    private TextoInventario[] lablesInv;
+    private JPanel supPanel;
+    private JPanel[] panelsInv;
+    private JPanel infPanel;
     private BufferedImage ImgBackground;
     private Producto invProducto;
     private Deposito<Moneda> depoMonedas;
@@ -27,51 +29,64 @@ public class PanelInventario  extends JPanel {
             System.out.println(ex.getMessage());
         }
         Color trasnparent = new Color(0, 0, 0, 0);
-        this.setLayout(new GridLayout(2, 1, 50, 50));
+        this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(249, 720));
         this.setBorder(BorderFactory.createMatteBorder(80, 30, 10, 20, trasnparent));
+        lablesInv = new TextoInventario[5];
+        panelsInv = new JPanel[2];
 
-        lInventario = new TextoInventario[4];
-        pInventario= new JPanel[2];
-        lInventario[0] = new TextoInventario("Producto", new Color(20,20, 68), Color.WHITE);
-        lInventario[2] = new TextoInventario("Monedas", new Color(20,20, 68), Color.WHITE);
-        lInventario[1] = new TextoInventario("Bolsa: 0", new Color(199,199, 199), Color.BLACK);
-        lInventario[3] = new TextoInventario("Billetera: 0", new Color(139,108, 88), Color.BLACK);
+        lablesInv[0] = new TextoInventario("Producto", new Color(20,20, 68), Color.WHITE);
+        lablesInv[1] = new TextoInventario("Vuelto Total:", new Color(20,20, 68), Color.WHITE);
+        lablesInv[2] = new TextoInventario("", new Color(20,20, 68), Color.WHITE);
+        lablesInv[3] = new TextoInventario("Bolsa: 0", new Color(199,199, 199), Color.BLACK);
+        lablesInv[4] = new TextoInventario("Billetera: 0", new Color(139,108, 88), Color.BLACK);
 
-        for(int i=0; i<2; i++){
-            pInventario[i] = new JPanel();
-            pInventario[i].setLayout(new BorderLayout());
-            pInventario[i].setBackground(new Color(0, 0, 0, 0));
-            pInventario[i].setBorder(BorderFactory.createMatteBorder(185*i, 10*i, 140*((i+1)%2), 60*i, trasnparent));
-            this.add(pInventario[i]);
-            pInventario[i].add(lInventario[i], BorderLayout.NORTH);
-            pInventario[i].add(lInventario[i+2], BorderLayout.SOUTH);
+        for(int i=0; i<2; i++) {
+            panelsInv[i] = new JPanel();
+            panelsInv[i].setLayout(new GridLayout(2+i, 1,10,110-55*i));
+            panelsInv[i].setBackground(new Color(0, 0, 0, 0));
+            panelsInv[i].setBorder(BorderFactory.createMatteBorder(0, 5*i, 5*i, 50*i, new Color(0, 0, 0, 0)));
         }
+        this.add(panelsInv[0], BorderLayout.NORTH);
+        this.add(panelsInv[1], BorderLayout.SOUTH);
+        panelsInv[0].add(lablesInv[0]);
+        panelsInv[0].add(lablesInv[1]);
+        panelsInv[1].add(lablesInv[2]);
+        panelsInv[1].add(lablesInv[3]);
+        panelsInv[1].add(lablesInv[4]);
     }
 
     public void setBilletera(int cantidad) {
-        lInventario[3].setText("Billetera: "+cantidad);
+        lablesInv[4].setText("Billetera: "+cantidad);
     }
 
     public void displayProducto(Producto producto, int cantidad) {
-        lInventario[0].setText(producto.sabor());
-        lInventario[1].setText("Bolsa: "+cantidad);
+        lablesInv[0].setText(producto.sabor());
+        lablesInv[3].setText("Bolsa: "+cantidad);
         invProducto = producto;
         invProducto.setPosition(30,100);
         repaint();
     }
 
-    public void displayMonedas(Deposito<Moneda> depoVuelto) {
+    public void displayMonedas(Deposito<Moneda> depoVuelto, int total) {
+        int extra = 0;
+        lablesInv[2].setText("");
         paintMonedas = true;
         depoMonedas = depoVuelto;
         System.out.println("Cantidad: "+depoMonedas.getCantidadContenido());
-        for(int i=0; i<depoMonedas.getCantidadContenido(); i++) {
-            depoMonedas.checkContenido(i).setPosition(30+100*i,300);
+        int i=0;
+        for(int j=0; j<depoMonedas.getCantidadContenido(); j++) {
+            depoMonedas.checkContenido(j).setPosition(18+28*(j%5),240+100*i);
+            if(j%5==4)
+                i++;
+            if(j>=15)
+                extra++;
         }
+        lablesInv[1].setText("Vuelto Total: "+total);
+        if(extra!=0)
+            lablesInv[2].setText("+"+extra+" Monedas");
         repaint();
     }
-
-    public void monedaPaintSwitch(boolean change) { paintMonedas = change; }
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -82,8 +97,10 @@ public class PanelInventario  extends JPanel {
         if(paintMonedas) {
             for (int i = 0; i < depoMonedas.getCantidadContenido(); i++) {
                 depoMonedas.checkContenido(i).paintComponent(g, this);
+                if(i==14) {
+                    break;
+                }
             }
-            paintMonedas = false;
         }
     }
 }

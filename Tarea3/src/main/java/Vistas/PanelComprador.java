@@ -182,7 +182,7 @@ public class PanelComprador extends JPanel {
                 if(comprador.getVuelto() != 0) {
                     lPantalla[2].setText("Vuelto Retirado");
                     ImgDisplay[0] = false;
-                    panelInv.displayMonedas(comprador.getBilletera());
+                    panelInv.displayMonedas(comprador.getBilletera(), comprador.getVuelto());
                 }
                 else if(comprador.getnumPago() != 0) {
                     inter.getPanelExp().devolverPagoExp(comprador.getdepoPago());
