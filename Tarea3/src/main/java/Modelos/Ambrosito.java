@@ -13,8 +13,8 @@ public class Ambrosito extends Dulce {
     }
 
     /** Método para obtener el sabor (nombre) del Modelos.Ambrosito
-     * @return String "ambrosito" como su sabor */
+     * @return String "Ambrosito" como su sabor */
     public String sabor() {
-        return "ambrosito";
+        return "Ambrosito";
     }
 }

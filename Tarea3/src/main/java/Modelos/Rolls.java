@@ -13,8 +13,8 @@ public class Rolls extends Dulce{
     }
 
     /** Método para obtener el sabor (nombre) del Rolls
-     * @return String "rolls" como su sabor */
+     * @return String "Rolls" como su sabor */
     public String sabor() {
-        return "rolls";
+        return "Rolls";
     }
 }

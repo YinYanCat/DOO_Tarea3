@@ -13,8 +13,8 @@ public class Trencito extends Dulce{
     }
 
     /** Método para obtener el sabor (nombre) del Trencito
-     * @return String "trencito" como su sabor */
+     * @return String "Trencito" como su sabor */
     public String sabor() {
-        return "trencito";
+        return "Trencito";
     }
 }

@@ -13,8 +13,8 @@ public class SahneNuss extends Dulce{
     }
 
     /** Método para obtener el sabor (nombre) del SahneNuss
-     * @return String "sahne-nuss" como su sabor */
+     * @return String "Sahne-Nuss" como su sabor */
     public String sabor() {
-        return "sahne-nuss";
+        return "Sahne-Nuss";
     }
 }

@@ -13,8 +13,8 @@ public class Pap extends Bebida {
     }
 
     /** Método para obtener el sabor (nombre) de la Pap
-     * @return String "pap" como su sabor */
+     * @return String "Pap" como su sabor */
     public String sabor() {
-        return "pap";
+        return "Pap";
     }
 }

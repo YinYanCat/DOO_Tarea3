@@ -13,8 +13,8 @@ public class Flipy extends Dulce{
     }
 
     /** Método para obtener el sabor (nombre) del Flipy
-     * @return String "flipy" como su sabor */
+     * @return String "Flipy" como su sabor */
     public String sabor() {
-        return "flipy";
+        return "Flipy";
     }
 }

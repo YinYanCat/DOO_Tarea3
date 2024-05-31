@@ -68,10 +68,6 @@ public class PanelExpendedor extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        for(int i=0;i<cantidadDepositos;i++){
-            lDeposito.get(i).paintComponent(g,this);
-        }
     }
 
     public void setIntermediario(Intermediario inter) {

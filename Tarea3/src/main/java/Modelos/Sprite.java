@@ -13,8 +13,8 @@ public class Sprite extends Bebida {
     }
 
     /** Método para obtener el sabor (nombre) de la Sprite
-     * @return String "sprite" como su sabor*/
+     * @return String "Sprite" como su sabor*/
     public String sabor() {
-        return "sprite";
+        return "Sprite";
     }
 }

@@ -31,6 +31,7 @@ public class Comprador {
         vuelto = 0;
         depoPago = new Deposito<>();
         numPago = 0;
+        bolsa = new Deposito<>();
     }
 
     /** Método para obtener el vuelto de un deposito con monedas

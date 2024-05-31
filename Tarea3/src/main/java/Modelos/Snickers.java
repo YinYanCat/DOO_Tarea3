@@ -13,8 +13,8 @@ public class Snickers extends Dulce{
     }
 
     /** Método para obtener el sabor (nombre) del Snickers
-     * @return String "snickers" como su sabor */
+     * @return String "Snickers" como su sabor */
     public String sabor() {
-        return "snickers";
+        return "Snickers";
     }
 }

@@ -13,8 +13,8 @@ public class Super8 extends Dulce{
     }
 
     /** Método para obtener el sabor (nombre) del Super8
-     * @return String "super8" como su sabor */
+     * @return String "Super8" como su sabor */
     public String sabor() {
-        return "super8";
+        return "Super8";
     }
 }

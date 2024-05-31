@@ -28,7 +28,6 @@ public class PanelDeposito<T extends Visible> extends JPanel {
             T contenido = dep.getList().get(i);
             contenido.setPosition(10*i,0);
             contenido.setImage(img);
-
         }
     }
 
@@ -38,8 +37,5 @@ public class PanelDeposito<T extends Visible> extends JPanel {
         for(int j=0;j<dep.getCantidadContenido();j++) {
             dep.getList().get(j).paintComponent(g, this);
         }
-
     }
-
-
 }

@@ -13,8 +13,8 @@ public class Doblon extends Dulce{
     }
 
     /** Método para obtener el sabor (nombre) del Doblon
-     * @return String "doblon" como su sabor */
+     * @return String "Doblon" como su sabor */
     public String sabor() {
-        return "doblon";
+        return "Doblon";
     }
 }

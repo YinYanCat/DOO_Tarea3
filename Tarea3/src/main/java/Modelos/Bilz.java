@@ -13,8 +13,8 @@ public class Bilz extends Bebida {
     }
 
     /** Método para obtener el sabor (nombre) de la Bilz
-     * @return String "bilz" como su sabor */
+     * @return String "Bilz" como su sabor */
     public String sabor() {
-        return "bilz";
+        return "Bilz";
     }
 }

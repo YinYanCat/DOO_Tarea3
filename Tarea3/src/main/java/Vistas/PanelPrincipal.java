@@ -61,6 +61,5 @@ public class PanelPrincipal extends JPanel {
         g.drawImage(image, 0, 0, this);
         panelExp.paintComponent(g);
         panelCom.paintComponent(g);
-
     }
 }

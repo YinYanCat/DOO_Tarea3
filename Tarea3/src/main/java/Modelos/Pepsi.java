@@ -13,8 +13,8 @@ public class Pepsi extends Bebida {
     }
 
     /** Método para obtener el sabor (nombre) de la Pepsi
-     * @return String "pepsi" como su sabor */
+     * @return String "Pepsi" como su sabor */
     public String sabor() {
-        return "pepsi";
+        return "Pepsi";
     }
 }

@@ -55,7 +55,6 @@ public class Expendedor {
         if(vuelto >= 0) {
             producto = listDepositos.get(select.getNumDepo()).getContenido();
             if (producto == null) {
-                //depoVuelto.extend(depoMonedas);
                 throw new NoHayProductoException("Producto seleccionado agotado");
             }
             depoAlmacenMonedas.extend(depoMonedas);
@@ -71,10 +70,9 @@ public class Expendedor {
             }
         }
         else {
-            //depoVuelto.extend(depoMonedas);
             throw new PagoInsuficienteException("Pago insuficiente");
         }
-        ProductoComprado = listDepositos.get(select.getNumDepo()).getContenido();
+        ProductoComprado = producto;
     }
 
     /** Método para devolver una primera moneda del depósito de vuelto del expendedor

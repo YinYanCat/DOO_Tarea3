@@ -13,8 +13,8 @@ public class Fanta extends Bebida {
     }
 
     /** Método para obtener el sabor (nombre) de la Fanta
-     * @return String "fanta" como su sabor */
+     * @return String "Fanta" como su sabor */
     public String sabor() {
-        return "fanta";
+        return "Fanta";
     }
 }

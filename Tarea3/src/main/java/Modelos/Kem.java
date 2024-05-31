@@ -13,8 +13,8 @@ public class Kem extends Bebida {
     }
 
     /** Método para obtener el sabor (nombre) de la Kem
-     * @return String "kem" como su sabor */
+     * @return String "Kem" como su sabor */
     public String sabor() {
-        return "kem";
+        return "Kem";
     }
 }

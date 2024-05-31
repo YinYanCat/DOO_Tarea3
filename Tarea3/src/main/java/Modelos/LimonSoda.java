@@ -13,8 +13,8 @@ public class LimonSoda extends Bebida {
     }
 
     /** Método para obtener el sabor (nombre) de la LimonSoda
-     * @return String "limon soda" como su sabor */
+     * @return String "Limón Soda" como su sabor */
     public String sabor() {
-        return "limon soda";
+        return "Limón Soda";
     }
 }
