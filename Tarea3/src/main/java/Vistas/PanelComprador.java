@@ -144,29 +144,33 @@ public class PanelComprador extends JPanel {
                 try {
                     inter.getPanelExp().comprarEnExpendedor(comprador.getnumPago(), comprador.getdepoPago(), compra);
                     int vuelto = comprador.getnumPago()-compra.getPrecio();
-                    comprador.setnumPago(0);
-                    lPantalla[1].setText("Pago Ingresado: "+comprador.getnumPago());
-                    lPantalla[2].setText("Vuelto: "+vuelto);
-                    lPantalla[0].setText("Codigo: "+select+" | Producto Comprado");
-                    bVuelto.changeImage("imgBotonVacio.png");
-                    if(vuelto != 0) {
-                        bVuelto.changeImage("imgBotonVuelto.png");
-                        ImgDisplay[0] = true;
-                    }
-                    ImgDisplay[1] = true;
+                    setCompraDisplay(vuelto, compra.getNumDepo());
                 } catch (Exception exception) {
                     lPantalla[2].setText(exception.getMessage());
-                }
-                try {
-                    ImgUse[2] = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+compra.getNumDepo()+".png"));
-                } catch (IOException ex) {
-                    System.out.println(ex.getMessage());
                 }
                 repaint();
                 select = 0;
             }
         }
     }
+
+    public void setCompraDisplay(int vuelto, int numCompra) {
+        lPantalla[1].setText("Pago Ingresado: "+comprador.getnumPago());
+        lPantalla[2].setText("Vuelto: "+vuelto);
+        lPantalla[0].setText("Codigo: "+select+" | Producto Comprado");
+        bVuelto.changeImage("imgBotonVacio.png");
+        if(vuelto != 0) {
+            bVuelto.changeImage("imgBotonVuelto.png");
+            ImgDisplay[0] = true;
+        }
+        ImgDisplay[1] = true;
+        try {
+            ImgUse[2] = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+numCompra+".png"));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     private class InteraccionExpendedor implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

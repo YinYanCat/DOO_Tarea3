@@ -13,15 +13,20 @@ public class PanelMonedas extends JPanel {
     private boolean visible;
     private BufferedImage ImgBackground;
     private Deposito<Moneda> depoMonedas;
-    private int starXPosition;
-    private int starYPosition;
+    private int starPosition[];
+    private int extraMonedas;
+    private TextoInventario lExtraMonedas;
 
     public PanelMonedas() {
         visible = false;
-        starXPosition = 0;
-        starYPosition = 0;
+        starPosition = new int [2];
+        extraMonedas = 0;
+        this.setLayout(new BorderLayout());
         this.setBounds(30, 100,603,525);
         this.setBackground(new Color(0,0,0,0));
+        this.setBorder(BorderFactory.createMatteBorder(0, 40, 20, 40, new Color(0,0,0,0)));
+        lExtraMonedas = new TextoInventario("", new Color(0,0,0,0), Color.WHITE);
+        this.add(lExtraMonedas, BorderLayout.SOUTH);
         try {
             ImgBackground = ImageIO.read(getClass().getClassLoader().getResource("imgPanelMonedas.png"));
         } catch (IOException ex) {
@@ -33,14 +38,27 @@ public class PanelMonedas extends JPanel {
         visible = !visible;
     }
 
+    public void setExtraText(int extra) {
+        if(visible && extra>0) {
+            lExtraMonedas.setText("+" + extra + " Monedas");
+            lExtraMonedas.setBackground(new Color(20,20, 68));
+        } else {
+            lExtraMonedas.setText("");
+            lExtraMonedas.setBackground(new Color(0,0,0,0));
+        }
+    }
+
     public void setMonedas(Deposito<Moneda> depoExp) {
         depoMonedas = depoExp;
-        for(int j=starXPosition; j<depoMonedas.getCantidadContenido(); j++) {
-            depoMonedas.checkContenido(j).setPosition(12+28*(j%18),75+100*starYPosition);
+        for(int j=starPosition[0]; j<depoMonedas.getCantidadContenido(); j++) {
+            depoMonedas.checkContenido(j).setPosition(12+28*(j%18),75+100*starPosition[1]);
             if(j%18==17)
-                starYPosition++;
+                starPosition[1]++;
+            if(j>=72)
+                extraMonedas++;
         }
-        starXPosition = depoMonedas.getCantidadContenido();
+        starPosition[0] = depoMonedas.getCantidadContenido();
+        setExtraText(extraMonedas);
     }
 
     @Override
