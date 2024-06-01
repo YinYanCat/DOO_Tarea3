@@ -94,4 +94,5 @@ public class Comprador {
     public int getSizeBolsa() {
         return bolsa.getCantidadContenido();
     }
+
 }

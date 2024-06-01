@@ -5,21 +5,24 @@ import Modelos.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 
 public class PanelDeposito<T extends Visible> extends JPanel {
 
     private Deposito<T> dep;
+
+    private Class<T> type;
     private BufferedImage img;
     private BufferedImage background;
 
     public PanelDeposito(Deposito<T> deposito,BufferedImage imagen) {
-        super();
+        super(null);
         dep = deposito;
+        type = (Class<T>) dep.checkContenido(0).getClass();
         img = imagen;
         this.setOpaque(false);
         try {
@@ -27,12 +30,16 @@ public class PanelDeposito<T extends Visible> extends JPanel {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+
+        BtnRellenar bRelleno = new BtnRellenar(130,105);
+        bRelleno.addActionListener(new EscucharRelleno());
+        this.add(bRelleno);
     }
 
     public void ActualizarContenido() {
         int movProd = 10*(5-dep.getCantidadContenido());
         for(int i=0;i<dep.getCantidadContenido();i++){
-            T contenido = dep.getList().get(i);
+            T contenido = dep.checkContenido(i);
             contenido.setPosition(10*i+20+movProd,5);
             contenido.setImage(img);
         }
@@ -43,7 +50,19 @@ public class PanelDeposito<T extends Visible> extends JPanel {
         g.drawImage(background, 0, 0, this);
         ActualizarContenido();
         for(int j=0;j<dep.getCantidadContenido();j++) {
-            dep.getList().get(j).paintComponent(g, this);
+            dep.checkContenido(j).paintComponent(g, this);
+        }
+    }
+
+    private class EscucharRelleno implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                dep.addContenido(type.newInstance());
+            } catch (InstantiationException | IllegalAccessException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 }

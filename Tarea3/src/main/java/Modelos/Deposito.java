@@ -57,10 +57,6 @@ public class Deposito<T extends Visible> extends JPanel {
         contenido.clear();
     }
 
-    public ArrayList<T> getList(){
-        return contenido;
-    }
-
     public void paintComponent(Graphics g,Component observer){
         for(int j=0;j<getCantidadContenido();j++){
             contenido.get(j).paintComponent(g,observer);
