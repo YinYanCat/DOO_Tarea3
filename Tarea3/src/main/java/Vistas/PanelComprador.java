@@ -22,6 +22,7 @@ public class PanelComprador extends JPanel {
     private PanelInventario panelInv;
     private Intermediario inter;
     private int select;
+    private int serieMonedas[];
 
     public PanelComprador(Comprador comprador) {
         this.comprador = comprador;
@@ -31,6 +32,7 @@ public class PanelComprador extends JPanel {
         select = 0;
         ImgUse = new BufferedImage[5];
         ImgDisplay = new boolean[2];
+        serieMonedas =  new int[3];
 
         try {
             ImgUse[0] = ImageIO.read(getClass().getClassLoader().getResource("imgVuelto.png"));
@@ -176,15 +178,15 @@ public class PanelComprador extends JPanel {
         public void actionPerformed(ActionEvent e) {
             lPantalla[2].setText(" ");
             if(e.getSource()==bMonedas[0]) {
-                comprador.addMoneda(new Moneda100(1));
+                comprador.addMoneda(new Moneda100(210000+(serieMonedas[0]++)));
                 bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bMonedas[1]) {
-                comprador.addMoneda(new Moneda500(1));
+                comprador.addMoneda(new Moneda500(205000+(serieMonedas[1]++)));
                 bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bMonedas[2]) {
-                comprador.addMoneda(new Moneda1000(1));
+                comprador.addMoneda(new Moneda1000(201000+(serieMonedas[2]++)));
                 bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bVuelto) {
