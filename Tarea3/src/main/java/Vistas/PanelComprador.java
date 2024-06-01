@@ -183,14 +183,14 @@ public class PanelComprador extends JPanel {
                 bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bVuelto) {
-                comprador.obtenerVuelto(inter.getPanelExp().entregarVuelto());
-                if(comprador.getVuelto() != 0) {
+                if(bVuelto.getFilename().equals("imgBotonVuelto.png")) {
+                    comprador.obtenerVuelto(inter.getPanelExp().entregarVuelto());
                     lPantalla[2].setText("Vuelto Retirado");
                     bVuelto.changeImage("imgBotonVacio.png");
                     ImgDisplay[0] = false;
                     panelInv.displayMonedas(comprador.getBilletera(), comprador.getVuelto());
                 }
-                else if(comprador.getnumPago() != 0) {
+                else if(bVuelto.getFilename().equals("imgBotonDeolver.png")) {
                     inter.getPanelExp().devolverPagoExp(comprador.getdepoPago());
                     lPantalla[2].setText("Pago Devuelto");
                     lPantalla[0].setText("Codigo: __");
