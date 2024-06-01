@@ -194,6 +194,7 @@ public class PanelComprador extends JPanel {
                 }
                 repaint();
                 panelInv.setBilletera(comprador.getNumBilletera());
+                panelInv.setVueltoText(comprador.getVuelto());
             }
             else {
                 Producto producto = inter.getPanelExp().obtenerProducto();
@@ -203,6 +204,7 @@ public class PanelComprador extends JPanel {
                     lPantalla[0].setText("Codigo: __");
                     lPantalla[2].setText(" ");
                     ImgDisplay[1] = false;
+                    select = 0;
                     repaint();
                 }
             }

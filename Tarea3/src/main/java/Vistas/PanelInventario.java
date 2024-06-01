@@ -88,6 +88,10 @@ public class PanelInventario  extends JPanel {
         repaint();
     }
 
+    public void setVueltoText(int num) {
+        lablesInv[1].setText("Vuelto Total: "+num);
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
