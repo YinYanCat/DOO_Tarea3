@@ -146,6 +146,7 @@ public class PanelComprador extends JPanel {
                 try {
                     inter.getPanelExp().comprarEnExpendedor(comprador.getnumPago(), comprador.getdepoPago(), compra);
                     int vuelto = comprador.getnumPago()-compra.getPrecio();
+                    comprador.setnumPago(0);
                     setCompraDisplay(vuelto, compra.getNumDepo());
                 } catch (Exception exception) {
                     lPantalla[2].setText(exception.getMessage());
