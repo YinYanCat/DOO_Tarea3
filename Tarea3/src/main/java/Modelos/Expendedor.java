@@ -63,9 +63,9 @@ public class Expendedor {
             depoAlmacenMonedas.extend(depoMonedas);
             Moneda newMoneda;
             while(vuelto > 0) {
-                if(1000%vuelto == 1000)
+                if(1000%(vuelto+1) == 1000)
                     depoVuelto.addContenido(newMoneda = new Moneda1000(110000+(serieMonedas[2]++)));
-                else if(500%vuelto == 500)
+                else if(500%(vuelto+1) == 500)
                     depoVuelto.addContenido(newMoneda = new Moneda500(105000+(serieMonedas[1]++)));
                 else
                     depoVuelto.addContenido(newMoneda = new Moneda100(101000+(serieMonedas[0]++)));
