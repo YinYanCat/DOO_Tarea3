@@ -5,6 +5,8 @@ import Modelos.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ public class PanelExpendedor extends JPanel {
     private PanelProducto pProd;
     private BufferedImage imgProd;
     private BufferedImage ImgBackground;
+    private Boton bInfo;
+    private PanelMonedas pMonedas;
 
     public PanelExpendedor(Expendedor expendedor) {
         super(null);
@@ -27,6 +31,14 @@ public class PanelExpendedor extends JPanel {
         cantidadDepositos = lDeposito.size();
         pDepos = new PanelDeposito[cantidadDepositos];
         prodImages = new BufferedImage[cantidadDepositos];
+
+        pMonedas = new PanelMonedas();
+        this.add(pMonedas);
+        InfoExpendedor listenerInfo = new PanelExpendedor.InfoExpendedor();
+        bInfo = new Boton(Color.BLACK, true, "imgBotonInfo.png");
+        bInfo.setBounds(10, 10, 50, 50);
+        bInfo.addActionListener(listenerInfo);
+        this.add(bInfo);
 
         try {
             ImgBackground = ImageIO.read(getClass().getClassLoader().getResource("imgPanelExpendedor.png"));
@@ -75,6 +87,15 @@ public class PanelExpendedor extends JPanel {
 
     public void setIntermediario(Intermediario intermediario) {
         inter = intermediario;
+    }
+
+    private class InfoExpendedor implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Hola");
+            pMonedas.togglePanel();
+            repaint();
+        }
     }
 
     @Override
