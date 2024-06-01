@@ -34,7 +34,7 @@ public class PanelInventario  extends JPanel {
         panelsInv = new JPanel[2];
 
         lablesInv[0] = new TextoInventario("Producto", new Color(20,20, 68), Color.WHITE);
-        lablesInv[1] = new TextoInventario("Vuelto Total:", new Color(20,20, 68), Color.WHITE);
+        lablesInv[1] = new TextoInventario("Vuelto Total: 0", new Color(20,20, 68), Color.WHITE);
         lablesInv[2] = new TextoInventario("", new Color(20,20, 68), Color.WHITE);
         lablesInv[3] = new TextoInventario("Bolsa: 0", new Color(199,199, 199), Color.BLACK);
         lablesInv[4] = new TextoInventario("Billetera: 0", new Color(139,108, 88), Color.BLACK);

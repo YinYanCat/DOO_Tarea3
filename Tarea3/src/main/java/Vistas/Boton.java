@@ -10,4 +10,8 @@ public class Boton extends JButton {
         this.setBorderPainted(border);
         this.setIcon(new ImageIcon(getClass().getClassLoader().getResource(filename)));
     }
+
+    public void changeImage(String filename) {
+        this.setIcon(new ImageIcon(getClass().getClassLoader().getResource(filename)));
+    }
 }

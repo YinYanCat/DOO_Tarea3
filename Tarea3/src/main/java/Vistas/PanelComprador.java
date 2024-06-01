@@ -73,7 +73,7 @@ public class PanelComprador extends JPanel {
             panelSelector.addText(lPantalla[i]);
         }
 
-        bVuelto = new Boton(Color.BLACK,true,"imgBotonVuelto.png");
+        bVuelto = new Boton(Color.BLACK,true,"imgBotonVacio.png");
         bGetProducto = new Boton(Color.BLACK,true,"imgBotonProducto.png");
         panelSelector.addVueltoButton(bVuelto);
         panelPago.addRetirar(bGetProducto);
@@ -148,8 +148,10 @@ public class PanelComprador extends JPanel {
                     lPantalla[1].setText("Pago Ingresado: "+comprador.getnumPago());
                     lPantalla[2].setText("Vuelto: "+vuelto);
                     lPantalla[0].setText("Codigo: "+select+" | Producto Comprado");
-                    if(vuelto != 0)
+                    if(vuelto != 0) {
+                        bVuelto.changeImage("imgBotonVuelto.png");
                         ImgDisplay[0] = true;
+                    }
                     ImgDisplay[1] = true;
                 } catch (Exception exception) {
                     lPantalla[2].setText(exception.getMessage());
@@ -170,17 +172,21 @@ public class PanelComprador extends JPanel {
             lPantalla[2].setText(" ");
             if(e.getSource()==bMonedas[0]) {
                 comprador.addMoneda(new Moneda100(1));
+                bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bMonedas[1]) {
                 comprador.addMoneda(new Moneda500(1));
+                bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bMonedas[2]) {
                 comprador.addMoneda(new Moneda1000(1));
+                bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bVuelto) {
                 comprador.obtenerVuelto(inter.getPanelExp().entregarVuelto());
                 if(comprador.getVuelto() != 0) {
                     lPantalla[2].setText("Vuelto Retirado");
+                    bVuelto.changeImage("imgBotonVacio.png");
                     ImgDisplay[0] = false;
                     panelInv.displayMonedas(comprador.getBilletera(), comprador.getVuelto());
                 }
@@ -188,6 +194,7 @@ public class PanelComprador extends JPanel {
                     inter.getPanelExp().devolverPagoExp(comprador.getdepoPago());
                     lPantalla[2].setText("Pago Devuelto");
                     lPantalla[0].setText("Codigo: __");
+                    bVuelto.changeImage("imgBotonVuelto.png");
                     select = 0;
                     comprador.setnumPago(0);
                     ImgDisplay[0] = true;
