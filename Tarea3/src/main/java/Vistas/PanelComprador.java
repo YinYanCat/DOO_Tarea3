@@ -148,6 +148,7 @@ public class PanelComprador extends JPanel {
                     lPantalla[1].setText("Pago Ingresado: "+comprador.getnumPago());
                     lPantalla[2].setText("Vuelto: "+vuelto);
                     lPantalla[0].setText("Codigo: "+select+" | Producto Comprado");
+                    bVuelto.changeImage("imgBotonVacio.png");
                     if(vuelto != 0) {
                         bVuelto.changeImage("imgBotonVuelto.png");
                         ImgDisplay[0] = true;
