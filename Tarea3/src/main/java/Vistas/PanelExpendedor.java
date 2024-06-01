@@ -92,8 +92,8 @@ public class PanelExpendedor extends JPanel {
     private class InfoExpendedor implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Hola");
             pMonedas.togglePanel();
+            pMonedas.setMonedas(expendedor.getDepoMonedas());
             repaint();
         }
     }

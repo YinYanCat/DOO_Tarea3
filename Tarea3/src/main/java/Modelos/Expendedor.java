@@ -114,4 +114,8 @@ public class Expendedor {
     public ArrayList<Deposito<Producto>> getListDepositos() {
         return listDepositos;
     }
+
+    public Deposito<Moneda> getDepoMonedas() {
+        return depoAlmacenMonedas;
+    }
 }
