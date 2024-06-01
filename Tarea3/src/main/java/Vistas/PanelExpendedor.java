@@ -11,12 +11,13 @@ import java.util.ArrayList;
 
 public class PanelExpendedor extends JPanel {
     private Intermediario inter;
-    private BufferedImage imageP;
     private BufferedImage[] prodImages;
     private final int cantidadDepositos;
     private final Expendedor expendedor;
     private ArrayList<Deposito<Producto>> lDeposito;
     private PanelDeposito[] pDepos;
+    private PanelProducto pProd;
+    private BufferedImage imgProd;
     private BufferedImage ImgBackground;
 
     public PanelExpendedor(Expendedor expendedor) {
@@ -32,6 +33,8 @@ public class PanelExpendedor extends JPanel {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        pProd = new PanelProducto();
+        this.add(pProd);
 
         for(int i = 0; i < cantidadDepositos; i++){
             try{
@@ -39,7 +42,7 @@ public class PanelExpendedor extends JPanel {
             } catch (IOException ex){
                 System.out.println(ex.getMessage());
             }
-            pDepos[i] = new PanelDeposito<>(lDeposito.get(i),prodImages[i]);
+            pDepos[i] = new PanelDeposito<>(lDeposito.get(i),prodImages[i], i, expendedor);
             pDepos[i].setBounds(40+151*(i%4), 40+165*(i-i%4)/4,130,105);
             this.add(pDepos[i]);
         }
@@ -47,6 +50,13 @@ public class PanelExpendedor extends JPanel {
 
     public void comprarEnExpendedor(int numPago, Deposito<Moneda>depoPago, Seleccion select) throws Exception  {
         expendedor.comprarProducto(numPago, depoPago, select);
+        try{
+            imgProd = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+select.getNumDepo()+".png"));
+        } catch (IOException ex){
+            System.out.println(ex.getMessage());
+        }
+        //pProd.setParametros(expendedor.getDepoProductoUnico(), imgProd, select.getNumDepo());
+        //pProd.caidaProducto();
         pDepos[select.getNumDepo()].ActualizarContenido();
         repaint();
     }

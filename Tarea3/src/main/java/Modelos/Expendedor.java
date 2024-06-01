@@ -22,15 +22,20 @@ public class Expendedor {
 
     private int[] serieMonedas;
 
+    private Trabajador trabajador;
+
+    private int numProductos;
+
     /** Constructor para crear y llenar los depósitos del expendedor con productos
-     * @param numProductos Número entero con la cantidad de productos que tiene cada depósito de 'listDepositos' */
-    public Expendedor(int numProductos) {
+     * @param cantidadProductos Número entero con la cantidad de productos que tiene cada depósito de 'listDepositos' */
+    public Expendedor(int cantidadProductos) {
+        numProductos = cantidadProductos;
         listDepositos = new ArrayList<>();
         depoVuelto = new Deposito<>();
         depoAlmacenMonedas = new Deposito<>();
         DepoUnicoProducto = new Deposito<>();;
         serieMonedas = new int[3];
-        Trabajador trabajador = new Trabajador();
+        trabajador = new Trabajador();
         // Llenar los depositos con productos
         for(int i=0; i<trabajador.getcantidadProductos(); i++) {
             listDepositos.add(trabajador.llenarDeposito(numProductos, i));
@@ -76,6 +81,11 @@ public class Expendedor {
             throw new PagoInsuficienteException("Pago insuficiente");
         }
         DepoUnicoProducto.addContenido(producto);
+    }
+
+    public Deposito<Producto> rellenarDposito(int productCase) {
+        listDepositos.set(productCase, trabajador.llenarDeposito(numProductos, productCase));
+        return listDepositos.get(productCase);
     }
 
     /** Método para devolver una primera moneda del depósito de vuelto del expendedor

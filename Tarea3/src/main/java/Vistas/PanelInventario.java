@@ -12,9 +12,7 @@ import java.io.IOException;
 
 public class PanelInventario  extends JPanel {
     private TextoInventario[] lablesInv;
-    private JPanel supPanel;
     private JPanel[] panelsInv;
-    private JPanel infPanel;
     private BufferedImage ImgBackground;
     private Producto invProducto;
     private Deposito<Moneda> depoMonedas;
@@ -73,7 +71,6 @@ public class PanelInventario  extends JPanel {
         lablesInv[2].setText("");
         paintMonedas = true;
         depoMonedas = depoVuelto;
-        System.out.println("Cantidad: "+depoMonedas.getCantidadContenido());
         int i=0;
         for(int j=0; j<depoMonedas.getCantidadContenido(); j++) {
             depoMonedas.checkContenido(j).setPosition(18+28*(j%5),240+100*i);
