@@ -17,7 +17,7 @@ public class PanelMonedas extends JPanel {
     private BufferedImage ImgBackground;
     private int starPosition[];
     private ArrayList<PanelObjeto> panelMoneda;
-    private TextoInventario[] lExtraMonedas;
+    private CuadroTexto[] lExtraMonedas;
 
     public PanelMonedas() {
         super(null);
@@ -25,9 +25,9 @@ public class PanelMonedas extends JPanel {
         starPosition = new int [2];
         this.setBounds(30, 80,603,550);
         this.setBackground(new Color(0,0,0,0));
-        lExtraMonedas = new TextoInventario[2];
+        lExtraMonedas = new CuadroTexto[2];
         for(int i=0; i<2; i++) {
-            lExtraMonedas[i] = new TextoInventario("", new Color(0,0,0,0), Color.WHITE);
+            lExtraMonedas[i] = new CuadroTexto("", new Color(0,0,0,0), Color.WHITE, "Arial");
             lExtraMonedas[i].setBounds(30,510-(430*i),150,20);
             this.add(lExtraMonedas[i]);
         }

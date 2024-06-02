@@ -17,7 +17,7 @@ public class PanelComprador extends JPanel {
     private Boton bGetProducto;
     private BufferedImage[] ImgUse;
     private boolean[] ImgDisplay;
-    private TextoPantalla[] lPantalla;
+    private CuadroTexto[] lPantalla;
     private Comprador comprador;
     private PanelInventario panelInv;
     private Intermediario inter;
@@ -28,7 +28,7 @@ public class PanelComprador extends JPanel {
         this.comprador = comprador;
         NumPad = new Boton[4];
         bMonedas = new Boton[3];
-        lPantalla = new TextoPantalla[3];
+        lPantalla = new CuadroTexto[3];
         select = 0;
         ImgUse = new BufferedImage[5];
         ImgDisplay = new boolean[2];
@@ -64,9 +64,9 @@ public class PanelComprador extends JPanel {
             panelSelector.addNumPadButton(NumPad[i]);
         }
 
-        lPantalla[0] = new TextoPantalla("Codigo: __");
-        lPantalla[1] = new TextoPantalla("Pago Ingresado: 0");
-        lPantalla[2] = new TextoPantalla(" ");
+        lPantalla[0] = new CuadroTexto("Codigo: __", Color.BLACK, Color.WHITE, "OCR A Extended");
+        lPantalla[1] = new CuadroTexto("Pago Ingresado: 0", Color.BLACK, Color.WHITE, "OCR A Extended");
+        lPantalla[2] = new CuadroTexto(" ", Color.BLACK, Color.WHITE, "OCR A Extended");
 
         for(int i=0; i<3; i++) {
             int numMoneda = 500*i;

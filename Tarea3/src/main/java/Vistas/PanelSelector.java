@@ -45,7 +45,7 @@ public class PanelSelector  extends JPanel {
         panelOptions.add(button);
     }
 
-    public void addText(TextoPantalla text) {
+    public void addText(CuadroTexto text) {
         panelDisplay.add(text);
     }
 }

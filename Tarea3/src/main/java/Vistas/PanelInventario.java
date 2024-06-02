@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class PanelInventario extends JPanel {
-    private TextoInventario[] lablesInv;
+    private CuadroTexto[] lablesInv;
     private BufferedImage ImgBackground;
     private PanelObjeto panelProducto;
     private PanelObjeto[] panelMoneda;
@@ -29,7 +29,7 @@ public class PanelInventario extends JPanel {
 
         this.setPreferredSize(new Dimension(249, 720));
         this.setBackground(new Color(20,20, 68));
-        lablesInv = new TextoInventario[5];
+        lablesInv = new CuadroTexto[5];
         panelProducto = new PanelObjeto(30,100, 50,100);
         panelMoneda = new PanelObjeto[15];
 
@@ -42,15 +42,15 @@ public class PanelInventario extends JPanel {
                 i++;
         }
 
-        lablesInv[0] = new TextoInventario("Producto", new Color(20,20, 68), Color.WHITE);
+        lablesInv[0] = new CuadroTexto("Producto", new Color(20,20, 68), Color.WHITE, "Arial");
         lablesInv[0].setBounds(30,75,150,20);
-        lablesInv[1] = new TextoInventario("Vuelto Total: 0", new Color(20,20, 68), Color.WHITE);
+        lablesInv[1] = new CuadroTexto("Vuelto Total: 0", new Color(20,20, 68), Color.WHITE, "Arial");
         lablesInv[1].setBounds(30,215,150,20);
-        lablesInv[2] = new TextoInventario("", new Color(20,20, 68), Color.WHITE);
+        lablesInv[2] = new CuadroTexto("", new Color(20,20, 68), Color.WHITE, "Arial");
         lablesInv[2].setBounds(30,545,150,20);
-        lablesInv[3] = new TextoInventario("Bolsa: 0", new Color(199,199, 199), Color.BLACK);
+        lablesInv[3] = new CuadroTexto("Bolsa: 0", new Color(199,199, 199), Color.BLACK, "Arial");
         lablesInv[3].setBounds(30,616,150,20);
-        lablesInv[4] = new TextoInventario("Billetera: 0", new Color(139,108, 88), Color.BLACK);
+        lablesInv[4] = new CuadroTexto("Billetera: 0", new Color(139,108, 88), Color.BLACK, "Arial");
         lablesInv[4].setBounds(30,690,150,20);
 
         for(int num=0; num<5; num++) {
