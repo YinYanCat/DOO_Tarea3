@@ -35,6 +35,9 @@ public class Expendedor {
         depoAlmacenMonedas = new Deposito<>();
         DepoUnicoProducto = new Deposito<>();;
         serieMonedas = new int[3];
+        for(int i=0; i<3; i++){
+            serieMonedas[i] = 1;
+        }
         trabajador = new Trabajador();
         // Llenar los depositos con productos
         for(int i=0; i<trabajador.getcantidadProductos(); i++) {

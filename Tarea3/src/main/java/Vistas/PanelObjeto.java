@@ -27,6 +27,9 @@ public class PanelObjeto <T extends Visible> extends JPanel {
     public void lockPanel() {
         paintPanel = false;
     }
+    public void togglePanel() {
+        paintPanel = !paintPanel;
+    }
 
     public boolean getPaint() { return paintPanel; }
     public T getObjeto() { return objeto; }

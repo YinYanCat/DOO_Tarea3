@@ -33,6 +33,9 @@ public class PanelComprador extends JPanel {
         ImgUse = new BufferedImage[5];
         ImgDisplay = new boolean[2];
         serieMonedas =  new int[3];
+        for(int i=0; i<3; i++){
+            serieMonedas[i] = 1;
+        }
 
         try {
             ImgUse[0] = ImageIO.read(getClass().getClassLoader().getResource("imgVuelto.png"));
@@ -179,7 +182,7 @@ public class PanelComprador extends JPanel {
         public void actionPerformed(ActionEvent e) {
             lPantalla[2].setText(" ");
             if(e.getSource()==bMonedas[0]) {
-                comprador.addMoneda(new Moneda100(210000+(serieMonedas[0]++)));
+                comprador.addMoneda(new Moneda100(201000+(serieMonedas[0]++)));
                 bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bMonedas[1]) {
@@ -187,7 +190,7 @@ public class PanelComprador extends JPanel {
                 bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bMonedas[2]) {
-                comprador.addMoneda(new Moneda1000(201000+(serieMonedas[2]++)));
+                comprador.addMoneda(new Moneda1000(210000+(serieMonedas[2]++)));
                 bVuelto.changeImage("imgBotonDeolver.png");
             }
             else if(e.getSource()==bVuelto) {

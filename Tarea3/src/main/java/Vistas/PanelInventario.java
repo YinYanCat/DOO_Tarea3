@@ -31,7 +31,6 @@ public class PanelInventario extends JPanel {
 
         this.setPreferredSize(new Dimension(249, 720));
         lablesInv = new TextoInventario[5];
-
         panelProducto = new PanelObjeto(30,100, 50,100);
         panelProducto.addMouseListener(new PanelListener());
         panelMoneda = new PanelObjeto[15];
@@ -59,7 +58,7 @@ public class PanelInventario extends JPanel {
         lablesInv[3] = new TextoInventario("Bolsa: 0", new Color(199,199, 199), Color.BLACK);
         lablesInv[3].setBounds(30,616,150,20);
         lablesInv[4] = new TextoInventario("Billetera: 0", new Color(139,108, 88), Color.BLACK);
-        lablesInv[4].setBounds(30,688,150,20);
+        lablesInv[4].setBounds(30,690,150,20);
 
         for(int num=0; num<5; num++) {
             this.add(lablesInv[num]);

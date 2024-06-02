@@ -17,6 +17,9 @@ public class Trabajador {
     public Trabajador() {
         cantidadProductos = 16;
         serieProducto = new int[cantidadProductos];
+        for(int i=0; i<cantidadProductos; i++){
+            serieProducto[i] = 1;
+        }
     }
 
     /** Método para comprar un producto del expendedor, sacándolo de uno de sus depósitos

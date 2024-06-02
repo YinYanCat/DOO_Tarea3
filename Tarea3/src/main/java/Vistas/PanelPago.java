@@ -18,7 +18,7 @@ public class PanelPago extends JPanel {
         panelMonedas.setLayout(new GridLayout(1, 3, 8, 8));
         panelMonedas.setBackground(transparent);
         panelMonedas.setPreferredSize(new Dimension(354,177));
-        panelMonedas.setBorder(BorderFactory.createMatteBorder(61, 22, 16, 16, transparent));
+        panelMonedas.setBorder(BorderFactory.createMatteBorder(61, 20, 16, 20, transparent));
         this.add(panelMonedas);
 
         panelRetiro = new JPanel();
