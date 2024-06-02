@@ -10,7 +10,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class PanelDeposito<T extends Visible> extends JPanel {
+public class PanelDeposito <T extends Visible> extends JPanel {
     private Deposito<T> dep;
     private BufferedImage img;
     private BufferedImage[] backgrounds;
@@ -43,7 +43,7 @@ public class PanelDeposito<T extends Visible> extends JPanel {
     }
 
     public void ActualizarContenido() {
-        int movProd = 10*(5-dep.getCantidadContenido());
+        int movProd = 5*(5-dep.getCantidadContenido());
         for(int i=0;i<dep.getCantidadContenido();i++){
             T contenido = dep.checkContenido(i);
             contenido.setPosition(10*i+20+movProd,5);

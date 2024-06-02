@@ -8,5 +8,8 @@ public interface Visible {
 
     public  void setImage(BufferedImage image);
 
+    public int getSerie();
+
     public void paintComponent(Graphics g,Component observer);
+
 }
