@@ -1,5 +1,7 @@
 package Modelos;
 
+import Modelos.Monedas.Moneda;
+
 /** Un comprador que desea comprar un producto de una expendedora con una moneda, obteniendo un sabor y un vuelto
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */

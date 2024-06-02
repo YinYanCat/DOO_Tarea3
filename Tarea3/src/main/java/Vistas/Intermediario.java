@@ -1,5 +1,9 @@
 package Vistas;
 
+import Vistas.Paneles.PanelComprador;
+import Vistas.Paneles.PanelExpendedor;
+import Vistas.Paneles.PanelPrincipal;
+
 public class Intermediario {
 
     private PanelPrincipal panelPrincipal;

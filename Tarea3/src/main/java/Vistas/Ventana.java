@@ -1,9 +1,8 @@
 package Vistas;
 
-import Vistas.PanelPrincipal;
-
-import javax.swing.*;
-import java.awt.*;
+import Vistas.Paneles.PanelPrincipal;
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
 
 public class Ventana extends JFrame {
 

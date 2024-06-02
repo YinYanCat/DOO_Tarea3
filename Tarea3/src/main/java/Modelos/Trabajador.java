@@ -1,6 +1,7 @@
 package Modelos;
 
-import Modelos.Ambrosito;
+import Modelos.Bebidas.*;
+import Modelos.Dulces.*;
 
 /** Un trabajador que trabaja llenando los depositos de un expendedor
  * @author Chloe Yañez Lavin
