@@ -16,109 +16,67 @@ public class PanelMonedas extends JPanel {
     private boolean visible;
     private BufferedImage ImgBackground;
     private int starPosition[];
-    private int extraMonedas;
     private ArrayList<PanelObjeto> panelMoneda;
-    private TextoInventario lExtraMonedas;
-    private JPopupMenu popupSerie;
-    private JLabel lSerie;
+    private TextoInventario[] lExtraMonedas;
 
     public PanelMonedas() {
         super(null);
         visible = false;
         starPosition = new int [2];
-        extraMonedas = 0;
-        this.setBounds(30, 100,603,525);
+        this.setBounds(30, 80,603,550);
         this.setBackground(new Color(0,0,0,0));
-        lExtraMonedas = new TextoInventario("", new Color(0,0,0,0), Color.WHITE);
-        //this.add(lExtraMonedas, BorderLayout.SOUTH);
+        lExtraMonedas = new TextoInventario[2];
+        for(int i=0; i<2; i++) {
+            lExtraMonedas[i] = new TextoInventario("", new Color(0,0,0,0), Color.WHITE);
+            lExtraMonedas[i].setBounds(30,510-(430*i),150,20);
+            this.add(lExtraMonedas[i]);
+        }
+
         try {
             ImgBackground = ImageIO.read(getClass().getClassLoader().getResource("imgPanelMonedas.png"));
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
         panelMoneda = new ArrayList<>();
-        lSerie = new JLabel("");
-        popupSerie = new JPopupMenu();
-        popupSerie.add(lSerie);
     }
 
     public void togglePanel() {
         visible = !visible;
-        togglePanels();
-        for(int i=0; i<panelMoneda.size(); i++) {
-            panelMoneda.get(i).togglePanel();
-        }
-    }
-
-    public void setExtraText(int extra) {
-        if(visible && extra>0) {
-            lExtraMonedas.setText("+" + extra + " Monedas");
-            lExtraMonedas.setBackground(new Color(20,20, 68));
-        } else {
-            lExtraMonedas.setText("");
-            lExtraMonedas.setBackground(new Color(0,0,0,0));
-        }
-    }
-
-    public void setMonedas(Deposito<Moneda> depoExp) {
-        for(int j=starPosition[0]; j<depoExp.getCantidadContenido(); j++) {
-            panelMoneda.add(new PanelObjeto(12+28*(j%18),75+100*starPosition[1],100,100));
-            panelMoneda.get(j).addMouseListener(new PanelListener());
-            panelMoneda.get(j).setObjeto(depoExp.checkContenido(j));
-            this.add(panelMoneda.get(j));
-            if(j%18==17)
-                starPosition[1]++;
-            if(j>=72)
-                break;
-        }
-        starPosition[0] = depoExp.getCantidadContenido();
-        //setExtraText(extraMonedas);
-        repaint();
-    }
-
-    public void togglePanels() {
         for(int i=0; i<panelMoneda.size(); i++) {
             if(visible)
                 this.add(panelMoneda.get(i));
             else
                 this.remove(panelMoneda.get(i));
+            panelMoneda.get(i).togglePanel();
         }
     }
 
-    private class PanelListener implements MouseListener {
+    public boolean getVisible() { return visible; }
 
-        @Override
-        public void mouseClicked(MouseEvent e) {
-
+    public void setText(String text, int i) {
+        if (visible) {
+            lExtraMonedas[i].setText(text);
+            lExtraMonedas[i].setBackground(new Color(20, 20, 68));
+        } else {
+            lExtraMonedas[i].setText("");
+            lExtraMonedas[i].setBackground(new Color(0, 0, 0, 0));
         }
+    }
 
-        @Override
-        public void mousePressed(MouseEvent e) {
-
+    public void setMonedas(Deposito<Moneda> depoExp, int total) {
+        for(int j=starPosition[0]; j<depoExp.getCantidadContenido(); j++) {
+            if(j>=72)
+                break;
+            panelMoneda.add(new PanelObjeto(12+28*(j%18),110+100*starPosition[1],100,100));
+            panelMoneda.get(j).setObjeto(depoExp.checkContenido(j));
+            this.add(panelMoneda.get(j));
+            if(j%18==17)
+                starPosition[1]++;
         }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            PanelObjeto auxPanel = (PanelObjeto)e.getSource();
-            if(auxPanel.getPaint()) {
-                lSerie.setText(" "+auxPanel.getObjeto().getSerie()+" ");
-                popupSerie.show(e.getComponent(), 50,0);
-            }
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            if(((PanelObjeto)e.getSource()).getPaint()) {
-                popupSerie.setVisible(false);
-                repaint();
-            }
-
-        }
+        if(depoExp.getCantidadContenido()-72>0)
+            setText("+"+(depoExp.getCantidadContenido()-72)+" Monedas", 0);
+        setText("Total: "+total, 1);
+        starPosition[0] = depoExp.getCantidadContenido();
     }
 
     @Override

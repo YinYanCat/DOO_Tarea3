@@ -72,9 +72,9 @@ public class PanelDeposito <T extends Visible> extends JPanel {
             }
         }
         @Override
-        public void mousePressed(MouseEvent arg0) {}
+        public void mousePressed(MouseEvent event) {}
         @Override
-        public void mouseReleased(MouseEvent arg0) {}
+        public void mouseReleased(MouseEvent event) {}
 
     }
 

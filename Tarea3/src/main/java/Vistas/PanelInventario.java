@@ -18,8 +18,6 @@ public class PanelInventario extends JPanel {
     private PanelObjeto panelProducto;
     private PanelObjeto[] panelMoneda;
     private Deposito<Moneda> depoMonedas;
-    private JPopupMenu popupSerie;
-    private JLabel lSerie;
 
     public PanelInventario() {
         super(null);
@@ -30,20 +28,15 @@ public class PanelInventario extends JPanel {
         }
 
         this.setPreferredSize(new Dimension(249, 720));
+        this.setBackground(new Color(20,20, 68));
         lablesInv = new TextoInventario[5];
         panelProducto = new PanelObjeto(30,100, 50,100);
-        panelProducto.addMouseListener(new PanelListener());
         panelMoneda = new PanelObjeto[15];
-        lSerie = new JLabel("");
 
         this.add(panelProducto);
-        popupSerie = new JPopupMenu();
-        popupSerie.add(lSerie);
-        panelProducto.setComponentPopupMenu(popupSerie);
         int i=0;
         for(int j=0; j<15; j++) {
             panelMoneda[j] = new PanelObjeto(18+28*(j%5),245+100*i,100,100);
-            panelMoneda[j].addMouseListener(new PanelListener());
             this.add(panelMoneda[j]);
             if(j%5==4)
                 i++;
@@ -96,42 +89,6 @@ public class PanelInventario extends JPanel {
 
     public void setVueltoText(int num) {
         lablesInv[1].setText("Vuelto Total: "+num);
-    }
-
-    private class PanelListener implements MouseListener {
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            PanelObjeto auxPanel = (PanelObjeto)e.getSource();
-            if(auxPanel.getPaint()) {
-                lSerie.setText(" "+auxPanel.getObjeto().getSerie()+" ");
-                int y = 0;
-                if(lSerie.getText().length()<8)
-                    y = 50;
-                popupSerie.show(e.getComponent(), 50, y);
-            }
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            popupSerie.setVisible(false);
-            repaint();
-        }
     }
 
     @Override

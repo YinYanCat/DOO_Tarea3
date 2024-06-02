@@ -55,6 +55,14 @@ public class PanelExpendedor extends JPanel {
         repaint();
     }
 
+    public void closeInfo() {
+        if(pMonedas.getVisible()) {
+            pMonedas.togglePanel();
+            pMonedas.setMonedas(expendedor.getAlmacen(), expendedor.getTotalAlmacen());
+            repaint();
+        }
+    }
+
     public Deposito<Moneda> entregarVuelto() {
         return expendedor.getVuelto();
     }
@@ -75,7 +83,7 @@ public class PanelExpendedor extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             pMonedas.togglePanel();
-            pMonedas.setMonedas(expendedor.getDepoMonedas());
+            pMonedas.setMonedas(expendedor.getAlmacen(), expendedor.getTotalAlmacen());
             repaint();
         }
     }

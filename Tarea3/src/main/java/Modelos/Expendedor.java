@@ -17,6 +17,8 @@ public class Expendedor {
     /** Depósito de monedas donde se guarda las monedas entregadas al expendedor durante una compra */
     private Deposito<Moneda> depoAlmacenMonedas;
 
+    private int totalAlmacenMonedas;
+
     /** Producto que es comprado */
     private Deposito<Producto> DepoUnicoProducto;
 
@@ -82,6 +84,7 @@ public class Expendedor {
         else {
             throw new PagoInsuficienteException("Pago insuficiente");
         }
+        totalAlmacenMonedas+=cantidadPago;
         DepoUnicoProducto.addContenido(producto);
     }
 
@@ -117,7 +120,11 @@ public class Expendedor {
         return listDepositos;
     }
 
-    public Deposito<Moneda> getDepoMonedas() {
+    public Deposito<Moneda> getAlmacen() {
         return depoAlmacenMonedas;
+    }
+
+    public int getTotalAlmacen() {
+        return totalAlmacenMonedas;
     }
 }

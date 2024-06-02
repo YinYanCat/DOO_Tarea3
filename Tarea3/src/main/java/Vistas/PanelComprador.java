@@ -95,8 +95,8 @@ public class PanelComprador extends JPanel {
     private class InteraccionSelector implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            inter.getPanelExp().closeInfo();
             Seleccion compra = null;
-            //Crear metodo Encontrar serie en Enum Seleccion para facilitar y permitir reutilizacion de codigo
             if(e.getSource()==NumPad[0]) {
                 select = 1+select*10;
                 if(select == 11)
@@ -180,6 +180,7 @@ public class PanelComprador extends JPanel {
     private class InteraccionExpendedor implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            inter.getPanelExp().closeInfo();
             lPantalla[2].setText(" ");
             if(e.getSource()==bMonedas[0]) {
                 comprador.addMoneda(new Moneda100(201000+(serieMonedas[0]++)));
