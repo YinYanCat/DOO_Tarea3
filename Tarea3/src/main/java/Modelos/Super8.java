@@ -17,4 +17,6 @@ public class Super8 extends Dulce{
     public String sabor() {
         return "Super8";
     }
+
+    public int getNumProducto() { return 1; }
 }

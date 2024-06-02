@@ -17,4 +17,6 @@ public class Trencito extends Dulce{
     public String sabor() {
         return "Trencito";
     }
+
+    public int getNumProducto() { return 4; }
 }

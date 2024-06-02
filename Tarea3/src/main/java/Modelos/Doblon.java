@@ -17,4 +17,6 @@ public class Doblon extends Dulce{
     public String sabor() {
         return "Doblon";
     }
+
+    public int getNumProducto() { return 5; }
 }

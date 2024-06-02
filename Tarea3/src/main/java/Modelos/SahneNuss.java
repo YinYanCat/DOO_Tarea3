@@ -17,4 +17,6 @@ public class SahneNuss extends Dulce{
     public String sabor() {
         return "Sahne-Nuss";
     }
+
+    public int getNumProducto() { return 3; }
 }

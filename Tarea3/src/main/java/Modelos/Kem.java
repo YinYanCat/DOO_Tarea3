@@ -17,4 +17,6 @@ public class Kem extends Bebida {
     public String sabor() {
         return "Kem";
     }
+
+    public int getNumProducto() { return 14; }
 }

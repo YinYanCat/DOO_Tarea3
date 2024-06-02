@@ -17,4 +17,6 @@ public class Pepsi extends Bebida {
     public String sabor() {
         return "Pepsi";
     }
+
+    public int getNumProducto() { return 11; }
 }

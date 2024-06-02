@@ -16,4 +16,5 @@ public abstract class Bebida extends Producto {
      * @return String con el sabor de la bebida */
     public abstract String sabor();
 
+    public abstract int getNumProducto();
 }

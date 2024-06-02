@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public class PanelExpendedor extends JPanel {
     private Intermediario inter;
-    private BufferedImage[] prodImages;
     private final int cantidadDepositos;
     private final Expendedor expendedor;
     private ArrayList<Deposito<Producto>> lDeposito;
@@ -28,7 +27,6 @@ public class PanelExpendedor extends JPanel {
         lDeposito = expendedor.getListDepositos();
         cantidadDepositos = lDeposito.size();
         pDepos = new PanelDeposito[cantidadDepositos];
-        prodImages = new BufferedImage[cantidadDepositos];
 
         pMonedas = new PanelMonedas();
         this.add(pMonedas);
@@ -45,12 +43,7 @@ public class PanelExpendedor extends JPanel {
         }
 
         for(int i = 0; i < cantidadDepositos; i++){
-            try{
-                prodImages[i] = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+i+".png"));
-            } catch (IOException ex){
-                System.out.println(ex.getMessage());
-            }
-            pDepos[i] = new PanelDeposito<>(lDeposito.get(i),prodImages[i], i, expendedor);
+            pDepos[i] = new PanelDeposito<>(lDeposito.get(i), i, expendedor);
             pDepos[i].setBounds(40+151*(i%4), 40+165*(i-i%4)/4,130,105);
             this.add(pDepos[i]);
         }

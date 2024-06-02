@@ -17,4 +17,6 @@ public class Rolls extends Dulce{
     public String sabor() {
         return "Rolls";
     }
+
+    public int getNumProducto() { return 2; }
 }

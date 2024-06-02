@@ -47,10 +47,6 @@ public abstract class Moneda implements Comparable, Visible {
         posY=y;
     }
 
-    @Override
-    public void setImage(BufferedImage image){
-        img = image;
-    }
     public void paintComponent(Graphics g, Component observer){
         g.drawImage(img,posX,posY,observer);
     }

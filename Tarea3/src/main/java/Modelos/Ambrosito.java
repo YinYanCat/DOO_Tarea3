@@ -17,4 +17,6 @@ public class Ambrosito extends Dulce {
     public String sabor() {
         return "Ambrosito";
     }
+
+    public int getNumProducto() { return 7; }
 }

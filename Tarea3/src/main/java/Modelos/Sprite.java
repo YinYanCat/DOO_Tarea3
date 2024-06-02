@@ -17,4 +17,6 @@ public class Sprite extends Bebida {
     public String sabor() {
         return "Sprite";
     }
+
+    public int getNumProducto() { return 9; }
 }

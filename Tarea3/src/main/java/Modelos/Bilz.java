@@ -17,4 +17,6 @@ public class Bilz extends Bebida {
     public String sabor() {
         return "Bilz";
     }
+
+    public int getNumProducto() { return 12; }
 }

@@ -17,4 +17,6 @@ public class LimonSoda extends Bebida {
     public String sabor() {
         return "Limón Soda";
     }
+
+    public int getNumProducto() { return 15; }
 }

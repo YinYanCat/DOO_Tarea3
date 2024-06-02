@@ -17,4 +17,6 @@ public class Fanta extends Bebida {
     public String sabor() {
         return "Fanta";
     }
+
+    public int getNumProducto() { return 10; }
 }

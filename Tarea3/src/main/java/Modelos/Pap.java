@@ -17,4 +17,6 @@ public class Pap extends Bebida {
     public String sabor() {
         return "Pap";
     }
+
+    public int getNumProducto() { return 13; }
 }

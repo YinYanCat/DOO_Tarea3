@@ -12,17 +12,15 @@ import java.io.IOException;
 
 public class PanelDeposito <T extends Visible> extends JPanel {
     private Deposito<T> dep;
-    private BufferedImage img;
     private BufferedImage[] backgrounds;
     private int pSelect;
     private Expendedor exp;
 
-    public PanelDeposito(Deposito<T> deposito, BufferedImage imagen, int select, Expendedor expendedor) {
+    public PanelDeposito(Deposito<T> deposito, int select, Expendedor expendedor) {
         super(null);
         pSelect = select;
         dep = deposito;
         exp = expendedor;
-        img = imagen;
         this.setOpaque(false);
         backgrounds = new BufferedImage[3];
         try {
@@ -37,8 +35,7 @@ public class PanelDeposito <T extends Visible> extends JPanel {
         this.addMouseListener(listener);
         for(int i=0;i<dep.getCantidadContenido();i++){
             T contenido = dep.checkContenido(i);
-            contenido.setPosition(10*i+20,5);
-            contenido.setImage(img);
+            contenido.setPosition(60-10*i,5);
         }
     }
 
@@ -46,8 +43,7 @@ public class PanelDeposito <T extends Visible> extends JPanel {
         int movProd = 5*(5-dep.getCantidadContenido());
         for(int i=0;i<dep.getCantidadContenido();i++){
             T contenido = dep.checkContenido(i);
-            contenido.setPosition(10*i+20+movProd,5);
-            contenido.setImage(img);
+            contenido.setPosition(60-10*i-movProd,5);
         }
     }
 
@@ -85,7 +81,7 @@ public class PanelDeposito <T extends Visible> extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(backgrounds[2], 0, 0, this);
-        for(int j=0;j<dep.getCantidadContenido();j++) {
+        for(int j=dep.getCantidadContenido()-1;j>=0;j--) {
             dep.checkContenido(j).paintComponent(g, this);
         }
     }

@@ -27,6 +27,11 @@ public abstract class Producto implements Visible {
      * @param sr Número entero con la serie del producto */
     public Producto(int sr) {
         serie = sr;
+        try {
+            img = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+getNumProducto()+".png"));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     /** Metodo para establecer las coordenadas del producto
@@ -38,9 +43,7 @@ public abstract class Producto implements Visible {
         posY = y;
     }
 
-    public void setImage(BufferedImage image){
-        img = image;
-    }
+    public abstract int getNumProducto();
 
     /** Método para obtener el número de serie del producto
      * @return Número entero con la serie del producto */
