@@ -18,5 +18,7 @@ public class SahneNuss extends Dulce{
         return "Sahne-Nuss";
     }
 
-    public int getNumProducto() { return 3; }
+    /** Metodo para obtener el número de la imagen del SahneNuss
+     * @return int con el número asociado a la imagen (3) de la SahneNuss */
+    public int getNumImgProducto() { return 3; }
 }

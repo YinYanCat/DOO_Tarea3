@@ -18,5 +18,7 @@ public class Snickers extends Dulce{
         return "Snickers";
     }
 
-    public int getNumProducto() { return 0; }
+    /** Metodo para obtener el número de la imagen del Snicker
+     * @return int con el número asociado a la imagen (0) del Snicker */
+    public int getNumImgProducto() { return 0; }
 }

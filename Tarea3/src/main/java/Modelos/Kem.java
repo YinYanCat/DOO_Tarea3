@@ -18,5 +18,7 @@ public class Kem extends Bebida {
         return "Kem";
     }
 
-    public int getNumProducto() { return 14; }
+    /** Metodo para obtener el número de la imagen de la Kem
+     * @return int con el número asociado a la imagen (14) de la Kem */
+    public int getNumImgProducto() { return 14; }
 }

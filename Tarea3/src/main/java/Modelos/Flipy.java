@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Flipy extends Dulce {
 
-    /** Constructor que guarda el número de serie del Flipy
+    /** Constructor que guarda el número de serie del Flipy y la utiliza asociarlo a una imágen alternativa del Flipy
      * @param serie Número entero con la serie del Flipy */
     public Flipy(int serie) {
         super(serie);
@@ -30,5 +30,7 @@ public class Flipy extends Dulce {
         return "Flipy";
     }
 
-    public int getNumProducto() { return 6; }
+    /** Metodo para obtener el número de la imagen del Flipy
+     * @return int con el número asociado a la imagen (6) del Flipy */
+    public int getNumImgProducto() { return 6; }
 }

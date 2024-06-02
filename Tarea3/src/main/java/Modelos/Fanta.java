@@ -18,5 +18,7 @@ public class Fanta extends Bebida {
         return "Fanta";
     }
 
-    public int getNumProducto() { return 10; }
+    /** Metodo para obtener el número de la imagen de la Fanta
+     * @return int con el número asociado a la imagen (10) de la Fanta */
+    public int getNumImgProducto() { return 10; }
 }

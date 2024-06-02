@@ -18,5 +18,7 @@ public class Trencito extends Dulce{
         return "Trencito";
     }
 
-    public int getNumProducto() { return 4; }
+    /** Metodo para obtener el número de la imagen del Trencito
+     * @return int con el número asociado a la imagen (4) del Trencito */
+    public int getNumImgProducto() { return 4; }
 }

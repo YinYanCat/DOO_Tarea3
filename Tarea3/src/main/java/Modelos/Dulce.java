@@ -15,5 +15,5 @@ public abstract class Dulce extends Producto {
     /** Método para obtener el sabor (nombre) del dulce
      * @return String con el sabor del dulce */
     public abstract String sabor();
-    public abstract int getNumProducto();
+
 }

@@ -18,5 +18,7 @@ public class Doblon extends Dulce{
         return "Doblon";
     }
 
-    public int getNumProducto() { return 5; }
+    /** Metodo para obtener el número de la imagen del producto
+     * @return int con el número asociado a la imagen (5) del producto */
+    public int getNumImgProducto() { return 5; }
 }

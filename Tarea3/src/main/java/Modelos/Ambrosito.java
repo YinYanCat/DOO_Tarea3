@@ -6,17 +6,19 @@ package Modelos;
 
 public class Ambrosito extends Dulce {
 
-    /** Constructor que guarda el número de serie del Modelos.Ambrosito
-     * @param serie Número entero con la serie del Modelos.Ambrosito */
+    /** Constructor que guarda el número de serie del Ambrosito
+     * @param serie Número entero con la serie del Ambrosito */
     public Ambrosito(int serie) {
         super(serie);
     }
 
-    /** Método para obtener el sabor (nombre) del Modelos.Ambrosito
+    /** Método para obtener el sabor (nombre) del Ambrosito
      * @return String "Ambrosito" como su sabor */
     public String sabor() {
         return "Ambrosito";
     }
 
-    public int getNumProducto() { return 7; }
+    /** Metodo para obtener el número de la imagen del Ambrosito
+     * @return int con el número asociado a la imagen (7) del Ambrosito */
+    public int getNumImgProducto() { return 7; }
 }

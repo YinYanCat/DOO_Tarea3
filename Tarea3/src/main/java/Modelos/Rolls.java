@@ -18,5 +18,7 @@ public class Rolls extends Dulce{
         return "Rolls";
     }
 
-    public int getNumProducto() { return 2; }
+    /** Metodo para obtener el número de la imagen del Rolls
+     * @return int con el número asociado a la imagen (2) del Rolls */
+    public int getNumImgProducto() { return 2; }
 }

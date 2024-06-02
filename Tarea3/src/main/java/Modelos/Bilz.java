@@ -18,5 +18,7 @@ public class Bilz extends Bebida {
         return "Bilz";
     }
 
-    public int getNumProducto() { return 12; }
+    /** Metodo para obtener el número de la imagen de la Bilz
+     * @return int con el número asociado a la imagen (12) de la Bilz */
+    public int getNumImgProducto() { return 12; }
 }

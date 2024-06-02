@@ -28,7 +28,7 @@ public abstract class Producto implements Visible {
     public Producto(int sr) {
         serie = sr;
         try {
-            img = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+getNumProducto()+".png"));
+            img = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+ getNumImgProducto()+".png"));
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -43,7 +43,9 @@ public abstract class Producto implements Visible {
         posY = y;
     }
 
-    public abstract int getNumProducto();
+    /** Metodo para obtener el número de la imagen del producto
+     * @return int con el número asociado a la imagen del producto */
+    public abstract int getNumImgProducto();
 
     /** Método para obtener el número de serie del producto
      * @return Número entero con la serie del producto */
@@ -55,6 +57,7 @@ public abstract class Producto implements Visible {
      * @return String con el sabor del producto */
     public abstract String sabor();
 
+    /** Método para dibujar la imagen del producto en un componente de Swing */
     public void paintComponent(Graphics g, Component observer){
         g.drawImage(img,posX,posY,observer);
     }

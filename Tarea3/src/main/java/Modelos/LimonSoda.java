@@ -18,5 +18,7 @@ public class LimonSoda extends Bebida {
         return "Limón Soda";
     }
 
-    public int getNumProducto() { return 15; }
+    /** Metodo para obtener el número de la imagen de la LimonSoda
+     * @return int con el número asociado a la imagen (15) de la LimonSoda */
+    public int getNumImgProducto() { return 15; }
 }

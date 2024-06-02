@@ -33,6 +33,9 @@ public class Deposito<T extends Visible> extends JPanel {
             return contenido.remove(0);
         }
     }
+
+    /** Método que entrega el objeto guardado en la posición index
+     * @return un objeto generico almacenado en Deposito*/
     public T checkContenido(int index) {
         if(contenido.size() == 0){
             return null;
@@ -49,14 +52,19 @@ public class Deposito<T extends Visible> extends JPanel {
             this.addContenido(obj);
         }
     }
+
+    /** Metodo que devuelve la cantidad de objetos en Deposito
+     * @return int con la cantidad de objetos */
     public int getCantidadContenido() {
         return contenido.size();
     }
 
+    /** Método para vaciar el Deposito */
     public void vaciarDeposito() {
         contenido.clear();
     }
 
+    /** Método para dibujar en un componente de Swing los objetos almacenados en el Deposito */
     public void paintComponent(Graphics g,Component observer){
         for(int j=0;j<getCantidadContenido();j++){
             contenido.get(j).paintComponent(g,observer);

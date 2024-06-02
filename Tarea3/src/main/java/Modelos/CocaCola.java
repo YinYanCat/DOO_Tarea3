@@ -30,6 +30,8 @@ public class CocaCola extends Bebida {
         return "CocaCola";
     }
 
-    public int getNumProducto() { return 8; }
+    /** Metodo para obtener el número de la imagen del producto
+     * @return int con el número asociado a la imagen (8) del producto */
+    public int getNumImgProducto() { return 8; }
 
 }

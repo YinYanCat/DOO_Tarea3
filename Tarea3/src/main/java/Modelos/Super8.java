@@ -18,5 +18,7 @@ public class Super8 extends Dulce{
         return "Super8";
     }
 
-    public int getNumProducto() { return 1; }
+    /** Metodo para obtener el número de la imagen del Super8
+     * @return int con el número asociado a la imagen (1) del Super8 */
+    public int getNumImgProducto() { return 1; }
 }
