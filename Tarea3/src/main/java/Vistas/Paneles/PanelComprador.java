@@ -27,17 +27,15 @@ public class PanelComprador extends JPanel {
     private int serieMonedas[];
 
     public PanelComprador(Comprador comprador) {
+        super(null);
         this.comprador = comprador;
         NumPad = new Boton[4];
         bMonedas = new Boton[3];
         lPantalla = new CuadroTexto[3];
-        select = 0;
         ImgUse = new BufferedImage[5];
         ImgDisplay = new boolean[2];
         serieMonedas =  new int[3];
-        for(int i=0; i<3; i++){
-            serieMonedas[i] = 1;
-        }
+        select = 0;
 
         try {
             ImgUse[0] = ImageIO.read(getClass().getClassLoader().getResource("imgVuelto.png"));
@@ -48,50 +46,34 @@ public class PanelComprador extends JPanel {
             System.out.println(ex.getMessage());
         }
 
-        this.setLayout((new BorderLayout()));
+        PanelSelector panelSelector =  new PanelSelector(0,0,354,720);
+        panelInv = new PanelInventario(355, 0, 249, 720);
         InteraccionSelector listenerCompra = new InteraccionSelector();
-        InteraccionExpendedor listenerMoneda = new InteraccionExpendedor();
-        PanelSelector panelSelector = new PanelSelector();
-        PanelPago panelPago = new PanelPago();
-        panelInv = new PanelInventario();
+        InteraccionExpendedor listenerOpcion = new InteraccionExpendedor();
 
-        JPanel subPanel = new JPanel();
-        subPanel.setBackground(new Color(0,0, 0, 0));
-        subPanel.setLayout(new GridLayout(2, 1));
-        subPanel.setPreferredSize(new Dimension(354,720));
+        panelSelector.crearNumPad(NumPad);
+        panelSelector.crearSelectMonedas(bMonedas);
+        panelSelector.crearPantalla(lPantalla);
 
         for(int i=0; i<4; i++) {
-            NumPad[i] = new Boton(Color.BLACK,true,"imgBoton"+(i+1)+".png");
             NumPad[i].addActionListener(listenerCompra);
-            panelSelector.addNumPadButton(NumPad[i]);
-        }
-
-        lPantalla[0] = new CuadroTexto("Codigo: __", Color.BLACK, Color.WHITE, "OCR A Extended");
-        lPantalla[1] = new CuadroTexto("Pago Ingresado: 0", Color.BLACK, Color.WHITE, "OCR A Extended");
-        lPantalla[2] = new CuadroTexto(" ", Color.BLACK, Color.WHITE, "OCR A Extended");
-
-        for(int i=0; i<3; i++) {
-            int numMoneda = 500*i;
-            if(i==0)
-                numMoneda = 100;
-            bMonedas[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+numMoneda+".png");
-            bMonedas[i].addActionListener(listenerMoneda);
-            panelPago.addButton(bMonedas[i]);
-            panelSelector.addText(lPantalla[i]);
+            if(i!=3) {
+                bMonedas[i].addActionListener(listenerOpcion);
+                serieMonedas[i] = 1;
+            }
         }
 
         bVuelto = new Boton(Color.BLACK,true,"imgBotonVacio.png");
+        bVuelto.setBounds(197,187,120,60);
         bGetProducto = new Boton(Color.BLACK,true,"imgBotonProducto.png");
-        panelSelector.addVueltoButton(bVuelto);
-        panelPago.addRetirar(bGetProducto);
+        bGetProducto.setBounds(197,620,120,60);
+        panelSelector.addBoton(bVuelto);
+        panelSelector.addBoton(bGetProducto);
+        bGetProducto.addActionListener(listenerOpcion);
+        bVuelto.addActionListener(listenerOpcion);
 
-        bGetProducto.addActionListener(listenerMoneda);
-        bVuelto.addActionListener(listenerMoneda);
-
-        subPanel.add(panelSelector);
-        subPanel.add(panelPago);
-        this.add(subPanel, BorderLayout.WEST);
-        this.add(panelInv, BorderLayout.EAST);
+        this.add(panelSelector);
+        this.add(panelInv);
     }
 
     private class InteraccionSelector implements ActionListener {

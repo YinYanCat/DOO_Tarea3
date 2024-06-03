@@ -1,53 +1,63 @@
 package Vistas.Paneles;
 
+import Vistas.Boton;
 import Vistas.CuadroTexto;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 import java.awt.*;
 
-public class PanelSelector  extends JPanel {
+public class PanelSelector extends JPanel {
+    private JPanel[] Paneles;
+    public PanelSelector(int x, int y, int width, int height) {
+        super(null);
+        this.setBounds(x,y,width,height);
+        this.setBackground(new Color(0,0,0,0));
+        Paneles = new JPanel[3];
 
-    private JPanel panelDisplay;
-    private JPanel panelNumberPad;
-    private JPanel panelOptions;
-
-    public PanelSelector() {
-        super();
-        Color transparent = new Color(0,0, 0, 0);
-        this.setLayout(new BorderLayout());
-        this.setBackground(new Color(0,0, 0, 0));
-        this.setPreferredSize(new Dimension(354,360));
-
-        panelNumberPad = new JPanel();
-        panelNumberPad.setBackground(transparent);
-        panelNumberPad.setLayout(new GridLayout(2, 2, 10, 10));
-        panelNumberPad.setPreferredSize(new Dimension(181,215));
-        panelNumberPad.setBorder(BorderFactory.createMatteBorder(42, 36, 43, 15, transparent));
-        this.add(panelNumberPad, BorderLayout.CENTER);
-
-        panelOptions = new JPanel();
-        panelOptions.setBackground(transparent);
-        panelOptions.setLayout(new GridLayout(2, 1, 10, 10));
-        panelOptions.setPreferredSize(new Dimension(172,215));
-        panelOptions.setBorder(BorderFactory.createMatteBorder(42, 16, 43, 36, transparent));
-        this.add(panelOptions, BorderLayout.EAST);
-
-        panelDisplay = new JPanel();
-        panelDisplay.setBackground(transparent);
-        panelDisplay.setLayout(new GridLayout(3, 1));
-        panelDisplay.setPreferredSize(new Dimension(354,145));
-        panelDisplay.setBorder(BorderFactory.createMatteBorder(30, 30, 30, 20, transparent));
-        this.add(panelDisplay, BorderLayout.NORTH);
+        for(int i=0; i<3; i++) {
+            Paneles[i] = new JPanel();
+            Paneles[i].setBackground(new Color(0,0,0,0));
+            this.add(Paneles[i]);
+        }
+        Paneles[0].setLayout(new GridLayout(3, 1));
+        Paneles[0].setBounds(20,30,312,84);
+        Paneles[1].setLayout(new GridLayout(2, 2, 10, 10));
+        Paneles[1].setBounds(36,187,130,130);
+        Paneles[2].setLayout(new GridLayout(1, 3, 10, 10));
+        Paneles[2].setBounds(17,421,318,100);
     }
 
-    public void addNumPadButton(JButton button) {
-        panelNumberPad.add(button);
-    }
-    public void addVueltoButton(JButton button) {
-        panelOptions.add(button);
+    public void crearNumPad(Boton[] NumPad) {
+        for(int i=0; i<4; i++) {
+            NumPad[i] = new Boton(Color.BLACK,true,"imgBoton"+(i+1)+".png");
+            Paneles[1].add(NumPad[i]);
+        }
     }
 
-    public void addText(CuadroTexto text) {
-        panelDisplay.add(text);
+    public void crearSelectMonedas(Boton[] MonedasPad) {
+        for(int i=0; i<3; i++) {
+            int numMoneda = 500*i;
+            if(i==0)
+                numMoneda = 100;
+            MonedasPad[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+numMoneda+".png");
+            Paneles[2].add(MonedasPad[i]);
+        }
+    }
+
+    public void crearPantalla(CuadroTexto[] cuadros) {
+        cuadros[0] = new CuadroTexto("Codigo: __", Color.BLACK, Color.WHITE, "OCR A Extended");
+        cuadros[1] = new CuadroTexto("Pago Ingresado: 0", Color.BLACK, Color.WHITE, "OCR A Extended");
+        cuadros[2] = new CuadroTexto(" ", Color.BLACK, Color.WHITE, "OCR A Extended");
+        for(int i=0; i<3; i++) {
+            Paneles[0].add(cuadros[i]);
+        }
+    }
+
+    public void addBoton(Boton boton) {
+        this.add(boton);
+    }
+
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
     }
 }

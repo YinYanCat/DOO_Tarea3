@@ -18,15 +18,14 @@ public class PanelInventario extends JPanel {
     private PanelObjeto[] panelMoneda;
     private Deposito<Moneda> depoMonedas;
 
-    public PanelInventario() {
+    public PanelInventario(int x, int y, int width, int height) {
         super(null);
         try {
             ImgBackground = ImageIO.read(getClass().getClassLoader().getResource("imgPanelInventario.png"));
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-
-        this.setPreferredSize(new Dimension(249, 720));
+        this.setBounds(x,y,width,height);
         this.setBackground(new Color(20,20, 68));
         lablesInv = new CuadroTexto[5];
         panelProducto = new PanelObjeto(30,100, 50,100);
