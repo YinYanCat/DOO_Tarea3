@@ -5,95 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Excepciones/NoHayProductoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Excepciones/PagoIncorrectoException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Ambrosito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Bebida.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Bilz.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/CocaCola.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Comprador.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Deposito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Doblon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Dulce.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Fanta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Flipy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Kem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/LimonSoda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda100.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda1000.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Moneda500.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/NoHayProductoException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/PagoIncorrectoException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/PagoInsuficienteException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Pap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Pepsi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Producto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/ProductoNoRetiradoException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Rolls.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/SahneNuss.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Seleccion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Snickers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Sprite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Super8.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Trabajador.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Trencito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Visible.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Boton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/ImageLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Intermediario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelComprador.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelDeposito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelExpendedor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelInventario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelMonedas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelObjeto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelPago.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelPrincipal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/PanelSelector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/TextoInventario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/TextoPantalla.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Ventana.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBoton1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBoton2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBoton3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBoton4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBotonDeolver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBotonInfo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBotonProducto.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBotonVacio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgBotonVuelto.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgDepoFondo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgDepoSelect.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgMoneda0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgMoneda1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgMoneda2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgPanelComprador.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgPanelExpendedor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgPanelInventario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgPanelMonedas.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProducto9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProductoEspecial0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgProductoEspecial1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgPush.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgPushMarco.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/resources/imgVuelto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/PagoInsuficienteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Excepciones/PagoInsuficienteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/ProductoNoRetiradoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Excepciones/ProductoNoRetiradoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -124,17 +45,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.GFG.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Hp/Downloads/PanelComprador.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.GFG.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Visual&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/Downloads/PanelComprador.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Hp\Desktop\DOO_Tarea3\Tarea3\src\main\resources" />
