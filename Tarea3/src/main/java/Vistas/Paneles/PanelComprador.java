@@ -24,7 +24,7 @@ public class PanelComprador extends JPanel {
     private PanelInventario panelInv;
     private Intermediario inter;
     private int select;
-    private int serieMonedas[];
+    private int[] serieMonedas;
 
     public PanelComprador(Comprador comprador) {
         super(null);
@@ -34,7 +34,7 @@ public class PanelComprador extends JPanel {
         lPantalla = new CuadroTexto[3];
         ImgUse = new BufferedImage[5];
         ImgDisplay = new boolean[2];
-        serieMonedas =  new int[3];
+        serieMonedas = new int[3];
         select = 0;
 
         try {
