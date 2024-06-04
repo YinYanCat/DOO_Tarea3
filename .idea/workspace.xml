@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Excepciones/NoHayProductoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Excepciones/PagoIncorrectoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/NoHayProductoException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/PagoIncorrectoException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/PagoInsuficienteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Excepciones/PagoInsuficienteException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/ProductoNoRetiradoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Excepciones/ProductoNoRetiradoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +13,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -45,17 +34,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.GFG.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Visual&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/Downloads/PanelComprador.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GFG.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Hp/Downloads/PanelComprador.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Hp\Desktop\DOO_Tarea3\Tarea3\src\main\resources" />
