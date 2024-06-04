@@ -103,14 +103,10 @@ public class Expendedor {
 
     /** Método para obtener el producto comprado
      * @return Un producto comprado, cuando se vacía el deposito retorna null*/
-    public Producto getProducto() {
+    public Deposito<Producto>  getDepoProducto() {
         if(DepoUnicoProducto.getCantidadContenido()!=0)
-            return  DepoUnicoProducto.getContenido();
+            return  DepoUnicoProducto;
         return null;
-    }
-
-    public Deposito<Producto> getDepoProductoUnico() {
-        return DepoUnicoProducto;
     }
 
     public void addVuelto(Deposito<Moneda> depoMonedas) {

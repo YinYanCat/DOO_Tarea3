@@ -1,6 +1,8 @@
 package Modelos.Bebidas;
 
 import Vistas.ImageLoader;
+
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 /** Una bebida azucarada gaseosa, que se puede comprar utilizando dinero
@@ -34,4 +36,8 @@ public class CocaCola extends Bebida {
     public int getNumImgProductoEspecial() {
         return 0;
     }
+
+    /** Metodo para obtener la imagen de la CocaCola
+     * @return La imagen del producto en el buffer */
+    public BufferedImage getImageProducto() { return img; };
 }

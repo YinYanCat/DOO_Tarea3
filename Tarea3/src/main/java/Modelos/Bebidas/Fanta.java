@@ -1,5 +1,7 @@
 package Modelos.Bebidas;
 
+import java.awt.image.BufferedImage;
+
 /** Una bebida azucarada de sabor a naranja, que se puede comprar utilizando dinero
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
@@ -21,4 +23,8 @@ public class Fanta extends Bebida {
     /** Metodo para obtener el número de la imagen de la Fanta
      * @return int con el número asociado a la imagen (10) de la Fanta */
     public int getNumImgProducto() { return 10; }
+
+    /** Metodo para obtener la imagen de la Fanta
+     * @return La imagen del producto en el buffer */
+    public BufferedImage getImageProducto() { return img; };
 }

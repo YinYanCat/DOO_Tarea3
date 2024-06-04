@@ -1,6 +1,8 @@
 package Modelos.Dulces;
 
 import Vistas.ImageLoader;
+
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 /** Unas gomitas bicapas de gelatina en forma de delfines, que se pueden comprar utilizando dinero
@@ -34,4 +36,8 @@ public class Flipy extends Dulce {
     public int getNumImgProductoEspecial() {
         return 1;
     }
+
+    /** Metodo para obtener la imagen del Flipy
+     * @return La imagen del producto en el buffer */
+    public BufferedImage getImageProducto() { return img; };
 }

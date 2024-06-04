@@ -1,5 +1,7 @@
 package Modelos.Dulces;
 
+import java.awt.image.BufferedImage;
+
 /** Una galleta con capas de barquillo y recubierta de chocolate, que se puede comprar utilizando dinero
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
@@ -21,4 +23,8 @@ public class Super8 extends Dulce{
     /** Metodo para obtener el número de la imagen del Super8
      * @return int con el número asociado a la imagen (1) del Super8 */
     public int getNumImgProducto() { return 1; }
+
+    /** Metodo para obtener la imagen del Super8
+     * @return La imagen del producto en el buffer */
+    public BufferedImage getImageProducto() { return img; };
 }

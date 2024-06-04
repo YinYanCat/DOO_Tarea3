@@ -1,5 +1,7 @@
 package Modelos.Dulces;
 
+import java.awt.image.BufferedImage;
+
 /** Unas gomitas de gelatina en forma de osos, que se pueden comprar utilizando dinero
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
@@ -21,4 +23,8 @@ public class Ambrosito extends Dulce {
     /** Metodo para obtener el número de la imagen del Ambrosito
      * @return int con el número asociado a la imagen (7) del Ambrosito */
     public int getNumImgProducto() { return 7; }
+
+    /** Metodo para obtener la imagen del Ambrosito
+     * @return La imagen del producto en el buffer */
+    public BufferedImage getImageProducto() { return img; };
 }

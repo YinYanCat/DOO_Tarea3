@@ -152,11 +152,7 @@ public class PanelComprador extends JPanel {
             ImgDisplay[0] = true;
         }
         ImgDisplay[1] = true;
-        try {
-            ImgUse[2] = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+numCompra+".png"));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+        ImgUse[2] = PanelLinker.getPanelExpendendor().obtenerDepoProducto().checkContenido(0).getImageProducto();
     }
 
     private class InteraccionExpendedor implements ActionListener {
@@ -197,7 +193,7 @@ public class PanelComprador extends JPanel {
                 repaint();
             }
             else {
-                Producto producto = PanelLinker.getPanelExpendendor().obtenerProducto();
+                Producto producto = PanelLinker.getPanelExpendendor().obtenerDepoProducto().getContenido();
                 if(producto != null) {
                     comprador.addProducto(producto);
                     panelInv.displayProducto(producto, comprador.getSizeBolsa());

@@ -1,5 +1,7 @@
 package Modelos.Bebidas;
 
+import java.awt.image.BufferedImage;
+
 /** Una bebida azucarada de sabor a papaya, que se puede comprar utilizando dinero
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
@@ -21,4 +23,8 @@ public class Pap extends Bebida {
     /** Metodo para obtener el número de la imagen de la Pap
      * @return int con el número asociado a la imagen (13) de la Pap */
     public int getNumImgProducto() { return 13; }
+
+    /** Metodo para obtener la imagen de la Pap
+     * @return La imagen del producto en el buffer */
+    public BufferedImage getImageProducto() { return img; };
 }

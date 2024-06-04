@@ -1,5 +1,7 @@
 package Modelos.Bebidas;
 
+import java.awt.image.BufferedImage;
+
 /** Una bebida azucarada de sabor a granadina, que se puede comprar utilizando dinero
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
@@ -21,4 +23,8 @@ public class Bilz extends Bebida {
     /** Metodo para obtener el número de la imagen de la Bilz
      * @return int con el número asociado a la imagen (12) de la Bilz */
     public int getNumImgProducto() { return 12; }
+
+    /** Metodo para obtener la imagen de la Bilz
+     * @return La imagen del producto en el buffer */
+    public BufferedImage getImageProducto() { return img; };
 }

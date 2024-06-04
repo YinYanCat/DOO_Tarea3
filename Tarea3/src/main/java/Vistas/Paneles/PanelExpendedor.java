@@ -71,8 +71,8 @@ public class PanelExpendedor extends JPanel {
         expendedor.addVuelto(depoMonedas);
     }
 
-    public Producto obtenerProducto() {
-        return expendedor.getProducto();
+    public Deposito<Producto> obtenerDepoProducto() {
+        return expendedor.getDepoProducto();
     }
 
     private class InfoExpendedor implements ActionListener {
