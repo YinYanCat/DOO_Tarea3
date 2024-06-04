@@ -178,8 +178,8 @@ public class PanelComprador extends JPanel {
                 repaint();
             }
             else {
-                Producto producto = PanelLinker.getPanelExpendendor().obtenerDepoProducto().getContenido();
-                if(producto != null) {
+                if(PanelLinker.getPanelExpendendor().obtenerDepoProducto() != null) {
+                    Producto producto = PanelLinker.getPanelExpendendor().obtenerDepoProducto().getContenido();
                     comprador.addProducto(producto);
                     panelInv.displayProducto(producto, comprador.getSizeBolsa());
                     panelSelect.setPantalla(0, "Codigo: __");
