@@ -56,8 +56,9 @@ public class PanelInventario extends JPanel {
         }
     }
 
-    public void setBilletera(int cantidad) {
-        lablesInv[4].setText("Billetera: "+cantidad);
+    public void setTextoInv(int billetera, int vuelto) {
+        lablesInv[4].setText("Billetera: "+billetera);
+        lablesInv[1].setText("Vuelto Total: "+vuelto);
     }
 
     public void displayProducto(Producto producto, int cantidad) {
@@ -83,10 +84,6 @@ public class PanelInventario extends JPanel {
         if(extra>0)
             lablesInv[2].setText("+"+extra+" Monedas");
         repaint();
-    }
-
-    public void setVueltoText(int num) {
-        lablesInv[1].setText("Vuelto Total: "+num);
     }
 
     @Override

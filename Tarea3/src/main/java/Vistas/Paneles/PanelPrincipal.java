@@ -1,7 +1,6 @@
 package Vistas.Paneles;
 
 import Modelos.*;
-import Vistas.Intermediario;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,10 +20,7 @@ public class PanelPrincipal extends JPanel {
         panelCom = new PanelComprador(new Comprador());
         panelCom.setPreferredSize(new Dimension(603,720));
         this.add(panelCom, BorderLayout.EAST);
-
-        Intermediario intermediario = new Intermediario(this, panelCom, panelExp);
-        panelExp.setIntermediario(intermediario);
-        panelCom.setIntermediario(intermediario);
+        PanelLinker.setLinker(panelExp, panelCom);
     }
 
     public void paintComponent(Graphics g){

@@ -3,20 +3,31 @@ package Vistas.Paneles;
 import Vistas.Boton;
 import Vistas.CuadroTexto;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class PanelSelector extends JPanel {
     private JPanel[] Paneles;
+    private CuadroTexto[] lPantalla;
+
     public PanelSelector(int x, int y, int width, int height) {
         super(null);
         this.setBounds(x,y,width,height);
         this.setBackground(new Color(0,0,0,0));
         Paneles = new JPanel[3];
+        lPantalla = new CuadroTexto[3];
+
+        lPantalla[0] = new CuadroTexto("Codigo: __", Color.BLACK, Color.WHITE, "OCR A Extended");
+        lPantalla[1] = new CuadroTexto("Pago Ingresado: 0", Color.BLACK, Color.WHITE, "OCR A Extended");
+        lPantalla[2] = new CuadroTexto(" ", Color.BLACK, Color.WHITE, "OCR A Extended");
 
         for(int i=0; i<3; i++) {
             Paneles[i] = new JPanel();
             Paneles[i].setBackground(new Color(0,0,0,0));
+            Paneles[0].add(lPantalla[i]);
             this.add(Paneles[i]);
         }
         Paneles[0].setLayout(new GridLayout(3, 1));
@@ -41,13 +52,8 @@ public class PanelSelector extends JPanel {
         }
     }
 
-    public void crearPantalla(CuadroTexto[] cuadros) {
-        cuadros[0] = new CuadroTexto("Codigo: __", Color.BLACK, Color.WHITE, "OCR A Extended");
-        cuadros[1] = new CuadroTexto("Pago Ingresado: 0", Color.BLACK, Color.WHITE, "OCR A Extended");
-        cuadros[2] = new CuadroTexto(" ", Color.BLACK, Color.WHITE, "OCR A Extended");
-        for(int i=0; i<3; i++) {
-            Paneles[0].add(cuadros[i]);
-        }
+    public void setPantalla(int Pantalla, String texto) {
+        lPantalla[Pantalla].setText(texto);
     }
 
     public void addBoton(Boton boton) {

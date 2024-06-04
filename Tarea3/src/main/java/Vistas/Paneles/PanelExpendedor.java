@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PanelExpendedor extends JPanel {
-    private Intermediario inter;
     private final int cantidadDepositos;
     private final Expendedor expendedor;
     private ArrayList<Deposito<Producto>> lDeposito;
@@ -74,10 +73,6 @@ public class PanelExpendedor extends JPanel {
 
     public Producto obtenerProducto() {
         return expendedor.getProducto();
-    }
-
-    public void setIntermediario(Intermediario intermediario) {
-        inter = intermediario;
     }
 
     private class InfoExpendedor implements ActionListener {
