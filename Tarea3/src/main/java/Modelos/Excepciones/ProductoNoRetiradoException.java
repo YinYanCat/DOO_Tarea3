@@ -1,4 +1,4 @@
-package Modelos;
+package Modelos.Excepciones;
 
 /** Esta excepción es resultante de producto sin retirar del expendedor */
 public class ProductoNoRetiradoException extends Exception {

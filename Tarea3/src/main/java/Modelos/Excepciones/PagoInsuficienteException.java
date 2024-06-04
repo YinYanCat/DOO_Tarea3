@@ -1,4 +1,4 @@
-package Modelos;
+package Modelos.Excepciones;
 
 /** Esta excepción es resultante de un precio del producto mayor al valor de la moneda entregada */
 public class PagoInsuficienteException extends Exception {
