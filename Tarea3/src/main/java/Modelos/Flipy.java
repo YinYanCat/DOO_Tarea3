@@ -1,5 +1,7 @@
 package Modelos;
 
+import Vistas.ImageLoader;
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.Random;
@@ -16,11 +18,7 @@ public class Flipy extends Dulce {
         super(serie);
         Random random = new Random();
         if(random.nextInt(10)<3) {
-            try {
-                img = ImageIO.read(getClass().getClassLoader().getResource("imgSecretFlipy.png"));
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
+            img = ImageLoader.getInstancia().getImagenProductoEspecial(getNumImgProductoEspecial());
         }
     }
 
@@ -33,4 +31,10 @@ public class Flipy extends Dulce {
     /** Metodo para obtener el número de la imagen del Flipy
      * @return int con el número asociado a la imagen (6) del Flipy */
     public int getNumImgProducto() { return 6; }
+
+    /** Metodo para obtener el número de la imagen especial del Flipy
+     * @return int con el número asociado a la imagen especial (1) del Flipy */
+    public int getNumImgProductoEspecial() {
+        return 1;
+    }
 }

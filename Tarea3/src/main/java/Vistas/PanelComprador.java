@@ -69,10 +69,8 @@ public class PanelComprador extends JPanel {
         lPantalla[2] = new TextoPantalla(" ");
 
         for(int i=0; i<3; i++) {
-            int numMoneda = 500*i;
-            if(i==0)
-                numMoneda = 100;
-            bMonedas[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+numMoneda+".png");
+
+            bMonedas[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+i+".png");
             bMonedas[i].addActionListener(listenerMoneda);
             panelPago.addButton(bMonedas[i]);
             panelSelector.addText(lPantalla[i]);
