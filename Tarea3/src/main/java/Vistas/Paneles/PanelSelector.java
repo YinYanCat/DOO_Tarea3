@@ -36,10 +36,7 @@ public class PanelSelector extends JPanel {
 
     public void crearSelectMonedas(Boton[] MonedasPad) {
         for(int i=0; i<3; i++) {
-            int numMoneda = 500*i;
-            if(i==0)
-                numMoneda = 100;
-            MonedasPad[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+numMoneda+".png");
+            MonedasPad[i] = new Boton(new Color(133,170, 215),false,"imgMoneda"+i+".png");
             Paneles[2].add(MonedasPad[i]);
         }
     }

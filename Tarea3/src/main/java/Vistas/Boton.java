@@ -1,8 +1,7 @@
 package Vistas;
 
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 
 public class Boton extends JButton {
     private String filename;

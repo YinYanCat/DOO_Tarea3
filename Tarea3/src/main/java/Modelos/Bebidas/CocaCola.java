@@ -1,7 +1,6 @@
 package Modelos.Bebidas;
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
+import Vistas.ImageLoader;
 import java.util.Random;
 
 /** Una bebida azucarada gaseosa, que se puede comprar utilizando dinero
@@ -16,11 +15,7 @@ public class CocaCola extends Bebida {
         super(serie);
         Random random = new Random();
         if(random.nextInt(10)<1) {
-            try {
-                img = ImageIO.read(getClass().getClassLoader().getResource("imgSecretCocaCola.png"));
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
+            img = ImageLoader.getInstancia().getImagenProductoEspecial(getNumImgProductoEspecial());
         }
     }
 
@@ -30,8 +25,13 @@ public class CocaCola extends Bebida {
         return "CocaCola";
     }
 
-    /** Metodo para obtener el número de la imagen del producto
-     * @return int con el número asociado a la imagen (8) del producto */
+    /** Metodo para obtener el número de la imagen de la CocaCola
+     * @return int con el número asociado a la imagen (8) de la CocaCola */
     public int getNumImgProducto() { return 8; }
 
+    /** Metodo para obtener el número de la imagen especial de la CocaCola
+     * @return int con el número asociado a la imagen especial (0) del CocaCola */
+    public int getNumImgProductoEspecial() {
+        return 0;
+    }
 }

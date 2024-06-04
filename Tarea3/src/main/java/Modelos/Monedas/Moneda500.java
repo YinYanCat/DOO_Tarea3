@@ -17,11 +17,8 @@ public class Moneda500 extends Moneda {
         return 500;
     }
 
-    /** Método de la interfaz 'Comparable' para comparar este Objeto con otro objeto
-     * @param o El objeto a comparar
-     * @return Número entero dependiendo si este objeto es menor, igual o mayor que el objeto especificado */
-    @Override
-    public int compareTo(Object o) {
-        return 0;
+
+    public int getNumImgMoneda() {
+        return 1;
     }
 }

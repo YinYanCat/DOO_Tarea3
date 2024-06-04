@@ -1,9 +1,9 @@
 package Modelos;
 
-import javax.imageio.ImageIO;
+import Vistas.ImageLoader;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 /** Un objeto que se puede comprar utilizando dinero, se puede almacenar en un depósito
  * @author Chloe Yañez Lavin
@@ -27,11 +27,9 @@ public abstract class Producto implements Visible {
      * @param sr Número entero con la serie del producto */
     public Producto(int sr) {
         serie = sr;
-        try {
-            img = ImageIO.read(getClass().getClassLoader().getResource("imgProducto"+ getNumImgProducto()+".png"));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+        ImageLoader imgLoader = ImageLoader.getInstancia();
+        img = imgLoader.getImagenProducto(getNumImgProducto());
+
     }
 
     /** Metodo para establecer las coordenadas del producto

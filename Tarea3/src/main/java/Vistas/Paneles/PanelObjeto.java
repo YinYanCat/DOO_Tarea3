@@ -68,7 +68,6 @@ public class PanelObjeto <T extends Visible> extends JPanel {
             if(paintPanel) {
                 popupSerie.setVisible(true);
                 popupSerie.show(pointerThis, 50, yOffSet);
-                repaint();
             }
         }
 
@@ -76,7 +75,6 @@ public class PanelObjeto <T extends Visible> extends JPanel {
         public void mouseExited(MouseEvent e) {
             if(popupSerie.isVisible()) {
                 popupSerie.setVisible(false);
-                repaint();
             }
         }
     }

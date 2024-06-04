@@ -1,17 +1,16 @@
 package Modelos.Monedas;
 
 import Modelos.Visible;
+import Vistas.ImageLoader;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 /** Un objeto con un valor definido que utiliza para comprar un producto, se puede almacenar en un deposito
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
 
-public abstract class Moneda implements Comparable, Visible {
+public abstract class Moneda implements Visible {
     private int serie;
     private int posX;
     private int posY;
@@ -22,11 +21,7 @@ public abstract class Moneda implements Comparable, Visible {
     /** Constructor por defecto de Moneda */
     public Moneda(int sr) {
         serie = sr;
-        try {
-            img = ImageIO.read(getClass().getClassLoader().getResource("imgMoneda"+this.getValor()+".png"));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+        img = ImageLoader.getInstancia().getImagenMoneda(getNumImgMoneda());
     }
 
     /** Método para obtener el valor económico de la moneda
@@ -39,9 +34,9 @@ public abstract class Moneda implements Comparable, Visible {
         return serie;
     }
 
-    /** Método de la interfaz 'Comparable' para comparar este objeto con otro objeto
-     * @param o El objeto a comparar */
-    public abstract int compareTo(Object o);
+    /** Metodo para obtener el número de la imagen de la Moneda
+     * @return int con el número asociado a la imagen de la Moneda */
+    public abstract int getNumImgMoneda();
 
     @Override
     public void setPosition(int x, int y) {
