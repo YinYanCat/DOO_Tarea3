@@ -13,7 +13,6 @@ public class PanelObjeto <T extends Visible> extends JPanel {
     private boolean paintPanel;
     private JLabel lSerie;
     private JPopupMenu popupSerie;
-    private PanelObjeto pointerThis;
     private int yOffSet;
 
     public PanelObjeto(int x, int y, int width, int height) {
@@ -21,7 +20,6 @@ public class PanelObjeto <T extends Visible> extends JPanel {
         this.setBackground(new Color(0,0,0,0));
         this.setBounds(x, y, width, height);
         this.addMouseListener(new PanelListener());
-        pointerThis = this;
         lSerie = new JLabel();
         paintPanel = false;
         popupSerie = new JPopupMenu();
@@ -46,9 +44,6 @@ public class PanelObjeto <T extends Visible> extends JPanel {
         paintPanel = !paintPanel;
     }
 
-    public boolean getPaint() { return paintPanel; }
-    public T getObjeto() { return objeto; }
-
     private class PanelListener implements MouseListener {
 
         @Override
@@ -67,16 +62,14 @@ public class PanelObjeto <T extends Visible> extends JPanel {
         public void mouseEntered(MouseEvent e) {
             if(paintPanel) {
                 popupSerie.setVisible(true);
-                popupSerie.show(pointerThis, 50, yOffSet);
-                repaint();
+                popupSerie.show(e.getComponent(), 50, yOffSet);
             }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            if(popupSerie.isVisible()) {
+            if(paintPanel) {
                 popupSerie.setVisible(false);
-                repaint();
             }
         }
     }

@@ -9,7 +9,6 @@ import java.awt.*;
 public class PanelPrincipal extends JPanel {
     private PanelComprador panelCom;
     private PanelExpendedor panelExp;
-    private Intermediario intermediario;
 
     public PanelPrincipal(BorderLayout borderLayout) {
         super(borderLayout);
@@ -23,7 +22,7 @@ public class PanelPrincipal extends JPanel {
         panelCom.setPreferredSize(new Dimension(603,720));
         this.add(panelCom, BorderLayout.EAST);
 
-        intermediario = new Intermediario(this, panelCom, panelExp);
+        Intermediario intermediario = new Intermediario(this, panelCom, panelExp);
         panelExp.setIntermediario(intermediario);
         panelCom.setIntermediario(intermediario);
     }
