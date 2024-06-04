@@ -13,12 +13,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class PanelComprador extends JPanel {
-    private Boton[] NumPad;
-    private Boton[] bMonedas;
+    private Boton[] NumPad;     //1,2,3,4
+    private Boton[] bMonedas;   //100, 500, 1000
     private Boton bVuelto;
     private Boton bGetProducto;
-    private BufferedImage[] ImgUse;
-    private boolean[] ImgDisplay;
     private Comprador comprador;
     private PanelInventario panelInv;
     private PanelSelector panelSelect;
@@ -30,28 +28,17 @@ public class PanelComprador extends JPanel {
         this.comprador = comprador;
         NumPad = new Boton[4];
         bMonedas = new Boton[3];
-        ImgUse = new BufferedImage[5];
-        ImgDisplay = new boolean[2];
         serieMonedas = new int[3];
         select = 0;
 
-        try {
-            ImgUse[0] = ImageIO.read(getClass().getClassLoader().getResource("imgVuelto.png"));
-            ImgUse[1] = ImageIO.read(getClass().getClassLoader().getResource("imgPush.png"));
-            ImgUse[3] = ImageIO.read(getClass().getClassLoader().getResource("imgPushMarco.png"));
-            ImgUse[4] = ImageIO.read(getClass().getClassLoader().getResource("imgPanelComprador.png"));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-
+        this.setBackground(new Color(99,155, 255));
         panelSelect =  new PanelSelector(0,0,354,720);
-        panelInv = new PanelInventario(355, 0, 249, 720);
+        panelInv = new PanelInventario(354, 0, 249, 720);
         InteraccionSelector listenerCompra = new InteraccionSelector();
         InteraccionExpendedor listenerOpcion = new InteraccionExpendedor();
 
         panelSelect.crearNumPad(NumPad);
         panelSelect.crearSelectMonedas(bMonedas);
-
         for(int i=0; i<4; i++) {
             NumPad[i].addActionListener(listenerCompra);
             if(i!=3) {
@@ -68,7 +55,6 @@ public class PanelComprador extends JPanel {
         panelSelect.addBoton(bGetProducto);
         bGetProducto.addActionListener(listenerOpcion);
         bVuelto.addActionListener(listenerOpcion);
-
         this.add(panelSelect);
         this.add(panelInv);
     }
@@ -130,9 +116,8 @@ public class PanelComprador extends JPanel {
                 panelSelect.setPantalla(0, "Codigo: "+select);
                 try {
                     PanelLinker.getPanelExpendendor().comprarEnExpendedor(comprador.getnumPago(), comprador.getdepoPago(), compra);
-                    int vuelto = comprador.getnumPago()-compra.getPrecio();
+                    setCompraDisplay(comprador.getnumPago()-compra.getPrecio());
                     comprador.setnumPago(0);
-                    setCompraDisplay(vuelto, compra.getNumDepo());
                 } catch (Exception exception) {
                     panelSelect.setPantalla(2, exception.getMessage());
                 }
@@ -142,17 +127,17 @@ public class PanelComprador extends JPanel {
         }
     }
 
-    public void setCompraDisplay(int vuelto, int numCompra) {
+    public void setCompraDisplay(int vuelto) {
         panelSelect.setPantalla(0, "Codigo: "+select+" | Producto Comprado");
-        panelSelect.setPantalla(1, "Pago Ingresado: "+comprador.getnumPago());
+        panelSelect.setPantalla(1, "Pago Ingresado: 0");
         panelSelect.setPantalla(2, "Vuelto: "+vuelto);
         bVuelto.changeImage("imgBotonVacio.png");
         if(vuelto != 0) {
             bVuelto.changeImage("imgBotonVuelto.png");
-            ImgDisplay[0] = true;
+            panelSelect.setCaseVisible(0, true);
         }
-        ImgDisplay[1] = true;
-        ImgUse[2] = PanelLinker.getPanelExpendendor().obtenerDepoProducto().checkContenido(0).getImageProducto();
+        panelSelect.setCaseVisible(1, true);
+        panelSelect.setImageProduct(PanelLinker.getPanelExpendendor().obtenerDepoProducto().checkContenido(0).getImageProducto());
     }
 
     private class InteraccionExpendedor implements ActionListener {
@@ -177,7 +162,7 @@ public class PanelComprador extends JPanel {
                     comprador.obtenerVuelto(PanelLinker.getPanelExpendendor().entregarVuelto());
                     panelSelect.setPantalla(2, "Vuelto Retirado");
                     bVuelto.changeImage("imgBotonVacio.png");
-                    ImgDisplay[0] = false;
+                    panelSelect.setCaseVisible(0, false);
                     panelInv.displayMonedas(comprador.getBilletera(), comprador.getVuelto());
                 }
                 else if(bVuelto.getFilename().equals("imgBotonDeolver.png")) {
@@ -187,7 +172,7 @@ public class PanelComprador extends JPanel {
                     bVuelto.changeImage("imgBotonVuelto.png");
                     select = 0;
                     comprador.setnumPago(0);
-                    ImgDisplay[0] = true;
+                    panelSelect.setCaseVisible(0, true);
                 }
                 panelInv.setTextoInv(comprador.getNumBilletera(), comprador.getVuelto());
                 repaint();
@@ -199,7 +184,7 @@ public class PanelComprador extends JPanel {
                     panelInv.displayProducto(producto, comprador.getSizeBolsa());
                     panelSelect.setPantalla(0, "Codigo: __");
                     panelSelect.setPantalla(2, " ");
-                    ImgDisplay[1] = false;
+                    panelSelect.setCaseVisible(1, false);
                     select = 0;
                     repaint();
                 }
@@ -211,13 +196,5 @@ public class PanelComprador extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(ImgUse[4],0,0,this);
-        if(ImgDisplay[0])
-            g.drawImage(ImgUse[0],197,257,this);
-        if(ImgDisplay[1]) {
-            g.drawImage(ImgUse[1], 30, 596, this);
-            g.drawImage(ImgUse[2], 70, 636, this);
-            g.drawImage(ImgUse[3], 30, 596, this);
-        }
     }
 }

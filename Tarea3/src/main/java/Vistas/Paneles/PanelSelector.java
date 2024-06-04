@@ -12,6 +12,8 @@ import java.io.IOException;
 public class PanelSelector extends JPanel {
     private JPanel[] Paneles;
     private CuadroTexto[] lPantalla;
+    private BufferedImage[] ImgUse;
+    private boolean[] ImgDisplay;
 
     public PanelSelector(int x, int y, int width, int height) {
         super(null);
@@ -19,6 +21,17 @@ public class PanelSelector extends JPanel {
         this.setBackground(new Color(0,0,0,0));
         Paneles = new JPanel[3];
         lPantalla = new CuadroTexto[3];
+        ImgUse = new BufferedImage[5];
+        ImgDisplay = new boolean[2];
+
+        try {
+            ImgUse[0] = ImageIO.read(getClass().getClassLoader().getResource("imgVuelto.png"));
+            ImgUse[1] = ImageIO.read(getClass().getClassLoader().getResource("imgPush.png"));
+            ImgUse[3] = ImageIO.read(getClass().getClassLoader().getResource("imgPushMarco.png"));
+            ImgUse[4] = ImageIO.read(getClass().getClassLoader().getResource("imgPanelComprador.png"));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
         lPantalla[0] = new CuadroTexto("Codigo: __", Color.BLACK, Color.WHITE, "OCR A Extended");
         lPantalla[1] = new CuadroTexto("Pago Ingresado: 0", Color.BLACK, Color.WHITE, "OCR A Extended");
@@ -52,6 +65,14 @@ public class PanelSelector extends JPanel {
         }
     }
 
+    public void setImageProduct(BufferedImage image) {
+        ImgUse[2] = image;
+    }
+
+    public void setCaseVisible(int setCase, boolean visible) {
+        ImgDisplay[setCase] = visible;
+    }
+
     public void setPantalla(int Pantalla, String texto) {
         lPantalla[Pantalla].setText(texto);
     }
@@ -62,5 +83,13 @@ public class PanelSelector extends JPanel {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.drawImage(ImgUse[4],0,0,this);
+        if(ImgDisplay[0])
+            g.drawImage(ImgUse[0],197,257,this);
+        if(ImgDisplay[1]) {
+            g.drawImage(ImgUse[1], 30, 596, this);
+            g.drawImage(ImgUse[2], 70, 636, this);
+            g.drawImage(ImgUse[3], 30, 596, this);
+        }
     }
 }
