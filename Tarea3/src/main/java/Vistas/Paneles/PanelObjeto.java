@@ -17,7 +17,7 @@ public class PanelObjeto <T extends Visible> extends JPanel {
 
     public PanelObjeto(int x, int y, int width, int height) {
         super();
-        this.setBackground(new Color(0,0,0,0));
+        this.setOpaque(false);
         this.setBounds(x, y, width, height);
         this.addMouseListener(new PanelListener());
         lSerie = new JLabel();
@@ -70,6 +70,7 @@ public class PanelObjeto <T extends Visible> extends JPanel {
         public void mouseExited(MouseEvent e) {
             if(paintPanel) {
                 popupSerie.setVisible(false);
+                repaint();
             }
         }
     }

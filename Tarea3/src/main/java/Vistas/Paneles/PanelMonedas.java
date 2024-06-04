@@ -14,14 +14,14 @@ import java.util.ArrayList;
 public class PanelMonedas extends JPanel {
     private boolean visible;
     private BufferedImage ImgBackground;
-    private int starPosition[];
+    private int[] startPos;
     private ArrayList<PanelObjeto> panelMoneda;
     private CuadroTexto[] lExtraMonedas;
 
     public PanelMonedas() {
         super(null);
         visible = false;
-        starPosition = new int [2];
+        startPos = new int [2];
         this.setBounds(30, 80,603,550);
         this.setBackground(new Color(0,0,0,0));
         lExtraMonedas = new CuadroTexto[2];
@@ -63,19 +63,19 @@ public class PanelMonedas extends JPanel {
     }
 
     public void setMonedas(Deposito<Moneda> depoExp, int total) {
-        for(int j=starPosition[0]; j<depoExp.getCantidadContenido(); j++) {
+        for(int j = startPos[0]; j<depoExp.getCantidadContenido(); j++) {
             if(j>=72)
                 break;
-            panelMoneda.add(new PanelObjeto(12+28*(j%18),110+100*starPosition[1],100,100));
+            panelMoneda.add(new PanelObjeto(12+28*(j%18),110+100* startPos[1],100,100));
             panelMoneda.get(j).setObjeto(depoExp.checkContenido(j));
             this.add(panelMoneda.get(j));
             if(j%18==17)
-                starPosition[1]++;
+                startPos[1]++;
         }
         if(depoExp.getCantidadContenido()-72>0)
             setText("+"+(depoExp.getCantidadContenido()-72)+" Monedas", 0);
         setText("Total: "+total, 1);
-        starPosition[0] = depoExp.getCantidadContenido();
+        startPos[0] = depoExp.getCantidadContenido();
     }
 
     @Override
