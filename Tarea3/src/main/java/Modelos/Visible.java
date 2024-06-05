@@ -3,6 +3,9 @@ package Modelos;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/** Una interfaz para entregarle métodos de Moneda y Producto a objetos génericos
+ * @author Chloe Yañez Lavin
+ * @author Emily Osvaldo Gaete Bobadilla */
 public interface Visible {
 
     /** Método para guardar la posición en el eje x y eje Y de un Objeto */

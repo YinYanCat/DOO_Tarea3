@@ -72,11 +72,10 @@ public class PanelObjeto <T extends Visible> extends JPanel {
      * @author Emily Osvaldo Gaete Bobadilla */
     private class PanelListener implements MouseListener {
 
-        /** Método para imprimir la información del objeto al detectar al mouse hacer clic en el panel
+        /** Método para realizar una acción al detectar al mouse hacer clic en el panel
          * @param event El evento realizado al panel deposito */
         @Override
         public void mouseClicked(MouseEvent event) {}
-
 
         /** Método para mostrar el Pop-Up al detectar el mouse entrar al panel
          * @param event El evento realizado al panel deposito */
@@ -101,7 +100,10 @@ public class PanelObjeto <T extends Visible> extends JPanel {
         /** Método para imprimir la información del objeto al detectar que el mouse está presionando el panel
          * @param event El evento realizado al panel deposito */
         @Override
-        public void mousePressed(MouseEvent event) {}
+        public void mousePressed(MouseEvent event) {
+            if(visible)
+                System.out.println(objeto.getClass().getSimpleName()+" | Número de serie: "+lSerie.getText());
+        }
 
         /** Método para realizar una acción al detectar que el mouse liberó el panel
          * @param event El evento realizado al panel deposito */
