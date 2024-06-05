@@ -30,9 +30,9 @@ public class Kem extends Bebida {
 
     /** Metodo para obtener el número de la imagen de la Kem
      * @return int con el número asociado a la imagen (14) de la Kem */
-    public int getNumImgProducto() { return 14; }
+    public int getNumImg() { return 14; }
 
     /** Metodo para obtener la imagen de la Kem
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; }
+    public BufferedImage getImage() { return img; }
 }

@@ -22,9 +22,9 @@ public class Trencito extends Dulce{
 
     /** Metodo para obtener el número de la imagen del Trencito
      * @return int con el número asociado a la imagen (4) del Trencito */
-    public int getNumImgProducto() { return 4; }
+    public int getNumImg() { return 4; }
 
     /** Metodo para obtener la imagen del Trencito
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; }
+    public BufferedImage getImage() { return img; }
 }

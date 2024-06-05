@@ -22,9 +22,9 @@ public class Pepsi extends Bebida {
 
     /** Metodo para obtener el número de la imagen de la Pepsi
      * @return int con el número asociado a la imagen (11) de la Pepsi */
-    public int getNumImgProducto() { return 11; }
+    public int getNumImg() { return 11; }
 
     /** Metodo para obtener la imagen de la Pepsi
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; }
+    public BufferedImage getImage() { return img; }
 }

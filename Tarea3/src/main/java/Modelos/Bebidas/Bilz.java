@@ -22,9 +22,9 @@ public class Bilz extends Bebida {
 
     /** Metodo para obtener el número de la imagen de la Bilz
      * @return int con el número asociado a la imagen (12) de la Bilz */
-    public int getNumImgProducto() { return 12; }
+    public int getNumImg() { return 12; }
 
     /** Metodo para obtener la imagen de la Bilz
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; }
+    public BufferedImage getImage() { return img; }
 }

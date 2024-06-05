@@ -22,9 +22,9 @@ public class Pap extends Bebida {
 
     /** Metodo para obtener el número de la imagen de la Pap
      * @return int con el número asociado a la imagen (13) de la Pap */
-    public int getNumImgProducto() { return 13; }
+    public int getNumImg() { return 13; }
 
     /** Metodo para obtener la imagen de la Pap
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; }
+    public BufferedImage getImage() { return img; }
 }

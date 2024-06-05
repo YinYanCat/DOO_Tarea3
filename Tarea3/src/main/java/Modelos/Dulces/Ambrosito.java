@@ -22,9 +22,9 @@ public class Ambrosito extends Dulce {
 
     /** Metodo para obtener el número de la imagen del Ambrosito
      * @return int con el número asociado a la imagen (7) del Ambrosito */
-    public int getNumImgProducto() { return 7; }
+    public int getNumImg() { return 7; }
 
     /** Metodo para obtener la imagen del Ambrosito
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; }
+    public BufferedImage getImage() { return img; }
 }

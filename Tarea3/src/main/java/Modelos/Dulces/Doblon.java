@@ -22,9 +22,9 @@ public class Doblon extends Dulce{
 
     /** Metodo para obtener el número de la imagen del producto
      * @return int con el número asociado a la imagen (5) del producto */
-    public int getNumImgProducto() { return 5; }
+    public int getNumImg() { return 5; }
 
     /** Metodo para obtener la imagen del Doblon
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; }
+    public BufferedImage getImage() { return img; }
 }

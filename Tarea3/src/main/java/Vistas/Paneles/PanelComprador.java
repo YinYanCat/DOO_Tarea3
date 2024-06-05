@@ -137,7 +137,7 @@ public class PanelComprador extends JPanel {
             panelSelect.setCaseVisible(0, true);
         }
         panelSelect.setCaseVisible(1, true);
-        panelSelect.setImageProduct(PanelLinker.getPanelExpendendor().obtenerDepoProducto().checkContenido(0).getImageProducto());
+        panelSelect.setImageProduct(PanelLinker.getPanelExpendendor().obtenerDepoProducto().checkContenido(0).getImage());
     }
 
     private class InteraccionExpendedor implements ActionListener {

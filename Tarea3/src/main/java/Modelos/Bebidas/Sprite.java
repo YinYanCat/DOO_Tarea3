@@ -22,9 +22,9 @@ public class Sprite extends Bebida {
 
     /** Metodo para obtener el número de la imagen de la Sprite
      * @return int con el número asociado a la imagen (9) de la Sprite */
-    public int getNumImgProducto() { return 9; }
+    public int getNumImg() { return 9; }
 
     /** Metodo para obtener la imagen de la Sprite
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; }
+    public BufferedImage getImage() { return img; }
 }
