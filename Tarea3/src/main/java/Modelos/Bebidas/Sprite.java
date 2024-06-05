@@ -26,5 +26,5 @@ public class Sprite extends Bebida {
 
     /** Metodo para obtener la imagen de la Sprite
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; };
+    public BufferedImage getImageProducto() { return img; }
 }

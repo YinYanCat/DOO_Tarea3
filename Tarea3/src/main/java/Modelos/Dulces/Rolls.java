@@ -26,5 +26,5 @@ public class Rolls extends Dulce{
 
     /** Metodo para obtener la imagen del Rolls
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; };
+    public BufferedImage getImageProducto() { return img; }
 }

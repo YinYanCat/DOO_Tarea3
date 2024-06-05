@@ -15,9 +15,10 @@ public class Flipy extends Dulce {
      * @param serie Número entero con la serie del Flipy */
     public Flipy(int serie) {
         super(serie);
+        int numEspecial = 1;    //el número de la imagen especial del Flipy
         Random random = new Random();
         if(random.nextInt(10)<3) {
-            img = ImageLoader.getInstancia().getImagenProductoEspecial(getNumImgProductoEspecial());
+            img = ImageLoader.getInstancia().getImagenProductoEspecial(1);
         }
     }
 
@@ -31,13 +32,7 @@ public class Flipy extends Dulce {
      * @return int con el número asociado a la imagen (6) del Flipy */
     public int getNumImgProducto() { return 6; }
 
-    /** Metodo para obtener el número de la imagen especial del Flipy
-     * @return int con el número asociado a la imagen especial (1) del Flipy */
-    public int getNumImgProductoEspecial() {
-        return 1;
-    }
-
     /** Metodo para obtener la imagen del Flipy
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; };
+    public BufferedImage getImageProducto() { return img; }
 }

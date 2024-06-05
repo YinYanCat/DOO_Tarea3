@@ -1,6 +1,9 @@
 package Modelos.Bebidas;
 
+import Vistas.ImageLoader;
+
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 /** Una bebida azucarada de sabor a piña, que se puede comprar utilizando dinero
  * @author Chloe Yañez Lavin
@@ -12,6 +15,11 @@ public class Kem extends Bebida {
      * @param serie Número entero con la serie de la Kem */
     public Kem(int serie) {
         super(serie);
+        int numEspecial = 2;    //el número de la imagen especial de la Kem
+        Random random = new Random();
+        if(random.nextInt(10)<1) {
+            img = ImageLoader.getInstancia().getImagenProductoEspecial(numEspecial);
+        }
     }
 
     /** Método para obtener el sabor (nombre) de la Kem
@@ -26,5 +34,5 @@ public class Kem extends Bebida {
 
     /** Metodo para obtener la imagen de la Kem
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; };
+    public BufferedImage getImageProducto() { return img; }
 }

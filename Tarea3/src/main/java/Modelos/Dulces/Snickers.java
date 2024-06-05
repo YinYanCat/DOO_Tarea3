@@ -26,5 +26,5 @@ public class Snickers extends Dulce{
 
     /** Metodo para obtener la imagen del Snicker
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; };
+    public BufferedImage getImageProducto() { return img; }
 }

@@ -26,5 +26,5 @@ public class Pepsi extends Bebida {
 
     /** Metodo para obtener la imagen de la Pepsi
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; };
+    public BufferedImage getImageProducto() { return img; }
 }

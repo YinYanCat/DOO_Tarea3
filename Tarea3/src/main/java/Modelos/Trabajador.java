@@ -85,6 +85,8 @@ public class Trabajador {
         return newDepo;
     }
 
+    /** Método para obtener la cantidad de productos que crea el trabajador
+     * @return El número con la cantidad total de productos que puede crear el trabajador */
     public int getcantidadProductos() {
         return cantidadProductos;
     }

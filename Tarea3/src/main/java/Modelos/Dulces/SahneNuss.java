@@ -26,5 +26,5 @@ public class SahneNuss extends Dulce{
 
     /** Metodo para obtener la imagen del SahneNuss
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; };
+    public BufferedImage getImageProducto() { return img; }
 }

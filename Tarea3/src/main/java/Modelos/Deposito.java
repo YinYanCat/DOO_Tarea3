@@ -35,7 +35,7 @@ public class Deposito<T extends Visible> extends JPanel {
     }
 
     /** Método que entrega el objeto guardado en la posición index
-     * @return un objeto generico almacenado en Deposito*/
+     * @return un objeto generico almacenado en Deposito */
     public T checkContenido(int index) {
         if(contenido.size() == 0){
             return null;
@@ -43,6 +43,9 @@ public class Deposito<T extends Visible> extends JPanel {
             return contenido.get(index);
         }
     }
+
+    /** Método para extender un deposito al final del deposito actual
+     * @param depoExtend Deposito que va a extender el deposito actual */
     public void extend(Deposito<T> depoExtend) {
         T obj;
         while(true) {

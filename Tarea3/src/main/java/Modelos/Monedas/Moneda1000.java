@@ -17,6 +17,8 @@ public class Moneda1000 extends Moneda {
         return 1000;
     }
 
+    /** Metodo para obtener el número de la imagen de la moneda
+     * @return El número 2, asociado a la imagen de la moneda */
     public int getNumImgMoneda() {
         return 2;
     }

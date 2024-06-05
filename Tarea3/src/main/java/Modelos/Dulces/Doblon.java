@@ -26,5 +26,5 @@ public class Doblon extends Dulce{
 
     /** Metodo para obtener la imagen del Doblon
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; };
+    public BufferedImage getImageProducto() { return img; }
 }

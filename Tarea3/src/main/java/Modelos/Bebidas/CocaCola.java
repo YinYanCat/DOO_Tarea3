@@ -15,9 +15,10 @@ public class CocaCola extends Bebida {
      * @param serie Número entero con la serie de la CocaCola */
     public CocaCola(int serie) {
         super(serie);
+        int numEspecial = 0;    //el número de la imagen especial de la CocaCola
         Random random = new Random();
         if(random.nextInt(10)<1) {
-            img = ImageLoader.getInstancia().getImagenProductoEspecial(getNumImgProductoEspecial());
+            img = ImageLoader.getInstancia().getImagenProductoEspecial(numEspecial);
         }
     }
 
@@ -31,13 +32,7 @@ public class CocaCola extends Bebida {
      * @return int con el número asociado a la imagen (8) de la CocaCola */
     public int getNumImgProducto() { return 8; }
 
-    /** Metodo para obtener el número de la imagen especial de la CocaCola
-     * @return int con el número asociado a la imagen especial (0) del CocaCola */
-    public int getNumImgProductoEspecial() {
-        return 0;
-    }
-
     /** Metodo para obtener la imagen de la CocaCola
      * @return La imagen del producto en el buffer */
-    public BufferedImage getImageProducto() { return img; };
+    public BufferedImage getImageProducto() { return img; }
 }

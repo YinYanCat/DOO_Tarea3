@@ -11,11 +11,17 @@ import java.awt.image.BufferedImage;
  * @author Emily Osvaldo Gaete Bobadilla */
 
 public abstract class Moneda implements Visible {
+
+    /** El número de serie de la moneda */
     private int serie;
+
+    /** La posición X de la moneda */
     private int posX;
+
+    /** La posición Y de la moneda */
     private int posY;
 
-    /** Imagen del producto */
+    /** Imagen de la moneda */
     protected BufferedImage img;
 
     /** Constructor por defecto de Moneda */
@@ -34,16 +40,20 @@ public abstract class Moneda implements Visible {
         return serie;
     }
 
-    /** Metodo para obtener el número de la imagen de la Moneda
+    /** Método para obtener el número de la imagen de la Moneda
      * @return int con el número asociado a la imagen de la Moneda */
     public abstract int getNumImgMoneda();
 
+    /** Método para entregar la posición X e Y de la moneda
+     * @param x Posición X pixel de la moneda en la pantalla
+     * @param y Posición Y pixel de la moneda en la pantalla */
     @Override
     public void setPosition(int x, int y) {
         posX=x;
         posY=y;
     }
 
+    /** Método para dibujar la imagen de la moneda en un componente de Swing */
     public void paintComponent(Graphics g, Component observer){
         g.drawImage(img,posX,posY,observer);
     }

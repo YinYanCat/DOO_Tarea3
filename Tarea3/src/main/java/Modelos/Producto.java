@@ -32,9 +32,8 @@ public abstract class Producto implements Visible {
     }
 
     /** Metodo para establecer las coordenadas del producto
-     * @param x Entero con la posición en el eje x
-     * @param y Entero con la posición en el eje y
-     */
+     * @param x Entero con la posición en el eje X
+     * @param y Entero con la posición en el eje Y */
     public void setPosition(int x, int y){
         posX = x;
         posY = y;

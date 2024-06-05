@@ -7,6 +7,7 @@ import java.io.IOException;
 /** Un Singleton que carga, guarda y devuelve Imágenes
  * @author Chloe Yañez Lavin
  * @author Emily Osvaldo Gaete Bobadilla */
+
 public class ImageLoader {
 
     /** Puntero a la instancia única de ImageLoader */
@@ -25,7 +26,7 @@ public class ImageLoader {
     private ImageLoader() {
 
         int cantidadProd = 16;
-        int cantidadProdEsp = 2;
+        int cantidadProdEsp = 3;
         int cantidadMon = 3;
 
         imagenProducto = new BufferedImage[cantidadProd];

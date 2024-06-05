@@ -19,15 +19,19 @@ public class Expendedor {
     /** Depósito de monedas donde se guarda las monedas entregadas al expendedor durante una compra */
     private Deposito<Moneda> depoAlmacenMonedas;
 
+    /** El valor total de las monedas almacenadas en el deposito depoAlmacenMonedas */
     private int totalAlmacenMonedas;
 
     /** Producto que es comprado */
     private Deposito<Producto> DepoUnicoProducto;
 
+    /** Un arreglo de enteros que contienen los números finales de las series de las monedas creadas */
     private int[] serieMonedas;
 
+    /** Un trabajor que rellena el expendedor de productos */
     private Trabajador trabajador;
 
+    /** Cantidad de productos que vende el expendedor */
     private int numProductos;
 
     /** Constructor para crear y llenar los depósitos del expendedor con productos
@@ -90,13 +94,15 @@ public class Expendedor {
         DepoUnicoProducto.addContenido(producto);
     }
 
+    /** Método para rellenar un deposito del expendedor con productos
+     * @return El número del caso del producto que se quiere rellenar */
     public Deposito<Producto> rellenarDposito(int productCase) {
         listDepositos.set(productCase, trabajador.llenarDeposito(numProductos, productCase));
         return listDepositos.get(productCase);
     }
 
     /** Método para devolver una primera moneda del depósito de vuelto del expendedor
-     * @return Una moneda de 100 del vuelto, cuando se vacía el deposito retorna null*/
+     * @return Una moneda de 100 del vuelto, cuando se vacía el deposito retorna null */
     public Deposito<Moneda> getVuelto() {
         return depoVuelto;
     }
@@ -109,19 +115,26 @@ public class Expendedor {
         return null;
     }
 
+    /** Método para agregar un deposito de monedas al deposito de vuelto del expendedor
+     * @param depoMonedas El deposito de monedas que se quiere extender a depoVuelto */
     public void addVuelto(Deposito<Moneda> depoMonedas) {
         depoVuelto.extend(depoMonedas);
     }
+
     /** Método para obtener la lista De depositos de productos
      * @return Un ArrayList de Deposito de Productos */
     public ArrayList<Deposito<Producto>> getListDepositos() {
         return listDepositos;
     }
 
+    /** Método para obtener el almacén de monedas ingresadas al expendedor
+     * @return El deposito de monedas entregadas y guardadas en el expendedor */
     public Deposito<Moneda> getAlmacen() {
         return depoAlmacenMonedas;
     }
 
+    /** Método para obtener el valor total de las monedas almacenadas en el almacen del expendedor
+     * @return El número con el valor total de las monedas en el deposito almacén */
     public int getTotalAlmacen() {
         return totalAlmacenMonedas;
     }
