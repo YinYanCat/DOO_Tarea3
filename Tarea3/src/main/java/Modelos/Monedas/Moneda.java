@@ -27,7 +27,7 @@ public abstract class Moneda implements Visible {
     /** Constructor por defecto de Moneda */
     public Moneda(int sr) {
         serie = sr;
-        img = ImageLoader.getInstancia().getImagenMoneda(getNumImgMoneda());
+        img = ImageLoader.getInstancia().getImagenMoneda(getNumImg());
     }
 
     /** Método para obtener el valor económico de la moneda
@@ -42,7 +42,7 @@ public abstract class Moneda implements Visible {
 
     /** Método para obtener el número de la imagen de la Moneda
      * @return int con el número asociado a la imagen de la Moneda */
-    public abstract int getNumImgMoneda();
+    public abstract int getNumImg();
 
     /** Método para entregar la posición X e Y de la moneda
      * @param x Posición X pixel de la moneda en la pantalla
