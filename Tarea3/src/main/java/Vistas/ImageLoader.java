@@ -55,7 +55,7 @@ public class ImageLoader {
         }
     }
 
-    /** Metodo para devolver la instancia unica de ImageLoader */
+    /** Método para devolver la instancia unica de ImageLoader */
     public static ImageLoader getInstancia(){
         if(imageLoader == null){
             imageLoader = new ImageLoader();
@@ -63,17 +63,17 @@ public class ImageLoader {
         return imageLoader;
     }
 
-    /** Metodo para devolver las imágenes de los Productos */
+    /** Método para devolver las imágenes de los Productos */
     public BufferedImage getImagenProducto(int index){
         return imagenProducto[index];
     }
 
-    /** Metodo para devolver las imágenes especiales de los Productos */
+    /** Método para devolver las imágenes especiales de los Productos */
     public BufferedImage getImagenProductoEspecial(int index){
         return imagenProductoEspecial[index];
     }
 
-    /** Metodo para devolver las imágenes de las Monedas */
+    /** Método para devolver las imágenes de las Monedas */
     public BufferedImage getImagenMoneda(int index){
         return imagenMoneda[index];
     }

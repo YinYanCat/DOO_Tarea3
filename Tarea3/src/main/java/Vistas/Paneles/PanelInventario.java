@@ -11,13 +11,32 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+/** Un panel que contiene el producto de la compra y las monedas obtenidas como vuelto
+ * @author Chloe Yañez Lavin
+ * @author Emily Osvaldo Gaete Bobadilla */
+
 public class PanelInventario extends JPanel {
-    private CuadroTexto[] lablesInv;
-    private BufferedImage ImgBackground;
+
+    /** Panel con un objeto, en este caso un producto */
     private PanelObjeto panelProducto;
+
+    /** Lista de paneles con un objeto, en este caso una moneda, en cada panel */
     private PanelObjeto[] panelMoneda;
+
+    /** Deposito con las monedas visualizadas en el panel mediante PanelObjeto */
     private Deposito<Moneda> depoMonedas;
 
+    /** Arreglo de cuadros de texto que muestran información sobre el panel */
+    private CuadroTexto[] lablesInv;
+
+    /** Imagen que se dibuja al fondo del panel */
+    private BufferedImage ImgBackground;
+
+    /** Constructor donde se crea el panel, sus sub paneles, sus cuadros de texto y su imagen de fondo
+     * @param x La coordenada X del panel
+     * @param y La coordenada Y del panel
+     * @param width El ancho del panel
+     * @param height El alto del panel */
     public PanelInventario(int x, int y, int width, int height) {
         super(null);
         try {
@@ -56,11 +75,17 @@ public class PanelInventario extends JPanel {
         }
     }
 
+    /** Método para actualizar los textos con la información del valor del vuelto y el valor final total
+     * @param billetera El valor total de las monedas en la billetera
+     * @param vuelto El valor total del vuelto obtenido en una compra */
     public void setTextoInv(int billetera, int vuelto) {
         lablesInv[4].setText("Billetera: "+billetera);
         lablesInv[1].setText("Vuelto Total: "+vuelto);
     }
 
+    /** Método para mostrar un producto comprado en el panel, utilizando PanelObjeto
+     * @param producto El producto comprado que va ser mostrado
+     * @param cantidad La cantidad total de productos comprados */
     public void displayProducto(Producto producto, int cantidad) {
         lablesInv[0].setText(producto.sabor());
         lablesInv[3].setText("Bolsa: "+cantidad);
@@ -68,6 +93,9 @@ public class PanelInventario extends JPanel {
         repaint();
     }
 
+    /** Método para mostrar una serie de monedas obtenidas en el panel, utilizando PanelObjeto
+     * @param depoVuelto El deposito con monedas con el vuelto obtenido
+     * @param total La valor total de las monedas obtenidas en el vuelto */
     public void displayMonedas(Deposito<Moneda> depoVuelto, int total) {
         lablesInv[2].setText("");
         depoMonedas = depoVuelto;
@@ -86,6 +114,8 @@ public class PanelInventario extends JPanel {
         repaint();
     }
 
+    /** Método para dibujar la imagen del fondo del panel y sus componentes
+     * @param g El objeto grafico que dibuja los componentes */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

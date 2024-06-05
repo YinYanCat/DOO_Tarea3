@@ -57,7 +57,9 @@ public abstract class Producto implements Visible {
      * @return String con el sabor del producto */
     public abstract String sabor();
 
-    /** Método para dibujar la imagen del producto en un componente de Swing */
+    /** Método para dibujar la imagen del producto en un componente de Swing
+     * @param g El objeto grafico que dibuja los componentes
+     * @param observer El componente donde se dibujaran los otros componentes */
     public void paintComponent(Graphics g, Component observer){
         g.drawImage(img,posX,posY,observer);
     }

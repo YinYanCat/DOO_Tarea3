@@ -11,14 +11,29 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PanelMonedas extends JPanel {
-    private boolean visible;
-    private BufferedImage ImgBackground;
-    private int[] startPos;
+/** Un panel que muestra las monedas guardadas en un deposito y sus series
+ * @author Chloe Yañez Lavin
+ * @author Emily Osvaldo Gaete Bobadilla */
+
+public class PanelAlmacen extends JPanel {
+
+    /** Lista de paneles con un objeto, en este caso una moneda, en cada panel */
     private ArrayList<PanelObjeto> panelMoneda;
+
+    /** Arreglo de enteros que contiene la coordenada (x,y) del último PanelObjeto agregado */
+    private int[] startPos;
+
+    /** Arreglo de cuadros de texto que muestran información sobre el panel */
     private CuadroTexto[] lExtraMonedas;
 
-    public PanelMonedas() {
+    /** Imagen que se dibuja al fondo del panel */
+    private BufferedImage ImgBackground;
+
+    /** Booleano que indica si el panel es visible o invisible */
+    private boolean visible;
+
+    /** Constructor se crea el panel, su fondo y sus cuadros de texto */
+    public PanelAlmacen() {
         super(null);
         visible = false;
         startPos = new int [2];
@@ -39,6 +54,7 @@ public class PanelMonedas extends JPanel {
         panelMoneda = new ArrayList<>();
     }
 
+    /** Método para volver visible o invisible al panel y sus componentes */
     public void togglePanel() {
         visible = !visible;
         for(int i=0; i<panelMoneda.size(); i++) {
@@ -50,6 +66,8 @@ public class PanelMonedas extends JPanel {
         }
     }
 
+    /** Método para obtener la visibilidad actual del panel
+     * @return El booleano que indica la visibilidad del panel y sus componentes */
     public boolean getVisible() { return visible; }
 
     public void setText(String text, int i) {
@@ -62,6 +80,9 @@ public class PanelMonedas extends JPanel {
         }
     }
 
+    /** Método para asignar una coordenada y añadir los PanelObjeto's con monedas al PanelAlmacen
+     * @param depoExp El deposito con las monedas a añadir
+     * @param total El valor total de las monedas dentro del deposito */
     public void setMonedas(Deposito<Moneda> depoExp, int total) {
         for(int j = startPos[0]; j<depoExp.getSizeCont(); j++) {
             if(j>=72)
@@ -78,6 +99,8 @@ public class PanelMonedas extends JPanel {
         startPos[0] = depoExp.getSizeCont();
     }
 
+    /** Método para dibujar la imagen del fondo del panel y sus componentes
+     * @param g El objeto grafico que dibuja los componentes */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

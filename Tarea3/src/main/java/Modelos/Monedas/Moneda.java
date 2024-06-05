@@ -53,7 +53,9 @@ public abstract class Moneda implements Visible {
         posY=y;
     }
 
-    /** Método para dibujar la imagen de la moneda en un componente de Swing */
+    /** Método para dibujar la imagen de la moneda en un componente de Swing
+     * @param g El objeto grafico que dibuja los componentes
+     * @param observer El componente donde se dibujaran los otros componentes */
     public void paintComponent(Graphics g, Component observer){
         g.drawImage(img,posX,posY,observer);
     }

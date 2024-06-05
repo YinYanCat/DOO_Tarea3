@@ -6,6 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="1b5f01ce-4c7d-4b63-b476-b88ae958cfa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Deposito.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Deposito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Expendedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Monedas/Moneda.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Monedas/Moneda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Modelos/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/ImageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelComprador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelComprador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelDeposito.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelDeposito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelExpendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelExpendedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelInventario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelLinker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelLinker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelMonedas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelAlmacen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelObjeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelObjeto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tarea3/src/main/java/Vistas/Paneles/PanelSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML - Expendedora con Interfaz GUI.png" beforeDir="false" afterPath="$PROJECT_DIR$/UML - Expendedora con Interfaz GUI.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +68,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hp\Desktop\DOO_Tarea3" />
       <recent name="C:\Users\Hp\Desktop\DOO_Tarea3\Tarea3\src\main\resources" />
       <recent name="C:\Users\Hp\Desktop\DOO_Tarea3\Tarea3\Images" />
       <recent name="C:\Users\Hp\Desktop\DOO_Tarea3\Tarea3\src\Images" />
       <recent name="C:\Users\Hp\Desktop\DOO_Tarea3\Tarea3\src\main\java" />
-      <recent name="C:\Users\Hp\Desktop\DOO_Tarea3\Tarea3\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />

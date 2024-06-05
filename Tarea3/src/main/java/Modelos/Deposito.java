@@ -68,7 +68,9 @@ public class Deposito<T extends Visible> extends JPanel {
         contenido.clear();
     }
 
-    /** Método para dibujar en un componente de Swing los objetos almacenados en el Deposito */
+    /** Método para dibujar la imagen del contenido del deposito
+     * @param g El objeto grafico que dibuja los componentes
+     * @param observer El componente donde se dibujaran los otros componentes */
     public void paintComponent(Graphics g,Component observer){
         for(int j=0;j<getSizeCont();j++){
             contenido.get(j).paintComponent(g,observer);

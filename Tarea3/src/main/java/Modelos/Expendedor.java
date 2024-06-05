@@ -96,7 +96,7 @@ public class Expendedor {
 
     /** Método para rellenar un deposito del expendedor con productos
      * @return El número del caso del producto que se quiere rellenar */
-    public Deposito<Producto> rellenarDposito(int productCase) {
+    public Deposito<Producto> rellenarDeposito(int productCase) {
         listDepositos.set(productCase, trabajador.llenarDeposito(numProductos, productCase));
         return listDepositos.get(productCase);
     }
