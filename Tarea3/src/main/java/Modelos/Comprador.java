@@ -9,10 +9,10 @@ import Modelos.Monedas.*;
 public class Comprador {
 
     /** Deposito donde se guardan las monedas entregadas como vuelto durante una compra */
-    private Deposito<Moneda> billetera;
+    private Deposito<Moneda> Billetera;
 
     /** Valor total de las monedas guardadas en la billetera */
-    private int numbilletera;
+    private int numBilletera;
 
     /** Valor total del vuelto de una compra */
     private int vuelto;
@@ -28,8 +28,8 @@ public class Comprador {
 
     /** Constructor de Comprador donde se inicializan sus propiedades */
     public Comprador() {
-        billetera = new Deposito<>();
-        numbilletera = 0;
+        Billetera = new Deposito<>();
+        numBilletera = 0;
         vuelto = 0;
         depoPago = new Deposito<>();
         numPago = 0;
@@ -40,23 +40,23 @@ public class Comprador {
      * @param depoVuelto El deposito con las monedas entregadas como vuelto */
     public void obtenerVuelto(Deposito<Moneda> depoVuelto) {
         vuelto = 0;
-        billetera.vaciarDeposito();
-        for(int i=0; i<depoVuelto.getCantidadContenido(); i++) {
+        Billetera.vaciarDeposito();
+        for(int i=0; i<depoVuelto.getSizeCont(); i++) {
             vuelto += depoVuelto.checkContenido(i).getValor();
-            numbilletera += depoVuelto.checkContenido(i).getValor();
+            numBilletera += depoVuelto.checkContenido(i).getValor();
         }
-        billetera.extend(depoVuelto);
+        Billetera.extend(depoVuelto);
     }
 
     /** Método para establecer el valor total de las monedas que se utilizarán pagar comprar un producto
      * @param num El número que se igualará al valor total de las monedas del deopisto */
-    public void setnumPago(int num) {
+    public void setNumPago(int num) {
         numPago=num;
     }
 
     /** Método para obtener el valor total de las monedas que se utilizarán pagar comprar un producto
      * @return Un número con el valor total de vuelto */
-    public int getnumPago() {
+    public int getNumPago() {
         return numPago;
     }
 
@@ -69,13 +69,13 @@ public class Comprador {
     /** Método para obtener el deposito Billetera con monedas en su interior
      * @return El deposito Billetera del comprador con una serie de monedas */
     public Deposito<Moneda> getBilletera() {
-        return billetera;
+        return Billetera;
     }
 
     /** Método para obtener el valor total de las monedas guardadas en la billetera
      * @return Un número con el valor total de las monedas */
     public int getNumBilletera() {
-        return numbilletera;
+        return numBilletera;
     }
 
     /** Método para agregar un producto al deposito bolsa del comprador
@@ -87,12 +87,12 @@ public class Comprador {
     /** Método para obtener el largo total del deposito Bolsa
      * @return El largo del deposito bolsa que contiene una serie de productos */
     public int getSizeBolsa() {
-        return bolsa.getCantidadContenido();
+        return bolsa.getSizeCont();
     }
 
     /** Método para obtener el deposito donde se guardan las monedas que se utilizarán pagar comprar un producto
      * @return El deposito con las monedas */
-    public Deposito<Moneda> getdepoPago() {
+    public Deposito<Moneda> getDepoPago() {
         return depoPago;
     }
 

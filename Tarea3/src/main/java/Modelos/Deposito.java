@@ -58,9 +58,10 @@ public class Deposito<T extends Visible> extends JPanel {
 
     /** Metodo que devuelve la cantidad de objetos en Deposito
      * @return int con la cantidad de objetos */
-    public int getCantidadContenido() {
+    public int getSizeCont() {
         return contenido.size();
     }
+
 
     /** Método para vaciar el Deposito */
     public void vaciarDeposito() {
@@ -69,7 +70,7 @@ public class Deposito<T extends Visible> extends JPanel {
 
     /** Método para dibujar en un componente de Swing los objetos almacenados en el Deposito */
     public void paintComponent(Graphics g,Component observer){
-        for(int j=0;j<getCantidadContenido();j++){
+        for(int j=0;j<getSizeCont();j++){
             contenido.get(j).paintComponent(g,observer);
         }
     }

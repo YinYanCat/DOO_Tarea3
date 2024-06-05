@@ -74,12 +74,12 @@ public class PanelInventario extends JPanel {
         for(int i=0; i<15; i++) {
             panelMoneda[i].lockPanel();
         }
-        for(int j=0; j<depoMonedas.getCantidadContenido(); j++) {
+        for(int j=0; j<depoMonedas.getSizeCont(); j++) {
             panelMoneda[j].setObjeto(depoMonedas.checkContenido(j));
             if(j>=14)
                 break;
         }
-        int extra = depoMonedas.getCantidadContenido()-15;
+        int extra = depoMonedas.getSizeCont()-15;
         lablesInv[1].setText("Vuelto Total: "+total);
         if(extra>0)
             lablesInv[2].setText("+"+extra+" Monedas");

@@ -32,15 +32,15 @@ public class PanelDeposito <T extends Visible> extends JPanel {
 
         PanelListener listener = new PanelListener();
         this.addMouseListener(listener);
-        for(int i=0;i<dep.getCantidadContenido();i++){
+        for(int i=0;i<dep.getSizeCont();i++){
             T contenido = dep.checkContenido(i);
             contenido.setPosition(60-10*i,5);
         }
     }
 
     public void ActualizarContenido() {
-        int movProd = 5*(5-dep.getCantidadContenido());
-        for(int i=0;i<dep.getCantidadContenido();i++){
+        int movProd = 5*(5-dep.getSizeCont());
+        for(int i=0;i<dep.getSizeCont();i++){
             T contenido = dep.checkContenido(i);
             contenido.setPosition(60-10*i-movProd,5);
         }
@@ -49,7 +49,7 @@ public class PanelDeposito <T extends Visible> extends JPanel {
     private class PanelListener implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent event) {
-            if(dep.getCantidadContenido()==0) {
+            if(dep.getSizeCont()==0) {
                 backgrounds[2] = backgrounds[0];
                 dep = (Deposito<T>) exp.rellenarDposito(pSelect);
                 ActualizarContenido();
@@ -58,14 +58,14 @@ public class PanelDeposito <T extends Visible> extends JPanel {
         }
         @Override
         public void mouseEntered(MouseEvent event) {
-            if(dep.getCantidadContenido()==0) {
+            if(dep.getSizeCont()==0) {
                 backgrounds[2] = backgrounds[1];
                 repaint();
             }
         }
         @Override
         public void mouseExited(MouseEvent event) {
-            if(dep.getCantidadContenido()==0) {
+            if(dep.getSizeCont()==0) {
                 backgrounds[2] = backgrounds[0];
                 repaint();
             }
@@ -80,7 +80,7 @@ public class PanelDeposito <T extends Visible> extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(backgrounds[2], 0, 0, this);
-        for(int j=dep.getCantidadContenido()-1;j>=0;j--) {
+        for(int j=dep.getSizeCont()-1;j>=0;j--) {
             dep.checkContenido(j).paintComponent(g, this);
         }
     }

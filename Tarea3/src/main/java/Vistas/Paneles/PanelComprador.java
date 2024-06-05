@@ -115,9 +115,9 @@ public class PanelComprador extends JPanel {
             else {
                 panelSelect.setPantalla(0, "Codigo: "+select);
                 try {
-                    PanelLinker.getPanelExpendendor().comprarEnExpendedor(comprador.getnumPago(), comprador.getdepoPago(), compra);
-                    setCompraDisplay(comprador.getnumPago()-compra.getPrecio());
-                    comprador.setnumPago(0);
+                    PanelLinker.getPanelExpendendor().comprarEnExpendedor(comprador.getNumPago(), comprador.getDepoPago(), compra);
+                    setCompraDisplay(comprador.getNumPago()-compra.getPrecio());
+                    comprador.setNumPago(0);
                 } catch (Exception exception) {
                     panelSelect.setPantalla(2, exception.getMessage());
                 }
@@ -166,12 +166,12 @@ public class PanelComprador extends JPanel {
                     panelInv.displayMonedas(comprador.getBilletera(), comprador.getVuelto());
                 }
                 else if(bVuelto.getFilename().equals("imgBotonDeolver.png")) {
-                    PanelLinker.getPanelExpendendor().devolverPagoExp(comprador.getdepoPago());
+                    PanelLinker.getPanelExpendendor().devolverPagoExp(comprador.getDepoPago());
                     panelSelect.setPantalla(0, "Codigo: __");
                     panelSelect.setPantalla(2, "Pago Devuelto");
                     bVuelto.changeImage("imgBotonVuelto.png");
                     select = 0;
-                    comprador.setnumPago(0);
+                    comprador.setNumPago(0);
                     panelSelect.setCaseVisible(0, true);
                 }
                 panelInv.setTextoInv(comprador.getNumBilletera(), comprador.getVuelto());
@@ -189,7 +189,7 @@ public class PanelComprador extends JPanel {
                     repaint();
                 }
             }
-            panelSelect.setPantalla(1, "Pago Ingresado: "+comprador.getnumPago());
+            panelSelect.setPantalla(1, "Pago Ingresado: "+comprador.getNumPago());
         }
     }
 

@@ -63,7 +63,7 @@ public class PanelMonedas extends JPanel {
     }
 
     public void setMonedas(Deposito<Moneda> depoExp, int total) {
-        for(int j = startPos[0]; j<depoExp.getCantidadContenido(); j++) {
+        for(int j = startPos[0]; j<depoExp.getSizeCont(); j++) {
             if(j>=72)
                 break;
             panelMoneda.add(new PanelObjeto(12+28*(j%18),110+100* startPos[1],100,100));
@@ -72,10 +72,10 @@ public class PanelMonedas extends JPanel {
             if(j%18==17)
                 startPos[1]++;
         }
-        if(depoExp.getCantidadContenido()-72>0)
-            setText("+"+(depoExp.getCantidadContenido()-72)+" Monedas", 0);
+        if(depoExp.getSizeCont()-72>0)
+            setText("+"+(depoExp.getSizeCont()-72)+" Monedas", 0);
         setText("Total: "+total, 1);
-        startPos[0] = depoExp.getCantidadContenido();
+        startPos[0] = depoExp.getSizeCont();
     }
 
     @Override
