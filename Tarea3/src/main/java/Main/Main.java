@@ -1,3 +1,5 @@
+package Main;
+
 import Vistas.Ventana;
 
 /** El main en donde se realiza el programa
